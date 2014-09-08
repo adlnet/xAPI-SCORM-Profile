@@ -168,8 +168,8 @@ Activity IDs are required to be [IRIs](http://en.wikipedia.org/wiki/Internationa
 
 ###### Course IRI
 The course IRI may be decided by the organization as long as it follows the IRI rules described in the xAPI spec. The activity provider or content must support the launch courseIRI property, described in the launch section of this document, and update the course IRI to that property value if the local and launch-provided values differ. This allows for content to use the most up-to-date identifier in the context of the current launch.  
-
-####### Guidelines for Activity IRI Contruction
+  
+__Guidelines for Activity IRI Contruction__  
 - follow the guidance described in the Internationalized Resource Identifier (IRI) section in this document
 - course IRIs should be in the format: <scheme>://<authority>/<course path>
   - Course path is any IRI path to the course activity definition, ie courses/CS/101
