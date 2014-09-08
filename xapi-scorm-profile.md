@@ -204,6 +204,9 @@ The authority property for each statement is set by the LRS to the agent who sub
 Attachments give the ability to include supporting documents or information that do not directly map to a section of an xAPI statement. Examples of attachments include PDF certificates, essays, videos, and the JSON web signature. Attachments are not returned by the LRS by default, but can be included by adding the attachments filter to GET statements requests. [See the xAPI specification for more details](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#signature).
 
 ## 4.0 Launching and Initializing Content
+In a SCORM environment, content is launched by the LMS. The LMS can provide content with launch parameters and initial data model values. This helps a SCO to work correctly in the current environment. In comparison, xAPI content can exist outside of an LMS - information such as learner name and identifier, or the location of the xAPI LRS may be unknown at the launch of the content.
+
+Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide ways for systems, such as an LMS, to launch and initialize content that is not managed by the LMS. Any of those solutions may be leveraged to solve specific, individual issues that are not addressed in this document. At a minimum the following requirements will be used for launching and initializing content:  
 
 ## 5.0 Supporting the SCORM Temporal Model
 
