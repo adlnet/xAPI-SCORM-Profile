@@ -217,13 +217,36 @@ Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide way
   - It is recommended that this identifier is unique and defined by a domain which your organization controls. ex: `http://adlnet.gov/courses/compsci/xxx`  
 
 Since xAPI content does not need to be web-based content, the means of initializing the content will vary. Following are three strategies:  
-###### Web-Based Content
+### 4.1 Web-Based Content
 The content is hosted on some web server and is launched in a web browser. This strategy is similar to SCORM content but is not required to be hosted by the LMS. In this scenario, the LMS, or some system responsible for knowing about the learner and this content, launches the content with the launch parameters.  
 __Example:__
 __Decoded for readability:__  
 ``` http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https://lrs.adlnet.gov/xapi/&actor={"account":{"homePage":"http://lms.adlnet.gov/scorm/","name":"149893"}}&courseiri=http://adlnet.gov/courses/compsci/xxx ```  
 __URL-encoded:__  
 ``` http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https%3A%2F%2Flrs.adlnet.gov%2Fxapi%2F&actor=%7B%22account%22%3A%7B%22homePage%22%3A%22http%3A%2F%2Flms.adlnet.gov%2Fscorm%2F%22%2C%22name%22%3A%22149893%22%7D%7D&courseiri=http%3A%2F%2Fadlnet.gov%2Fcourses%2Fcompsci%2Fxxx ```  
+### 4.2 LMS-Provided Endpoint
+The LMS provides an endpoint that activity providers can query to retrieve the launch parameters. Web-based applications can still access this information via an AJAX GET request to the LMS provided endpoint. All other content would access this information in a similar way by issuing an HTTP GET request for the launch parameters.  
+__Request:__  
+> NOTE: How the activity provider get the learner id, course IRI and location of the endpoint is up to the content developer and the LMS.  
+``` HTTP GET launch/?agentid=<learner id>&courseiri=<course iri> ```  
+__Response:__  
+> NOTE: The course IRI in this response shall be used in all statements issued for this activity. This requirement allows for the LMS to change the IRI from the one originally configured in the content. This may be necessary to accommodate for changes due to various sessions, or other changes that occurred since the initial creation of the course IRI.  
+``` javascript
+Content-Type: application/json
+{ 
+   “entry”:”ab-initio”, 
+   “endpoint”:”https://lrs.adlnet.gov/xapi/”, 
+   “actor”:
+   {
+      “account”:
+      {
+          “homePage”:”http://lms.adlnet.gov/scorm/”,
+          ”name”:”149893”
+      }
+   }, 
+   “courseiri”:”http://adlnet.gov/courses/compsci/xxx”
+}
+```
 ## 5.0 Supporting the SCORM Temporal Model
 
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
