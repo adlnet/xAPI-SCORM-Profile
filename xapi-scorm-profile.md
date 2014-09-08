@@ -217,7 +217,11 @@ Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide way
   - It is recommended that this identifier is unique and defined by a domain which your organization controls. ex: `http://adlnet.gov/courses/compsci/xxx`  
 
 Since xAPI content does not need to be web-based content, the means of initializing the content will vary. Following are three strategies:  
-
+###### Web-Based Content
+The content is hosted on some web server and is launched in a web browser. This strategy is similar to SCORM content but is not required to be hosted by the LMS. In this scenario, the LMS, or some system responsible for knowing about the learner and this content, launches the content with the launch parameters.  
+__Example:__
+- __Decoded for readability:__  http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https://lrs.adlnet.gov/xapi/&actor={"account":{"homePage":"http://lms.adlnet.gov/scorm/","name":"149893"}}&courseiri=http://adlnet.gov/courses/compsci/xxx
+- __URL-encoded:__ http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https%3A%2F%2Flrs.adlnet.gov%2Fxapi%2F&actor=%7B%22account%22%3A%7B%22homePage%22%3A%22http%3A%2F%2Flms.adlnet.gov%2Fscorm%2F%22%2C%22name%22%3A%22149893%22%7D%7D&courseiri=http%3A%2F%2Fadlnet.gov%2Fcourses%2Fcompsci%2Fxxx
 ## 5.0 Supporting the SCORM Temporal Model
 
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
