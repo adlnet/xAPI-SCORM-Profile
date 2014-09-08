@@ -171,17 +171,17 @@ The course IRI may be decided by the organization as long as it follows the IRI 
   
 __Guidelines for Activity IRI Contruction__  
 - follow the guidance described in the Internationalized Resource Identifier (IRI) section in this document
-- course IRIs should be in the format: <scheme>://<authority>/<course path>
-  - Course path is any IRI path to the course activity definition, ie courses/CS/101
-- SCO IRIs should be in the format: <courseIRI>/<sco path>
-  - SCO path is any IRI path to the SCO activity definition, ie lesson/01
-- Interaction IRIs should be in the format: <scoIRI>/interactions/<interaction path>
-  - Interaction path is any IRI path to the interaction activity definition, ie multi-choice/07
+- course IRIs should be in the format: `<scheme>://<authority>/<course path>`
+  - Course path is any IRI path to the course activity definition, ie `courses/CS/101`
+- SCO IRIs should be in the format: `<courseIRI>/<sco path>`
+  - SCO path is any IRI path to the SCO activity definition, ie `lesson/01`
+- Interaction IRIs should be in the format: `<scoIRI>/interactions/<interaction path>`
+  - Interaction path is any IRI path to the interaction activity definition, ie `multi-choice/07`
 - Objectives IRIs vary depending on the scope of the objective
-  - If the objective is local to the SCO: <scoIRI>/objectives/<objective path>
-  - If the objective is available to the entire course: <courseIRI>/objectives/<objective path>
-  - If the objective is available to any course (global): <scheme>://<authority>/objectives/<objective path>
-  - Objective path is any IRI path to the objective activity definition, ie if-else/
+  - If the objective is local to the SCO: `<scoIRI>/objectives/<objective path>`
+  - If the objective is available to the entire course: `<courseIRI>/objectives/<objective path>`
+  - If the objective is available to any course (global): `<scheme>://<authority>/objectives/<objective path>`
+  - Objective path is any IRI path to the objective activity definition, ie `if-else/`
 
 ###### Activity Definition
 The activity definition provides information about the activity. At a minimum all statements will include an activity definition with a name and description. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
