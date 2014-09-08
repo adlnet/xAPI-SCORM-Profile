@@ -234,17 +234,17 @@ __Response:__
 ``` javascript
 Content-Type: application/json
 { 
-   “entry”:”ab-initio”, 
-   “endpoint”:”https://lrs.adlnet.gov/xapi/”, 
-   “actor”:
+   "entry":"ab-initio", 
+   "endpoint":"https://lrs.adlnet.gov/xapi/", 
+   "actor":
    {
-      “account”:
+      "account":
       {
-          “homePage”:”http://lms.adlnet.gov/scorm/”,
-          ”name”:”149893”
+          "homePage":"http://lms.adlnet.gov/scorm/",
+          "name":"149893"
       }
    }, 
-   “courseiri”:”http://adlnet.gov/courses/compsci/xxx”
+   "courseiri":"http://adlnet.gov/courses/compsci/xxx"
 }
 ```
 ## 5.0 Supporting the SCORM Temporal Model
