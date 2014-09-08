@@ -50,6 +50,14 @@ In the xAPI, content providers and content issue statements about the learner’
 
 #### Internationalized Resource Identifier (IRI)
 IRIs are used as identifiers in many parts of the xAPI specification. Their syntax consists of a hierarchical part, which is broken into an authority and a path. The authority part shall represent a domain of your organization - ie. adlnet.gov, army.mil. The path part shall identify the object - /courses/cs/CS101. If you are identifying something that cannot be represented by an fully qualified path, use a tag IRI - tag:adlnet.gov,2013:expapi:0.9:extensions - where the domain is a domain you control, the date is the date this tag was created, the next part is the type - scorm, xapi, the version - 2004, 1.2, 1.0.1, and the last part is the identifier. (see [http://www.ietf.org/rfc/rfc4151.txt](http://www.ietf.org/rfc/rfc4151.txt))  
+__Good IRIs__  
+Good IRIs uniquely identify an object  
+  <pre>`http://adlnet.gov/activities/courses/CS/CS101`</pre>
+  <pre>`http://mydomain.com/content/understanding-fire-safety`</pre>
+__Bad IRIs__  
+Bad IRIs are not unique and could conflict with others using the same identifier  
+    <pre>`act:my-activity01`</pre>
+    <pre>`http://example.com/activity/01`</pre>
 
 ## 4.0 Launching and Initializing Content
 
