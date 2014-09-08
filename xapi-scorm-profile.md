@@ -227,13 +227,10 @@ __URL-encoded:__
 ### 4.2 LMS-Provided Endpoint
 The LMS provides an endpoint that activity providers can query to retrieve the launch parameters. Web-based applications can still access this information via an AJAX GET request to the LMS provided endpoint. All other content would access this information in a similar way by issuing an HTTP GET request for the launch parameters.  
 __Request:__  
-> NOTE: How the activity provider get the learner id, course IRI and location of the endpoint is up to the content developer and the LMS.  
-
 ``` HTTP GET launch/?agentid=<learner id>&courseiri=<course iri> ```  
+> NOTE: How the activity provider get the learner id, course IRI and location of the endpoint is up to the content developer and the LMS.  
   
 __Response:__  
-> NOTE: The course IRI in this response shall be used in all statements issued for this activity. This requirement allows for the LMS to change the IRI from the one originally configured in the content. This may be necessary to accommodate for changes due to various sessions, or other changes that occurred since the initial creation of the course IRI.  
-
 ``` javascript
 Content-Type: application/json
 { 
@@ -249,7 +246,9 @@ Content-Type: application/json
    }, 
    "courseiri":"http://adlnet.gov/courses/compsci/xxx"
 }
-```
+```  
+> NOTE: The course IRI in this response shall be used in all statements issued for this activity. This requirement allows for the LMS to change the IRI from the one originally configured in the content. This may be necessary to accommodate for changes due to various sessions, or other changes that occurred since the initial creation of the course IRI.  
+
 ## 5.0 Supporting the SCORM Temporal Model
 
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
