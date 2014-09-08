@@ -271,8 +271,8 @@ The following is a list of SCORM data model elements and the equivalent xAPI sta
 #### Entry
 Entry is used to indicate the attempt state of the content - is this a new attempt on the content or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb initialized and a new attemptId on the grouping activity. 
 
-__SCORM 2004:__ cmi.entry=ab-initio  
-__SCORM 1.2:__ cmi.core.entry=ab-initio  
+__SCORM 2004:__ `cmi.entry=ab-initio`  
+__SCORM 1.2:__ `cmi.core.entry=ab-initio`  
 __Experience API Statement:__
 ``` javascript
 {
