@@ -249,9 +249,76 @@ Content-Type: application/json
 ```  
 > NOTE: The course IRI in this response shall be used in all statements issued for this activity. This requirement allows for the LMS to change the IRI from the one originally configured in the content. This may be necessary to accommodate for changes due to various sessions, or other changes that occurred since the initial creation of the course IRI.  
 
+### 4.3 Out-of-Band Configuration
+If the above launch options are not possible developers can preconfigure the activity provider or allow for user input to configure the launch parameters. Work with the LMS and LRS providers for configuration details.  
+
 ## 5.0 Supporting the SCORM Temporal Model
+SCORM has a temporal model which describes interaction states such as an attempt and a session. The xAPI uses an Activity Stream style model where experiences are all reported to the stream without a sense of session or attempt. This does not mean, however, that xAPI statements cannot be related to one another. By properly using the context attribute of a Statement it is possible to group Statements using the registration ID or broader activity IDs.
+
+To initialize an attempt on a SCO or course component, send a statement with the initialized ADL Verb, the object ID set to the IRI for this SCO, and the context activities parent activity of the course activity IRI to the LRS. When a new session is initialized, generate an attempt GUID, append it to the SCO IRI as an attemptId query parameter and include this attempt-specific SCO IRI to the context activities grouping array.
+
+During the session, Statements are collected and sent to the LRS much like SCORM SCOs reporting to the LMS. Statements can be sent to the LRS either immediately or collected and sent as a bundle.
+
+To indicate termination of the SCO attempt, send a statement with the terminated ADL Verb, the object ID set to the IRI for this SCO, and the context activities parent activity set to the course activity IRI. 
+
+To suspend a SCO session, send a statement with the suspended ADL Verb, the object ID set to the IRI for this SCO, and the context activities parent activity set to the course activity IRI. And to resume the SCO session, send a statement with the resumed ADL Verb, the object ID set to the IRI for this SCO, and the context activities parent activity set to the course activity IRI. Continue to use the same attemptId query parameter as generated during the initialization process.
+
+To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activities grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
 
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
+The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way.  
+
+#### Entry
+Entry is used to indicate the attempt state of the content - is this a new attempt on the content or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb initialized and a new attemptId on the grouping activity. 
+
+<table>
+<tr><th>SCORM 2004</th><th>SCORM 1.2</th></tr>
+<tr><td>cmi.entry=ab-initio</td><td>cmi.core.entry=ab-initio</td></tr>
+</table>
+<table>
+<tr><th>Experience API Statement</th></tr>
+<tr><td>
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/initialized",
+        "display": {
+            "en-US": "initialized"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+</td></tr>
+</table>
 
 ## 7.0 Retrieving and Interpreting xAPI Statements
 
