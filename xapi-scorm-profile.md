@@ -156,6 +156,53 @@ Some verbs have special meaning when related to SCORM. Implementers of this prof
     <td>course<br>SCO<br>objective<br>interaction</td>
   </tr>
 </table>
+
+#### Object
+The object property describes the item with which the learner is interacting. The type of object could be an Activity, an Actor or Group, or a Statement (as StatementRef or Sub-Statement). If it is an Actor or a Statement follow the rules defined in the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#414-object). However if it is an Activity, follow the rules in the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#4141-when-the-objecttype-is-activity) and the rules outlined below.  
+
+##### Activity
+Things like courses, SCOs, and objectives are considered activities. Since these experiences are commonly what SCORM content wants to capture, the following sections detail the recommended usage to create interoperable statements.  
+
+###### Activity IRI
+Activity IDs are required to be [IRIs](http://en.wikipedia.org/wiki/Internationalized_resource_identifier) and follow the requirements within the xAPI specification. In addition it is recommended that the IRIs are IRLs and that the location contains the metadata (Activity Definition) of the activity. Additionally activity IRIs should be constructed in a predictable way to make interpreting those IRIs possible in a standard way.  
+
+###### Course IRI
+The course IRI may be decided by the organization as long as it follows the IRI rules described in the xAPI spec. The activity provider or content must support the launch courseIRI property, described in the launch section of this document, and update the course IRI to that property value if the local and launch-provided values differ. This allows for content to use the most up-to-date identifier in the context of the current launch.  
+
+####### Guidelines for Activity IRI Contruction
+- follow the guidance described in the Internationalized Resource Identifier (IRI) section in this document
+- course IRIs should be in the format: <scheme>://<authority>/<course path>
+  - Course path is any IRI path to the course activity definition, ie courses/CS/101
+- SCO IRIs should be in the format: <courseIRI>/<sco path>
+  - SCO path is any IRI path to the SCO activity definition, ie lesson/01
+- Interaction IRIs should be in the format: <scoIRI>/interactions/<interaction path>
+  - Interaction path is any IRI path to the interaction activity definition, ie multi-choice/07
+- Objectives IRIs vary depending on the scope of the objective
+  - If the objective is local to the SCO: <scoIRI>/objectives/<objective path>
+  - If the objective is available to the entire course: <courseIRI>/objectives/<objective path>
+  - If the objective is available to any course (global): <scheme>://<authority>/objectives/<objective path>
+  - Objective path is any IRI path to the objective activity definition, ie if-else/
+
+###### Activity Definition
+The activity definition provides information about the activity. At a minimum all statements will include an activity definition with a name and description. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
+  
+Activity definitions that differ from one that an LRS already has stored may not be accepted. It is recommended that organizations ensure that all references to the activity definition contain the same information. It is permissible for organizations to host their activity definitions at the location of the activity IRI. In this case the hosted definition is stored at the activity IRI location (IRL), and is retrievable by the LRS in application/json format. Additionally, the statements will not include the definition and instead expect the LRS to acquire the activity definition from its hosted location.
+
+###### Result
+The [result property of a statement](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#415-result) represents the outcome of a learner experience. Statements issued using a result shall follow the requirements listed in the xAPI specification and the additional guidance described in this document.
+
+###### Context
+The context property adds additional contextual information about the learner experience. Information like who is the instructor of this content, with what registration this experience is associated, or to what activities this experience is related. Statements shall meet all the requirements in the xAPI specification and the additional guidelines described in this document.
+
+###### Timestamp
+The timestamp property gives the activity provider or content the ability to set the date and time when the experience occurred. This is different from the stored timestamp property, which indicates when the LRS saved the statement about the experience. All statements shall set the timestamp property. By doing this, it makes it possible to order statements in the same order as they were submitted by the activity provider or content.
+
+###### Authority
+The authority property for each statement is set by the LRS to the agent who submitted the statement. This property can be used to filter statements based on the activity provider or content. By using this property as a GET statements filter, it is possible to narrow down the returned statements to the ones submitted by agents whom your organization trusts.
+
+###### Attachments
+Attachments give the ability to include supporting documents or information that do not directly map to a section of an xAPI statement. Examples of attachments include PDF certificates, essays, videos, and the JSON web signature. Attachments are not returned by the LRS by default, but can be included by adding the attachments filter to GET statements requests. [See the xAPI specification for more details](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#signature).
+
 ## 4.0 Launching and Initializing Content
 
 ## 5.0 Supporting the SCORM Temporal Model
