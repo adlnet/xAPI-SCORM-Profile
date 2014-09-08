@@ -38,6 +38,12 @@ However there are use cases that are difficult if not impossible to meet with SC
 This document is intended to be used in addition to the xAPI specification. All communication, data formats and experiences shall follow the requirements in the xAPI specification. The guidance provided in this document is to add information specifically to support SCORM communications in xAPI format.  
 
 ### 3.1 Supporting SCORM Features
+SCORM is a mature and formal specification that allows for delivering content and tracking learner’s progress. By identifying the key features in SCORM, it is possible to provide guidance on how to implement the same features with the xAPI, such as:
+
+- Launching and Initializing Content
+- Supporting the SCORM Temporal Model
+- Mapping the SCORM data model to xAPI Statements
+- Course Structure & Rolllup 
 
 ### 3.2 General Guidance on Statements
 
