@@ -207,6 +207,16 @@ Attachments give the ability to include supporting documents or information that
 In a SCORM environment, content is launched by the LMS. The LMS can provide content with launch parameters and initial data model values. This helps a SCO to work correctly in the current environment. In comparison, xAPI content can exist outside of an LMS - information such as learner name and identifier, or the location of the xAPI LRS may be unknown at the launch of the content.
 
 Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide ways for systems, such as an LMS, to launch and initialize content that is not managed by the LMS. Any of those solutions may be leveraged to solve specific, individual issues that are not addressed in this document. At a minimum the following requirements will be used for launching and initializing content:  
+- entry: ab-initio or resume
+- endpoint: LRS endpoint 
+- actor: Agent Account
+  - Account Homepage: location of the LMS that holds the user account information
+  - Account Name: an identifier for the learner that is at least unique to the scope of the LMS
+    - It is recommended that the name is does not contain personally identifiable information such as the learner’s name
+- courseiri: IRI that identifies the entire course within at least the context of the LMS
+  - It is recommended that this identifier is unique and defined by a domain which your organization controls. ex: `http://adlnet.gov/courses/compsci/xxx`  
+
+Since xAPI content does not need to be web-based content, the means of initializing the content will vary. Following are three strategies:  
 
 ## 5.0 Supporting the SCORM Temporal Model
 
