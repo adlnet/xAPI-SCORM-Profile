@@ -92,6 +92,70 @@ __Group__
   ]
 }
 ```  
+
+#### Verb
+Verbs in the xAPI spec represent the action that is being recorded for this experience, such as “read” a book and “answered” a question. The xAPI allows for any verb to be used within a statement assuming it follows the rules defined in the xAPI specification. However this flexibility causes issues when trying to report on the data. For consistency and interoperability, those implementing this profile shall use the verbs maintained by ADL at http://adlnet.gov/expapi/verbs/, and use the definition and usage on the ADL Verb pages as guidance.  
+__Verb__  
+``` javascript
+"verb":{
+    "id":"http://adlnet.gov/expapi/verbs/initialized",
+    "display":{
+       "en-US":"initialized"
+    }
+ }
+```  
+Some verbs have special meaning when related to SCORM. Implementers of this profile shall use these verbs only when reporting the events in the following table:  
+<table>
+  <tr><th>xAPI Verb</th><th>SCORM Equivalent</th><th>Description</th><th>Scope</th></tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/initialized/initialized.html">initialized</a></td>
+    <td>Initialize()<br>LMSInitialize()</td>
+    <td>Initialization of the SCO attempt</td>
+    <td>SCO</td>
+  </tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/terminated/index.html">terminated</a></td>
+    <td>Terminate()<br>LMSFinish()</td>
+    <td>Termination of the SCO attempt</td>
+    <td>SCO</td>
+  </tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/suspended/index.html">suspended</a></td>
+    <td>cmi.exit=suspend<br>cmi.core.exit=suspend</td>
+    <td>Suspension of the SCO attempt</td>
+    <td>SCO</td>
+  </tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/resumed/index.html">resumed</a></td>
+    <td>cmi.entry=resume<br>cmi.core.entry=resume</td>
+    <td>Resumption of the SCO attempt</td>
+    <td>SCO</td>
+  </tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/passed/passed.html">passed</a></td>
+    <td>cmi.success_status=passed<br>cmi.core.lesson_status=passed</td>
+    <td>The leaner's performance on this attempt at least met the minimum threshold for the activity</td>
+    <td>course<br>SCO<br>objective<br>interaction</td>
+  </tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/failed/index.html">failed</a></td>
+    <td>cmi.success_status=failed<br>cmi.core.lesson_status=failed</td>
+    <td>The performance on this attempt did not meet the minimum threshold for the activiy</td>
+    <td>course<br>SCO<br>objective<br>interaction</td>
+  </tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/scored/index.html">scored</a></td>
+    <td>cmi.scored.scaled<br>cmi.core.score.raw</td>
+    <td>Used when the content wants to record a score without implying a level of satisfaction or completion of the content, or wants to provide evidence toward satisfaction or completion</td>
+    <td>course<br>SCO<br>objective<br>interaction</td>
+  </tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/completed/index.html">completed</a></td>
+    <td>cmi.completion_status=completed<br>cmi.core.lesson_status=completed</td>
+    <td>The learner has experienced a suffiecient amount of the activity</td>
+    <td>course<br>SCO<br>objective<br>interaction</td>
+  </tr>
+</table>
 ## 4.0 Launching and Initializing Content
 
 ## 5.0 Supporting the SCORM Temporal Model
