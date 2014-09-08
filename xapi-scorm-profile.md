@@ -35,6 +35,7 @@ However there are use cases that are difficult if not impossible to meet with SC
   - Reporting and data access requirements are not standardized in SCORM resulting in proprietary, LMS-specific, reporting functionality that can differ between vendors.
 
 ## 3.0 How to Use this Profile
+This document is intended to be used in addition to the xAPI specification. All communication, data formats and experiences shall follow the requirements in the xAPI specification. The guidance provided in this document is to add information specifically to support SCORM communications in xAPI format.  
 
 ### 3.1 Supporting SCORM Features
 
