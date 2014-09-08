@@ -230,6 +230,7 @@ __Request:__
 > NOTE: How the activity provider get the learner id, course IRI and location of the endpoint is up to the content developer and the LMS.  
 
 ``` HTTP GET launch/?agentid=<learner id>&courseiri=<course iri> ```  
+  
 __Response:__  
 > NOTE: The course IRI in this response shall be used in all statements issued for this activity. This requirement allows for the LMS to change the IRI from the one originally configured in the content. This may be necessary to accommodate for changes due to various sessions, or other changes that occurred since the initial creation of the course IRI.  
 
