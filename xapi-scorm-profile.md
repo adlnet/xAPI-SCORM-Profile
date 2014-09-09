@@ -847,9 +847,9 @@ __xAPI:__ actor 500-627-490 terminated lesson01 with attempt id (x) in the cours
 ```
 
 #### Suspend a SCO
-__SCORM 2004:__ cmi.exit=suspend
-__SCORM 1.2:__ cmi.core.exit=suspend
-__xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course CS204
+__SCORM 2004:__ cmi.exit=suspend  
+__SCORM 1.2:__ cmi.core.exit=suspend  
+__xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course CS204  
 ``` javascript
 {
     "actor": {
