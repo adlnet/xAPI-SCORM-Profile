@@ -754,8 +754,8 @@ It was a common practice to set a default status on SCOs in SCORM. Sometimes var
 ### Common Scenarios
 
 #### Initialize a SCO Attempt
-__SCORM 2004:__ Initialize()
-__SCORM 1.2:__ LMSInitialize()
+__SCORM 2004:__ Initialize()  
+__SCORM 1.2:__ LMSInitialize()  
 __xAPI:__ actor 500-627-490 initialized lesson01 in course CS204  
 ``` javascript
 {
