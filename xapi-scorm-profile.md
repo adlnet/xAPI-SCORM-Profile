@@ -561,11 +561,112 @@ __Experience API Statement:__
 }
 ```  
 
-### Interactions
+#### Interactions
 Interactions can be recorded using the xAPI. Interactions can be described in the xAPI using a predefined format that maps to SCORM interactions. Activity providers and content shall use the ADL Verb `http://adlnet.gov/expapi/verbs/responded`, the result.response attribute of a statement for the response, and an activity definition as described in the xAPI specification to report the learner’s responses for an interaction. See the [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interaction-activities) section and the [interaction appendix](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#AppendixC) for more details.
 
 > NOTE: The IRI used to identify an interaction is recommended to follow the format: `<courseiri>/<scoid>/interaction/<interactionid>`  
 
+#### Objectives
+Objectives are represented as another activity. As such, statements about a learner’s score, success or completion status are reported just as they are for any other activity. But coming up with a consistent naming scheme for the objective ID makes it easier for reporting systems to understand the statements. For consistency the following guidance is recommended:
+- The combination of course IRI, SCO ID, and objective ID should consistently and uniquely identify a single objective
+- Local objective (SCO or activity level): `<courseIRI>/<SCOID>/objective/<objectiveID>`
+- Course objective (course level): `<courseIRI>/objective/<objectiveID>`
+- Global objective (for all courses): `<user defined IRI>/objective/<objective ID>`
+
+> NOTE: To indicate where this objective statement occurred, include the SCO IRI in the context activities parent array.  
+
+__SCORM 2004:__ `cmi.objectives.n.success_status=passed`  
+__SCORM 1.2:__ `cmi.objectives.n.status=passed`  
+__Experience API Statement:__
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/passed",
+      "display":{
+         "en-US":"passed"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01/objective/obj-if-else",
+      "definition":{
+         "name":{
+            "en-US":"If-Else Blocks"
+         },
+         "description":{
+            "en-US":"Show proficiency in creating if-else blocks"
+         }
+      }
+   },
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            },
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01"
+            }
+         ],
+         "grouping":[
+            {
+               "id" : "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+```  
+__Sequencing and Navigation Global Objective__  
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/passed",
+      "display":{
+         "en-US":"passed"
+      }
+   },
+   "object":{
+      "id":"http://myurl.example.com/objective/global-obj-if-else",
+      "definition":{
+         "name":{
+            "en-US":"If-Else Blocks"
+         },
+         "description":{
+            "en-US":"Show proficiency in creating if-else blocks"
+         }
+      }
+   },
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            },
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01"
+            }
+         ],
+         "grouping":[
+            {
+               "id" : "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+```
 ## 7.0 Retrieving and Interpreting xAPI Statements
 
 ## Appendix
