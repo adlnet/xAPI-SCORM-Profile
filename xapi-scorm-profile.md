@@ -1284,6 +1284,31 @@ __xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and com
 ```
 
 #### Group Statements by Attempt ID
+- On Initialize of an attempt generate an attempt guid
+  - `50fd6961-ab6c-4e75-e6c7-ca42dce50dd6`
+- Append the attemptId url query parameter to SCO IRI
+  - `http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6`
+- Include the attempt SCO IRI in the context activities grouping list  
+   ``` javascript
+   ...,
+   "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    },
+    ...
+    ```  
+- On Terminate of an attempt clear the attempt guid
+
 
 ### References
 Advanced Distributed Learning Initiative. (2012). _SCORM 2004 4th Edition Run-Time Environment (RTE) Version 1.1_. (SCORM 2004 4th Edition Specification). Alexandria, VA: Author. 
