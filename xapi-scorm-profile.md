@@ -1039,11 +1039,51 @@ __xAPI:__ agent 500-627-490 scored 0.85 on attempt id (x) in the course CS204
 }
 ```
 
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
+#### Set a SCO to completed
+__SCORM 2004:__ cmi.completion_status=completed  
+__SCORM 1.2:__ cmi.core.lesson_status=completed  
+__xAPI:__ agent 500-627-490 completed lesson01 with attempt id (x) in the course CS204
 ``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/completed",
+        "display": {
+            "en-US": "completed"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    },
+   "timestamp":"2014-08-01T15:05:04-04:00"
+}
 ```
 
 #### Terminate a SCO
