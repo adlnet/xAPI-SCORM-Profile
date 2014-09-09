@@ -756,7 +756,7 @@ It was a common practice to set a default status on SCOs in SCORM. Sometimes var
 #### Initialize a SCO Attempt
 __SCORM 2004:__ Initialize()  
 __SCORM 1.2:__ LMSInitialize()  
-__xAPI:__ actor 500-627-490 initialized lesson01 with attempt id in course CS204  
+__xAPI:__ actor 500-627-490 initialized lesson01 with attempt id (x) in course CS204  
 ``` javascript
 {
    "actor":{
@@ -802,7 +802,7 @@ __xAPI:__ actor 500-627-490 initialized lesson01 with attempt id in course CS204
 #### Terminate a SCO
 __SCORM 2004:__ Terminate()  
 __SCORM 1.2:__ LMSFinish()  
-__xAPI:__ actor 500-627-490 terminated lesson01 with attempt id in the course CS204
+__xAPI:__ actor 500-627-490 terminated lesson01 with attempt id (x) in the course CS204
 ``` javascript
 {
     "actor": {
@@ -846,11 +846,51 @@ __xAPI:__ actor 500-627-490 terminated lesson01 with attempt id in the course CS
 }
 ```
 
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
+#### Suspend a SCO
+__SCORM 2004:__ cmi.exit=suspend
+__SCORM 1.2:__ cmi.core.exit=suspend
+__xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course CS204
 ``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/suspended",
+        "display": {
+            "en-US": "suspended"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    },
+   "timestamp":"2014-08-01T15:05:04-04:00"
+}
 ```
 
 #### Terminate a SCO
