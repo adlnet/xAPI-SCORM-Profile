@@ -717,6 +717,14 @@ For determining status based on granularity:
 - And at the most granular level, the consuming tools may use the status of all of the objectives for each of the activities that include the course IRI as a parent activity in the context activities property.  
   
 #### Status
+It is recommended that all content reports as much information about a learner’s status in an activity as it can.  
+- At a minimum content should report a success status, such as passed or failed. 
+  - If that does not make sense for the type of activity, the content should report completion status of completed when it is determined the learner has completed the activity. 
+  - And finally the content may report a score.
+- For tools using these results from the LRS, the activity status is first based on the success status, if found. 
+  - If there is no success status the tool may then use the completion status. 
+  - If there is no success or completion status the tool may use the score. 
+    - If the tool can determine success from the score - ie. it has a threshold to compare with the score - it is permitted to use that evaluation.
 
 #### Authority
 The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the content, a teacher or a reporting tool. It is up to the organization to choose what agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
