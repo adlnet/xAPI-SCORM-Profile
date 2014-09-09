@@ -504,7 +504,63 @@ _Statement with Completion in the Result_
         }
     }
 }
-```
+```  
+
+#### Score
+Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or content cannot imply success or completion of content solely based on a score. If the score is used for determination of success, this should be evaluated by the activity provider or content and the relevant success or completion statement should be issued.  
+  
+>NOTE: For compatibility between SCORM versions, the value of SCORM 1.2 cmi.core.score.raw divided by 100, and of SCORM 2004 cmi.score.scaled should be reported to xAPI as score.scaled. All other scores -  raw, min, max - may be reported directly as xAPI score.raw, score.min, and score.max.  
+
+__SCORM 2004:__ `cmi.score.scaled=0.95`  
+__SCORM 1.2:__ `cmi.core.score.raw=95`  
+__Experience API Statement:__
+``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/scored",
+        "display": {
+            "en-US": "scored"
+        }
+    },
+     "result" : {
+        "score" : {
+            "scaled" : 0.95
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+```  
+
 ## 7.0 Retrieving and Interpreting xAPI Statements
 
 ## Appendix
