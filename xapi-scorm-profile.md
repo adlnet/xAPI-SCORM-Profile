@@ -692,6 +692,13 @@ GET
 statements?agent=%7B%E2%80%9Caccount%E2%80%9D%3A%7B%E2%80%9ChomePage%E2%80%9D%3A%E2%80%9Chttp%3A%2F%2Fadlnet.gov%2Faccounts%2F%E2%80%9D%2C%E2%80%9Cname%E2%80%9D%3A%E2%80%9C449-002%E2%80%9D%7D%7D&related_agents=true
 </pre>
 #### Signed Statements
+Another option for identifying the authenticity of a statement is by issuing signed statements. An activity provider may attach a JSON web signature to the statement. This digital signature can be retrieved from the LRS with the statement and verified before considering the statement in the results. See the xAPI Specification for [how to sign](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#44-signed-statements) and [retrieve signed statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements).
+
+##### Retrieving Statements with their Attachments
+<pre>
+GET  
+statements?attachments=true
+</pre>
 
 ### Determining Status
 ## Appendix
