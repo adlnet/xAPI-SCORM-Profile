@@ -681,13 +681,11 @@ If the LRS is publicly hosted, the first way to identify statements you trust is
   
 ##### Retrieving Statements Based on the Authority
 __Decoded:__  
-<pre>`GET statements?agent={“account”:{“homePage”:“http://adlnet.gov/accounts/”,“name”:“449-002”}}&related_agents=true`</pre>  
+<pre>GET statements?agent={“account”:{“homePage”:“http://adlnet.gov/accounts/”,“name”:“449-002”}}&related_agents=true</pre>  
   
 __Encoded:__  
 <pre>
-```
 statements?agent=%7B%E2%80%9Caccount%E2%80%9D%3A%7B%E2%80%9ChomePage%E2%80%9D%3A%E2%80%9Chttp%3A%2F%2Fadlnet.gov%2Faccounts%2F%E2%80%9D%2C%E2%80%9Cname%E2%80%9D%3A%E2%80%9C449-002%E2%80%9D%7D%7D&related_agents=true
-```
 </pre>
 #### Signed Statements
 
