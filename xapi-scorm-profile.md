@@ -509,7 +509,7 @@ _Statement with Completion in the Result_
 #### Score
 Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or content cannot imply success or completion of content solely based on a score. If the score is used for determination of success, this should be evaluated by the activity provider or content and the relevant success or completion statement should be issued.  
   
->NOTE: For compatibility between SCORM versions, the value of SCORM 1.2 cmi.core.score.raw divided by 100, and of SCORM 2004 cmi.score.scaled should be reported to xAPI as score.scaled. All other scores -  raw, min, max - may be reported directly as xAPI score.raw, score.min, and score.max.  
+> NOTE: For compatibility between SCORM versions, the value of SCORM 1.2 cmi.core.score.raw divided by 100, and of SCORM 2004 cmi.score.scaled should be reported to xAPI as score.scaled. All other scores -  raw, min, max - may be reported directly as xAPI score.raw, score.min, and score.max.  
 
 __SCORM 2004:__ `cmi.score.scaled=0.95`  
 __SCORM 1.2:__ `cmi.core.score.raw=95`  
@@ -560,6 +560,11 @@ __Experience API Statement:__
     }
 }
 ```  
+
+### Interactions
+Interactions can be recorded using the xAPI. Interactions can be described in the xAPI using a predefined format that maps to SCORM interactions. Activity providers and content shall use the ADL Verb 'http://adlnet.gov/expapi/verbs/responded', the result.response attribute of a statement for the response, and an activity definition as described in the xAPI specification to report the learner’s responses for an interaction. See the [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interaction-activities) section and the [interaction appendix](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#AppendixC) for more details.
+
+> NOTE: The IRI used to identify an interaction is recommended to follow the format: <courseiri>/<scoid>/interaction/<interactionid>  
 
 ## 7.0 Retrieving and Interpreting xAPI Statements
 
