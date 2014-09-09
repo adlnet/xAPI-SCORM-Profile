@@ -1098,7 +1098,7 @@ __SCORM 1.2:__
 
 > NOTE: A lesson status of passed implies completed, however completed lesson status does not imply passed. The cmi.core.lesson_status value must be passed for it to reflect this shorthand.  
 
-__xAPI:__ agent 500-627--490 passed lesson01 of attempt id (x) in the course CS204 with a score of 0.85 and completion true  
+__xAPI:__ agent 500-627-490 passed lesson01 of attempt id (x) in the course CS204 with a score of 0.85 and completion true  
 ``` javascript
 {
     "actor": {
@@ -1247,7 +1247,7 @@ __xAPI:__ agent 500-627-490 completed the course CS204
 ```
 
 #### Shorthand for passed the course with a score and completion value
-__xAPI:__ agent 500-627--490 passed the course CS204 with a score of 0.85 and completion true
+__xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and completion true
 ``` javascript
 {
     "actor": {
@@ -1283,32 +1283,7 @@ __xAPI:__ agent 500-627--490 passed the course CS204 with a score of 0.85 and co
 }
 ```
 
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
-``` javascript
-```
+#### Group Statements by Attempt ID
 
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
-``` javascript
-```
-
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
-``` javascript
-```
-
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
-``` javascript
-```
 ### References
 Advanced Distributed Learning Initiative. (2012). _SCORM 2004 4th Edition Run-Time Environment (RTE) Version 1.1_. (SCORM 2004 4th Edition Specification). Alexandria, VA: Author. 
