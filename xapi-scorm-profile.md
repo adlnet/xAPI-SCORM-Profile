@@ -683,7 +683,7 @@ If the LRS is publicly hosted, the first way to identify statements you trust is
 __Decoded:__  
 <pre>
 GET  
-statements?agent={“account”:{“homePage”:“http://adlnet.gov/accounts/”,“name”:“449-002”}}&related_agents=true
+statements?agent={"account":{"homePage":"http://adlnet.gov/accounts/","name":"449-002"}}&related_agents=true
 </pre>  
   
 __Encoded:__  
