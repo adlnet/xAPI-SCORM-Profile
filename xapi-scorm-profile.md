@@ -1322,7 +1322,7 @@ statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attempt
 
 #### Find the Latest Attempt ID  
 - Issue a get statements request to the LRS with the activity request parameter set to the SCO IRI  
--  
+ 
 _Unencoded for readability_  
 ```
 GET  
@@ -1331,7 +1331,7 @@ statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01
 
 - find the context activities grouping id set to the attempt SCO IRI of the first statement in the StatementResults array returned from the LRS  
 
-#### Find all Statements from the Latest Attempt
+#### Find all Statements from the Latest Attempt  
 - Issue a get statements request to the LRS with the activity request parameter set to the SCO IRI
 - Find the context activities grouping id set to the attempt SCO IRI of the first statement in the StatementResults array returned from the LRS
 - Issue a get statements request to the LRS with the activity request parameter set to the attempt SCO IRI, and related_activities request parameter set to true
