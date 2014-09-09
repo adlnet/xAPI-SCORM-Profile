@@ -411,6 +411,100 @@ __Experience API Statement:__
     }
 }
 ```  
+
+#### Completion
+Completion indicates if the learner has completed the activity. Setting completion is optional. If it is not set, completion will be assumed by the success status of the activity - if the activity has a success status, completion is assumed to be complete; if the activity does not have a success status, completion is assumed to be incomplete. If it is determined that your content must have a completion status, you may set it explicitly in one of two ways - either as a separate completed statement, or as the result of a success status statement.
+
+__SCORM 2004:__ `cmi.completion_status=completed`  
+__SCORM 1.2:__ `cmi.core.lesson_status=completed`  
+__Experience API Statement:__
+_Statement with Completed as the Verb_
+``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/completed",
+        "display": {
+            "en-US": "completed"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+```  
+_Statement with Completion in the Result_
+```
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/passed",
+        "display": {
+            "en-US": "passed"
+        }
+    },
+    "result": {
+        "completion": true
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+```
 ## 7.0 Retrieving and Interpreting xAPI Statements
 
 ## Appendix
