@@ -1086,18 +1086,94 @@ __xAPI:__ agent 500-627-490 completed lesson01 with attempt id (x) in the course
 }
 ```
 
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
+#### Shorthand for completion, success and score for a SCO
+__SCORM 2004:__  
+- cmi.completion_status=completed  
+- cmi.success_status=passed  
+- cmi.score.scaled=0.85  
+__SCORM 1.2:__   
+- cmi.core.lesson_status=passed  
+- cmi.core.score.raw=85  
+> NOTE: A lesson status of passed implies completed, however completed lesson status does not imply passed. The cmi.core.lesson_status value must be passed for it to reflect this shorthand.  
+__xAPI:__ agent 500-627--490 passed lesson01 of attempt id (x) in the course CS204 with a score of 0.85 and completion true  
 ``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/passed",
+        "display": {
+            "en-US": "passed"
+        }
+    },
+    "result": {
+        "score": {
+            "scaled": 0.85
+        },
+        "completion": true
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+                "en-US": "lesson 01"
+            },
+            "description": {
+                "en-US": "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    },
+   "timestamp":"2014-08-01T15:05:04-04:00"
+}
 ```
 
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
+#### Set the course to passed
+__xAPI:__ agent 500-627-490 passed the course CS204
 ``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/passed",
+        "display": {
+            "en-US": "passed"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/",
+        "definition": {
+            "name": {
+                "en-US": "CS204"
+            },
+            "description": {
+                "en-US": "The CS204 course"
+            }
+        }
+    },
+   "timestamp":"2014-08-01T15:05:04-04:00"
+}
 ```
 
 #### Terminate a SCO
