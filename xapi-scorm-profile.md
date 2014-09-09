@@ -1320,5 +1320,22 @@ GET
 statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6&related_activities=true
 ```  
 
+#### Find the Latest Attempt ID  
+- Issue a get statements request to the LRS with the activity request parameter set to the SCO IRI  
+-  
+_Unencoded for readability_  
+```
+GET  
+statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01
+```  
+
+- find the context activities grouping id set to the attempt SCO IRI of the first statement in the StatementResults array returned from the LRS  
+
+#### Find all Statements from the Latest Attempt
+- Issue a get statements request to the LRS with the activity request parameter set to the SCO IRI
+- Find the context activities grouping id set to the attempt SCO IRI of the first statement in the StatementResults array returned from the LRS
+- Issue a get statements request to the LRS with the activity request parameter set to the attempt SCO IRI, and related_activities request parameter set to true
+
+
 ### References
 Advanced Distributed Learning Initiative. (2012). _SCORM 2004 4th Edition Run-Time Environment (RTE) Version 1.1_. (SCORM 2004 4th Edition Specification). Alexandria, VA: Author. 
