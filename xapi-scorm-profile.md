@@ -1243,11 +1243,41 @@ __xAPI:__ agent 500-627-490 completed the course CS204
 }
 ```
 
-#### Terminate a SCO
-__SCORM 2004:__
-__SCORM 1.2:__
-__xAPI:__
+#### Shorthand for passed the course with a score and completion value
+__xAPI:__ agent 500-627--490 passed the course CS204 with a score of 0.85 and completion true
 ``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/passed",
+        "display": {
+            "en-US": "passed"
+        }
+    },
+    "result": {
+        "score": {
+            "scaled": 0.85
+        },
+        "completion": true
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/",
+        "definition": {
+            "name": {
+                "en-US": "CS204"
+            },
+            "description": {
+                "en-US": "The CS204 course"
+            }
+        }
+    },
+   "timestamp":"2014-08-01T15:05:04-04:00"
+}
 ```
 
 #### Terminate a SCO
