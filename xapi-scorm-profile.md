@@ -668,7 +668,30 @@ __Sequencing and Navigation Global Objective__
 }
 ```
 ## 7.0 Retrieving and Interpreting xAPI Statements
+Storing learning experiences in an xAPI LRS is not the only consideration. Retrieving the learning experiences and interpreting what those statements mean is another aspect that needs guidance for consistent reporting and tracking. The following sections discuss the processes to identify results from activities and their meaning.
 
+### Trusting the Statements
+Determining what statements are trusted and authoritative is open to the individual organization. The following are a few strategies that can be applied to your organizations’ needs.
+
+#### Private LRS
+The safest way to ensure that the available statements in an LRS are trustworthy is to host an LRS within your organization. By controlling the environment that hosts the LRS, you ensure that the data contained in the LRS was submitted by authorized activity providers and content. In this case, no other evaluation of the statements is necessary.
+
+#### Authority
+If the LRS is publicly hosted, the first way to identify statements you trust is to search based on the authority value. Each statement stored in an LRS has an authority value set to the agent who submitted the statement. This value is set by the LRS, and is based on the agent associated with the credentials used to submit the statement. A system wishing to only retrieve statements issued by certain activity providers or content can filter the LRS results using those providers’ agent information.  
+  
+##### Retrieving Statements Based on the Authority
+__Decoded:__  
+<pre>`GET statements?agent={“account”:{“homePage”:“http://adlnet.gov/accounts/”,“name”:“449-002”}}&related_agents=true`</pre>  
+  
+__Encoded:__  
+<pre>
+```
+statements?agent=%7B%E2%80%9Caccount%E2%80%9D%3A%7B%E2%80%9ChomePage%E2%80%9D%3A%E2%80%9Chttp%3A%2F%2Fadlnet.gov%2Faccounts%2F%E2%80%9D%2C%E2%80%9Cname%E2%80%9D%3A%E2%80%9C449-002%E2%80%9D%7D%7D&related_agents=true
+```
+</pre>
+#### Signed Statements
+
+### Determining Status
 ## Appendix
 ### References
 Advanced Distributed Learning Initiative. (2012). _SCORM 2004 4th Edition Run-Time Environment (RTE) Version 1.1_. (SCORM 2004 4th Edition Specification). Alexandria, VA: Author. 
