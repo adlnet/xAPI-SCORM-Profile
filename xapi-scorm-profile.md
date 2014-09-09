@@ -418,7 +418,7 @@ Completion indicates if the learner has completed the activity. Setting completi
 __SCORM 2004:__ `cmi.completion_status=completed`  
 __SCORM 1.2:__ `cmi.core.lesson_status=completed`  
 __Experience API Statement:__
-_Statement with Completed as the Verb_
+_Statement with Completed as the Verb_  
 ``` javascript
 {
     "actor": {
@@ -461,7 +461,7 @@ _Statement with Completed as the Verb_
 }
 ```  
 _Statement with Completion in the Result_
-```
+``` javascript
 {
     "actor": {
         "account": {
