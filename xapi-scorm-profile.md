@@ -1086,15 +1086,18 @@ __xAPI:__ agent 500-627-490 completed lesson01 with attempt id (x) in the course
 }
 ```
 
-#### Shorthand for completion, success and score for a SCO
+#### Shorthand for completion, success and score for a SCO  
 __SCORM 2004:__  
 - cmi.completion_status=completed  
 - cmi.success_status=passed  
 - cmi.score.scaled=0.85  
+
 __SCORM 1.2:__   
 - cmi.core.lesson_status=passed  
 - cmi.core.score.raw=85  
+
 > NOTE: A lesson status of passed implies completed, however completed lesson status does not imply passed. The cmi.core.lesson_status value must be passed for it to reflect this shorthand.  
+
 __xAPI:__ agent 500-627--490 passed lesson01 of attempt id (x) in the course CS204 with a score of 0.85 and completion true  
 ``` javascript
 {
