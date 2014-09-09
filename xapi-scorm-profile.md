@@ -709,7 +709,13 @@ The method of determining status is up to those developing the content. For exam
 Statements in an LRS are stored as a stream of information. It is possible to retrieve statements that conflict. It might be that a learner initially failed a test but later tried again and passed. In the LRS that result would likely appear as two separate, and conflicting, statements. Another issue that might arise is that the SCOs or lessons within a course may report one result while the content reports an overall status of another result. The following rules shall be followed to resolve such conflicts.
 
 #### Granularity
-
+It is possible to report status of a course in three different levels of granularity: course, SCO/lesson, objective. Since an LRS makes no assumptions about the statements it receives and has no rules about how to evaluate the statements contained within, it is recommended that all evaluation, rollup of results, and final course status be reported by the activity provider, the content or a trusted evaluation tool.  
+  
+For determining status based on granularity:
+- If a system consuming the statements finds a course status, it shall use that result. 
+- If no course status is found consuming tools may use the status of all activities that include the course IRI as a parent activity in the context activities property.
+- And at the most granular level, the consuming tools may use the status of all of the objectives for each of the activities that include the course IRI as a parent activity in the context activities property.  
+  
 #### Status
 
 #### Authority
