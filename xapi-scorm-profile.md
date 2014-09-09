@@ -315,11 +315,60 @@ __Experience API Statement:__
     }
 }
 ```  
+
 #### Exit
 Exit is used to to indicate the attempt state at the end of the session. It is possible to send an xAPI exited statement but in most cases the intended meaning is that the session has terminated in either a suspended or terminated state. This is accomplished by issuing a statement with the ADL Verb suspended and maintaining the current attemptId for future sessions, or with the ADL Verb terminated and a new attemptId for future sessions.
 
 __SCORM 2004:__ `cmi.exit=normal`  
 __SCORM 1.2:__ `cmi.core.exit=""`  
+__Experience API Statement:__
+``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/terminated",
+        "display": {
+            "en-US": "terminated"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+```  
+
+#### Success
+Success indicates whether the learner’s attempt was successful. Use of success is recommended. To report the success, the statement verb will be set to the ADL Verb passed or failed depending on the learner’s success. When applied to courses, SCOs, and objectives the success value is the determining factor of whether or not the learner passed the current activity attempt. This value directly maps to the SCORM data model element lesson_status or success_status.
+
+__SCORM 2004:__ `cmi.success_status=passed`  
+__SCORM 1.2:__ `cmi.core.lesson_status=passed`  
 __Experience API Statement:__
 ``` javascript
 {
