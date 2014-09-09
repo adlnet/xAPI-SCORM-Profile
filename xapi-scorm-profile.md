@@ -701,6 +701,38 @@ statements?attachments=true
 </pre>
 
 ### Determining Status
+Due to activity providers and content reporting to an LRS instead of an LMS, the determination of status might not be decided by an LMS. An LMS may still be used for the determination of a learner’s status, but it may also be determined by the activity provider or content, reporting tools, or other client applications consuming the LRS data. 
+
+The method of determining status is up to those developing the content. For example, content within a course may report individual status statements and a final piece of content could look at the collection of results and report an overall status for the course. Or a reporting tool customized with an organization’s accepted passing threshold could collect scores from a course and evaluate them based on the organization threshold. The results of that evaluation could be reported to the LRS as the success for the course.  
+
+### Resolving Conflicts
+Statements in an LRS are stored as a stream of information. It is possible to retrieve statements that conflict. It might be that a learner initially failed a test but later tried again and passed. In the LRS that result would likely appear as two separate, and conflicting, statements. Another issue that might arise is that the SCOs or lessons within a course may report one result while the content reports an overall status of another result. The following rules shall be followed to resolve such conflicts.
+
+#### Granularity
+
+#### Status
+
+#### Authority
+The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the content, a teacher or a reporting tool. It is up to the organization to choose what agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
+__Decoded__
+<pre>
+GET  
+statements/?agent={"id":"myactivityprovider@mycompany.com"}&related_agents=true
+</pre>
+
+#### Attempt
+If the content was following the SCORM temporal model, it may be necessary to resolve conflicts by only using results from the latest attempt. You can find the latest attempt by querying the LRS for all statements for a learner in a course:  
+__Decoded__
+<pre>
+GET  
+statements/?agent={"account":{"homePage":"http://mycontent.example.com", "name":"334-009"}&activity=http://example.com/cs400/lesson01
+</pre>
+From those results, find the latest statements by ordering them by the timestamp property and then using the statements with the attemptId from the latest statements.
+
+#### Time
+All statements submitted by activity providers and content following this profile are required to include a timestamp. Use of this timestamp property allows systems to create a timeline of the statements. Using this timeline can help resolve conflicts where the same property for the same granularity, authority, and attempt exist. In this case the most recent statement takes precedence. For example, if a SCO starts and reports that the learner failed this attempt, then the learner takes a test and passes this attempt, since the passed statement is the most recent, tools will use this one for the status of the attempt.
+
+### Note About Default Status
 ## Appendix
 ### References
 Advanced Distributed Learning Initiative. (2012). _SCORM 2004 4th Edition Run-Time Environment (RTE) Version 1.1_. (SCORM 2004 4th Edition Specification). Alexandria, VA: Author. 
