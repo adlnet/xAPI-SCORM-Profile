@@ -62,7 +62,6 @@ SCORM is a mature and formal specification that allows for delivering content an
 - Launching and Initializing Content
 - Supporting the SCORM Temporal Model
 - Mapping the SCORM data model to xAPI Statements
-- Course Structure & Rolllup 
 
 ### 3.2 General Guidance on Statements
 In the xAPI, content providers and content issue statements about the learner’s experiences. These statements hold the data about the experience, such as, if the learner was successful, or did the learner complete the content. Additional information and guidance is provided below. All statements issued shall meet the requirements in the xAPI specification and the guidance described in the following sections.  
