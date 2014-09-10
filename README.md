@@ -1,2 +1,0 @@
-xAPI-SCORM-Profile
-==================
