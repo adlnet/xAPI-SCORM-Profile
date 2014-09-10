@@ -19,8 +19,8 @@
 * 3.0 [How to Use this Profile](#30-how-to-use-this-profile)
   * 3.1 [Supporting SCORM Features](#31-supporting-scorm-features)
   * 3.2 [General Guidance on Statements](#32-general-guidance-on-statements)
-* 4.0 [Launching and Initializing Content](#40-launching-and-initializing-content)
-  * 4.1 [Web-Based Content](#41-web-based-content)
+* 4.0 [Launching and Initializing Activities](#40-launching-and-initializing-activities)
+  * 4.1 [Web-Based Activities](#41-web-based-activities)
   * 4.2 [LMS-Provided Endpoint](#42-lms-provided-endpoint)
   * 4.3 [Out-of-Band Configuration](#43-out-of-band-configuration)
 * 5.0 [Supporting the SCORM Temporal Model](#50-supporting-the-scorm-temporal-model)
@@ -29,9 +29,21 @@
 * [Appendix](#appendix)
 
 ## Glossary
+##### Activity:  
+Generally synonymous with content, it is the entity with which the learner interacts - ie: video, lesson, slides, etc.   
+##### Activity Provider:  
+An application that delivers activities to the learner - ie: browser, e-reader, mobile app, etc.  
+##### Experience:  
+A notable interaction or event between the learner(s) and an activity - ie: took a test, completed the activity, answered a question, etc.  
+##### Experience API (xAPI):  
+A specification created to provide a way to represent and report experiences between a learner, or group of learners, and some activity.  
+##### Internationalized Resource Identifier (IRI):  
+A format of an identifier, related to URI, that supports the Universal Character Set (Unicode). See [RFC 3987](http://tools.ietf.org/html/rfc3987).  
+##### Statement:  
+The xAPI data format for representing learner experience data. See [xAPI Statement](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#statement).
 
 ## 1.0 Purpose
-The xAPI was created in response to the eLearning community’s desire to modernize the Sharable Content Object Reference Model (SCORM) capabilities, which was initially developed to make courseware interoperable with learning management systems. Since its introduction in 2000, SCORM has played a critical role in the proliferation of online training and education courses. The Experience API (xAPI) introduces a new paradigm for tracking and recording learning-related data. We can track learners as they perform work tasks, produce work outputs, communicate, collaborate, and engage in just about any other online activity. This API uses a flexible data format that supports many different use cases and needs. However with this flexibility arises the need for developers to formalize the data they track and what that data means. By formalizing the data reported by content and the format of that data, tools can be created that can make sense of that data.
+The Experience API (xAPI) was created in response to the eLearning community’s desire to modernize the Sharable Content Object Reference Model (SCORM) capabilities, which was initially developed to make courseware interoperable with learning management systems. Since its introduction in 2000, SCORM has played a critical role in the proliferation of online training and education courses. The Experience API introduces a new paradigm for tracking and recording learning-related data. We can track learners as they perform work tasks, produce work outputs, communicate, collaborate, and engage in just about any other online activity. This API uses a flexible data format that supports many different use cases and needs. However with this flexibility arises the need for developers to formalize the data they track and what that data means. By formalizing the data reported by content and the format of that data, tools can be created that can make sense of that data.
 
 The Sharable Content Object Reference Model (SCORM) community is one area that could benefit from providing a formalized method for compiling and formatting learner experiences. Using the xAPI and the guidance contained within this profile, developers can create xAPI statements that can be interpreted by any other system that understands the guidelines described in this document. This will support the integrity and consistency of the data across SCORM content and provide a base vocabulary needed for interpreting and reporting on that data.
 
@@ -61,10 +73,9 @@ SCORM is a mature and formal specification that allows for delivering content an
 - Launching and Initializing Content
 - Supporting the SCORM Temporal Model
 - Mapping the SCORM data model to xAPI Statements
-- Course Structure & Rolllup 
 
 ### 3.2 General Guidance on Statements
-In the xAPI, content providers and content issue statements about the learner’s experiences. These statements hold the data about the experience, such as, if the learner was successful, or did the learner complete the content. Additional information and guidance is provided below. All statements issued shall meet the requirements in the xAPI specification and the guidance described in the following sections.  
+In the xAPI, activity providers and activities issue statements about the learner’s experiences. These statements hold the data about the experience, such as, if the learner was successful, or did the learner complete the content. Additional information and guidance is provided below. All statements issued shall meet the requirements in the xAPI specification and the guidance described in the following sections.  
 
 #### Internationalized Resource Identifier (IRI)
 IRIs are used as identifiers in many parts of the xAPI specification. Their syntax consists of a hierarchical part, which is broken into an authority and a path. The authority part shall represent a domain of your organization - ie. adlnet.gov, army.mil. The path part shall identify the object - /courses/cs/CS101. If you are identifying something that cannot be represented by an fully qualified path, use a tag IRI - tag:adlnet.gov,2013:expapi:0.9:extensions - where the domain is a domain you control, the date is the date this tag was created, the next part is the type - scorm, xapi, the version - 2004, 1.2, 1.0.1, and the last part is the identifier. (see [http://www.ietf.org/rfc/rfc4151.txt](http://www.ietf.org/rfc/rfc4151.txt))  
@@ -79,7 +90,7 @@ Bad IRIs are not unique and could conflict with others using the same identifier
     <pre>`http://example.com/activity/01`</pre>
 
 #### Actor
-The actor property refers to the learner that is interacting with the content. The actor should be able to be mapped back to the learner in the LMS. Any of the Actor formats described in the xAPI specification are allowed. However some formats can potentially expose personally identifiable information, it is recommended to use a format that protects the learner’s information.  
+The actor property refers to the learner that is interacting with the activity. The actor should be able to be mapped back to the learner in the LMS. Any of the Actor formats described in the xAPI specification are allowed. However some formats can potentially expose personally identifiable information, it is recommended to use a format that protects the learner’s information.  
 __Agent__
 ``` javascript
   "actor":{
@@ -164,7 +175,7 @@ Some verbs have special meaning when related to SCORM. Implementers of this prof
   <tr>
     <td><a href="http://adlnet.gov/expapi/verbs/scored/index.html">scored</a></td>
     <td>cmi.scored.scaled<br>cmi.core.score.raw</td>
-    <td>Used when the content wants to record a score without implying a level of satisfaction or completion of the content, or wants to provide evidence toward satisfaction or completion</td>
+    <td>Used when the activity wants to record a score without implying a level of satisfaction or completion of the activity, or wants to provide evidence toward satisfaction or completion</td>
     <td>course<br>SCO<br>objective<br>interaction</td>
   </tr>
   <tr>
@@ -185,7 +196,7 @@ Things like courses, SCOs, and objectives are considered activities. Since these
 Activity IDs are required to be [IRIs](http://en.wikipedia.org/wiki/Internationalized_resource_identifier) and follow the requirements within the xAPI specification. In addition it is recommended that the IRIs are IRLs and that the location contains the metadata (Activity Definition) of the activity. Additionally activity IRIs should be constructed in a predictable way to make interpreting those IRIs possible in a standard way.  
 
 ###### Course IRI
-The course IRI may be decided by the organization as long as it follows the IRI rules described in the xAPI spec. The activity provider or content must support the launch courseIRI property, described in the launch section of this document, and update the course IRI to that property value if the local and launch-provided values differ. This allows for content to use the most up-to-date identifier in the context of the current launch.  
+The course IRI may be decided by the organization as long as it follows the IRI rules described in the xAPI spec. The activity provider or activity must support the launch courseIRI property, described in the launch section of this document, and update the course IRI to that property value if the local and launch-provided values differ. This allows for content to use the most up-to-date identifier in the context of the current launch.  
   
 __Guidelines for Activity IRI Contruction__  
 - follow the guidance described in the Internationalized Resource Identifier (IRI) section in this document
@@ -213,18 +224,18 @@ The [result property of a statement](https://github.com/adlnet/xAPI-Spec/blob/ma
 The context property adds additional contextual information about the learner experience. Information like who is the instructor of this content, with what registration this experience is associated, or to what activities this experience is related. Statements shall meet all the requirements in the xAPI specification and the additional guidelines described in this document.
 
 ###### Timestamp
-The timestamp property gives the activity provider or content the ability to set the date and time when the experience occurred. This is different from the stored timestamp property, which indicates when the LRS saved the statement about the experience. All statements shall set the timestamp property. By doing this, it makes it possible to order statements in the same order as they were submitted by the activity provider or content.
+The timestamp property gives the activity provider or activity the ability to set the date and time when the experience occurred. This is different from the stored timestamp property, which indicates when the LRS saved the statement about the experience. All statements shall set the timestamp property. By doing this, it makes it possible to order statements in the same order as they were submitted by the activity provider or activity.
 
 ###### Authority
-The authority property for each statement is set by the LRS to the agent who submitted the statement. This property can be used to filter statements based on the activity provider or content. By using this property as a GET statements filter, it is possible to narrow down the returned statements to the ones submitted by agents whom your organization trusts.
+The authority property for each statement is set by the LRS to the agent who submitted the statement. This property can be used to filter statements based on the activity provider or activity. By using this property as a GET statements filter, it is possible to narrow down the returned statements to the ones submitted by agents whom your organization trusts.
 
 ###### Attachments
 Attachments give the ability to include supporting documents or information that do not directly map to a section of an xAPI statement. Examples of attachments include PDF certificates, essays, videos, and the JSON web signature. Attachments are not returned by the LRS by default, but can be included by adding the attachments filter to GET statements requests. [See the xAPI specification for more details](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#signature).
 
-## 4.0 Launching and Initializing Content
-In a SCORM environment, content is launched by the LMS. The LMS can provide content with launch parameters and initial data model values. This helps a SCO to work correctly in the current environment. In comparison, xAPI content can exist outside of an LMS - information such as learner name and identifier, or the location of the xAPI LRS may be unknown at the launch of the content.
+## 4.0 Launching and Initializing Activities
+In a SCORM environment, an activity is launched by the LMS. The LMS can provide activities with launch parameters and initial data model values. This helps a SCO to work correctly in the current environment. In comparison, xAPI activities can exist outside of an LMS - information such as learner name and identifier, or the location of the xAPI LRS may be unknown at the launch of the activity.
 
-Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide ways for systems, such as an LMS, to launch and initialize content that is not managed by the LMS. Any of those solutions may be leveraged to solve specific, individual issues that are not addressed in this document. At a minimum the following requirements will be used for launching and initializing content:  
+Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide ways for systems, such as an LMS, to launch and initialize activities that are not managed by the LMS. Any of those solutions may be leveraged to solve specific, individual issues that are not addressed in this document. At a minimum the following requirements will be used for launching and initializing activities:  
 - entry: ab-initio or resume
 - endpoint: LRS endpoint 
 - actor: Agent Account
@@ -234,14 +245,16 @@ Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide way
 - courseiri: IRI that identifies the entire course within at least the context of the LMS
   - It is recommended that this identifier is unique and defined by a domain which your organization controls. ex: `http://adlnet.gov/courses/compsci/xxx`  
 
-Since xAPI content does not need to be web-based content, the means of initializing the content will vary. Following are three strategies:  
-### 4.1 Web-Based Content
-The content is hosted on some web server and is launched in a web browser. This strategy is similar to SCORM content but is not required to be hosted by the LMS. In this scenario, the LMS, or some system responsible for knowing about the learner and this content, launches the content with the launch parameters.  
+Since xAPI activites do not need to be web-based, the means of initializing the activities will vary. Following are three strategies:  
+
+### 4.1 Web-Based Activities
+The activity is hosted on some web server and is launched in a web browser. This strategy is similar to SCORM content but is not required to be hosted by the LMS. In this scenario, the LMS, or some system responsible for knowing about the learner and this activity, launches the activity with the launch parameters.  
 __Example:__
 __Decoded for readability:__  
 ``` http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https://lrs.adlnet.gov/xapi/&actor={"account":{"homePage":"http://lms.adlnet.gov/scorm/","name":"149893"}}&courseiri=http://adlnet.gov/courses/compsci/xxx ```  
 __URL-encoded:__  
 ``` http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https%3A%2F%2Flrs.adlnet.gov%2Fxapi%2F&actor=%7B%22account%22%3A%7B%22homePage%22%3A%22http%3A%2F%2Flms.adlnet.gov%2Fscorm%2F%22%2C%22name%22%3A%22149893%22%7D%7D&courseiri=http%3A%2F%2Fadlnet.gov%2Fcourses%2Fcompsci%2Fxxx ```  
+
 ### 4.2 LMS-Provided Endpoint
 The LMS provides an endpoint that activity providers can query to retrieve the launch parameters. Web-based applications can still access this information via an AJAX GET request to the LMS provided endpoint. All other content would access this information in a similar way by issuing an HTTP GET request for the launch parameters.  
 __Request:__  
@@ -265,7 +278,7 @@ Content-Type: application/json
    "courseiri":"http://adlnet.gov/courses/compsci/xxx"
 }
 ```  
-> NOTE: The course IRI in this response shall be used in all statements issued for this activity. This requirement allows for the LMS to change the IRI from the one originally configured in the content. This may be necessary to accommodate for changes due to various sessions, or other changes that occurred since the initial creation of the course IRI.  
+> NOTE: The course IRI in this response shall be used in all statements issued for this activity. This requirement allows for the LMS to change the IRI from the one originally configured in the activity. This may be necessary to accommodate for changes due to various sessions, or other changes that occurred since the initial creation of the course IRI.  
 
 ### 4.3 Out-of-Band Configuration
 If the above launch options are not possible developers can preconfigure the activity provider or allow for user input to configure the launch parameters. Work with the LMS and LRS providers for configuration details.  
@@ -287,7 +300,7 @@ To find the learner’s experiences of the latest attempt, query the LRS for sta
 The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way.  
 
 #### Entry
-Entry is used to indicate the attempt state of the content - is this a new attempt on the content or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb initialized and a new attemptId on the grouping activity. 
+Entry is used to indicate the attempt state of the activity - is this a new attempt on the activity or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb initialized and a new attemptId on the grouping activity. 
 
 __SCORM 2004:__ `cmi.entry=ab-initio`  
 __SCORM 1.2:__ `cmi.core.entry=ab-initio`  
@@ -431,7 +444,7 @@ __Experience API Statement:__
 ```  
 
 #### Completion
-Completion indicates if the learner has completed the activity. Setting completion is optional. If it is not set, completion will be assumed by the success status of the activity - if the activity has a success status, completion is assumed to be complete; if the activity does not have a success status, completion is assumed to be incomplete. If it is determined that your content must have a completion status, you may set it explicitly in one of two ways - either as a separate completed statement, or as the result of a success status statement.
+Completion indicates if the learner has completed the activity. Setting completion is optional. If it is not set, completion will be assumed by the success status of the activity - if the activity has a success status, completion is assumed to be complete; if the activity does not have a success status, completion is assumed to be incomplete. If it is determined that your activity must have a completion status, you may set it explicitly in one of two ways - either as a separate completed statement, or as the result of a success status statement.
 
 __SCORM 2004:__ `cmi.completion_status=completed`  
 __SCORM 1.2:__ `cmi.core.lesson_status=completed`  
@@ -525,7 +538,7 @@ _Statement with Completion in the Result_
 ```  
 
 #### Score
-Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or content cannot imply success or completion of content solely based on a score. If the score is used for determination of success, this should be evaluated by the activity provider or content and the relevant success or completion statement should be issued.  
+Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or activity cannot imply success or completion of an activity solely based on a score. If the score is used for determination of success, this should be evaluated by the activity provider or activity and the relevant success or completion statement should be issued.  
   
 > NOTE: For compatibility between SCORM versions, the value of SCORM 1.2 cmi.core.score.raw divided by 100, and of SCORM 2004 cmi.score.scaled should be reported to xAPI as score.scaled. All other scores -  raw, min, max - may be reported directly as xAPI score.raw, score.min, and score.max.  
 
@@ -580,7 +593,7 @@ __Experience API Statement:__
 ```  
 
 #### Interactions
-Interactions can be recorded using the xAPI. Interactions can be described in the xAPI using a predefined format that maps to SCORM interactions. Activity providers and content shall use the ADL Verb `http://adlnet.gov/expapi/verbs/responded`, the result.response attribute of a statement for the response, and an activity definition as described in the xAPI specification to report the learner’s responses for an interaction. See the [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interaction-activities) section and the [interaction appendix](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#AppendixC) for more details.
+Interactions can be recorded using the xAPI. Interactions can be described in the xAPI using a predefined format that maps to SCORM interactions. Activity providers and activities shall use the ADL Verb `http://adlnet.gov/expapi/verbs/responded`, the result.response attribute of a statement for the response, and an activity definition as described in the xAPI specification to report the learner’s responses for an interaction. See the [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interaction-activities) section and the [interaction appendix](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#AppendixC) for more details.
 
 > NOTE: The IRI used to identify an interaction is recommended to follow the format: `<courseiri>/<scoid>/interaction/<interactionid>`  
 
@@ -692,10 +705,10 @@ Storing learning experiences in an xAPI LRS is not the only consideration. Retri
 Determining what statements are trusted and authoritative is open to the individual organization. The following are a few strategies that can be applied to your organizations’ needs.
 
 #### Private LRS
-The safest way to ensure that the available statements in an LRS are trustworthy is to host an LRS within your organization. By controlling the environment that hosts the LRS, you ensure that the data contained in the LRS was submitted by authorized activity providers and content. In this case, no other evaluation of the statements is necessary.
+The safest way to ensure that the available statements in an LRS are trustworthy is to host an LRS within your organization. By controlling the environment that hosts the LRS, you ensure that the data contained in the LRS was submitted by authorized activity providers and activities. In this case, no other evaluation of the statements is necessary.
 
 #### Authority
-If the LRS is publicly hosted, the first way to identify statements you trust is to search based on the authority value. Each statement stored in an LRS has an authority value set to the agent who submitted the statement. This value is set by the LRS, and is based on the agent associated with the credentials used to submit the statement. A system wishing to only retrieve statements issued by certain activity providers or content can filter the LRS results using those providers’ agent information.  
+If the LRS is publicly hosted, the first way to identify statements you trust is to search based on the authority value. Each statement stored in an LRS has an authority value set to the agent who submitted the statement. This value is set by the LRS, and is based on the agent associated with the credentials used to submit the statement. A system wishing to only retrieve statements issued by certain activity providers or activities can filter the LRS results using those providers’ agent information.  
   
 ##### Retrieving Statements Based on the Authority
 __Decoded:__  
@@ -719,15 +732,15 @@ statements?attachments=true
 </pre>
 
 ### Determining Status
-Due to activity providers and content reporting to an LRS instead of an LMS, the determination of status might not be decided by an LMS. An LMS may still be used for the determination of a learner’s status, but it may also be determined by the activity provider or content, reporting tools, or other client applications consuming the LRS data. 
+Due to activity providers and activities reporting to an LRS instead of an LMS, the determination of status might not be decided by an LMS. An LMS may still be used for the determination of a learner’s status, but it may also be determined by the activity provider or activities, reporting tools, or other client applications consuming the LRS data. 
 
-The method of determining status is up to those developing the content. For example, content within a course may report individual status statements and a final piece of content could look at the collection of results and report an overall status for the course. Or a reporting tool customized with an organization’s accepted passing threshold could collect scores from a course and evaluate them based on the organization threshold. The results of that evaluation could be reported to the LRS as the success for the course.  
+The method of determining status is up to those developing the activities. For example, activites within a course may report individual status statements and a final piece of content could look at the collection of results and report an overall status for the course. Or a reporting tool customized with an organization’s accepted passing threshold could collect scores from a course and evaluate them based on the organization threshold. The results of that evaluation could be reported to the LRS as the success for the course.  
 
 ### Resolving Conflicts
-Statements in an LRS are stored as a stream of information. It is possible to retrieve statements that conflict. It might be that a learner initially failed a test but later tried again and passed. In the LRS that result would likely appear as two separate, and conflicting, statements. Another issue that might arise is that the SCOs or lessons within a course may report one result while the content reports an overall status of another result. The following rules shall be followed to resolve such conflicts.
+Statements in an LRS are stored as a stream of information. It is possible to retrieve statements that conflict. It might be that a learner initially failed a test but later tried again and passed. In the LRS that result would likely appear as two separate, and conflicting, statements. Another issue that might arise is that the SCOs or lessons within a course may report one result while the course reports an overall status of another result. The following rules shall be followed to resolve such conflicts.
 
 #### Granularity
-It is possible to report status of a course in three different levels of granularity: course, SCO/lesson, objective. Since an LRS makes no assumptions about the statements it receives and has no rules about how to evaluate the statements contained within, it is recommended that all evaluation, rollup of results, and final course status be reported by the activity provider, the content or a trusted evaluation tool.  
+It is possible to report status of a course in three different levels of granularity: course, SCO/lesson, objective. Since an LRS makes no assumptions about the statements it receives and has no rules about how to evaluate the statements contained within, it is recommended that all evaluation, rollup of results, and final course status be reported by the activity provider, the activity or a trusted evaluation tool.  
   
 For determining status based on granularity:
 - If a system consuming the statements finds a course status, it shall use that result. 
@@ -735,17 +748,17 @@ For determining status based on granularity:
 - And at the most granular level, the consuming tools may use the status of all of the objectives for each of the activities that include the course IRI as a parent activity in the context activities property.  
   
 #### Status
-It is recommended that all content reports as much information about a learner’s status in an activity as it can.  
-- At a minimum content should report a success status, such as passed or failed. 
-  - If that does not make sense for the type of activity, the content should report completion status of completed when it is determined the learner has completed the activity. 
-  - And finally the content may report a score.
+It is recommended that all activities report as much information about a learner’s status in an activity as it can.  
+- At a minimum activities should report a success status, such as passed or failed. 
+  - If that does not make sense for the type of activity, the activity should report completion status of completed when it is determined the learner has completed the activity. 
+  - And finally the activity may report a score.
 - For tools using these results from the LRS, the activity status is first based on the success status, if found. 
   - If there is no success status the tool may then use the completion status. 
   - If there is no success or completion status the tool may use the score. 
     - If the tool can determine success from the score - ie. it has a threshold to compare with the score - it is permitted to use that evaluation.
 
 #### Authority
-The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the content, a teacher or a reporting tool. It is up to the organization to choose what agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
+The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the activity, a teacher or a reporting tool. It is up to the organization to choose what agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
 __Decoded__
 <pre>
 GET  
@@ -753,7 +766,7 @@ statements/?agent={"id":"myactivityprovider@mycompany.com"}&related_agents=true
 </pre>
 
 #### Attempt
-If the content was following the SCORM temporal model, it may be necessary to resolve conflicts by only using results from the latest attempt. You can find the latest attempt by querying the LRS for all statements for a learner in a course:  
+If the activity was following the SCORM temporal model, it may be necessary to resolve conflicts by only using results from the latest attempt. You can find the latest attempt by querying the LRS for all statements for a learner in a course:  
 __Decoded__
 <pre>
 GET  
@@ -762,10 +775,10 @@ statements/?agent={"account":{"homePage":"http://mycontent.example.com", "name":
 From those results, find the latest statements by ordering them by the timestamp property and then using the statements with the attemptId from the latest statements.
 
 #### Time
-All statements submitted by activity providers and content following this profile are required to include a timestamp. Use of this timestamp property allows systems to create a timeline of the statements. Using this timeline can help resolve conflicts where the same property for the same granularity, authority, and attempt exist. In this case the most recent statement takes precedence. For example, if a SCO starts and reports that the learner failed this attempt, then the learner takes a test and passes this attempt, since the passed statement is the most recent, tools will use this one for the status of the attempt.
+All statements submitted by activity providers and activities following this profile are required to include a timestamp. Use of this timestamp property allows systems to create a timeline of the statements. Using this timeline can help resolve conflicts where the same property for the same granularity, authority, and attempt exist. In this case the most recent statement takes precedence. For example, if a SCO starts and reports that the learner failed this attempt, then the learner takes a test and passes this attempt, since the passed statement is the most recent, tools will use this one for the status of the attempt.
 
 ### Note About Default Status
-It was a common practice to set a default status on SCOs in SCORM. Sometimes variations in how an LMS handled a status, if not reported by the content, caused issues in getting consistent results. Developers often tried to resolve this default status by setting the status in the content upon launch. Many SCOs at launch will set completion status to incomplete, success status to failed and a score scaled to 0.0. This often works because the LMS is only required to save the latest value for an element of the latest attempt. But since an LRS keeps all records it can start to cause conflicts or confusing results. So to try to prevent these issues, it is strongly recommended not to report a default status.  
+It was a common practice to set a default status on SCOs in SCORM. Sometimes variations in how an LMS handled a status, if not reported by the activity, caused issues in getting consistent results. Developers often tried to resolve this default status by setting the status in the activity upon launch. Many SCOs at launch will set completion status to incomplete, success status to failed and a score scaled to 0.0. This often works because the LMS is only required to save the latest value for an element of the latest attempt. But since an LRS keeps all records it can start to cause conflicts or confusing results. So to try to prevent these issues, it is strongly recommended not to report a default status.  
 
 ## Appendix
 
