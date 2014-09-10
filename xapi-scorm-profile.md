@@ -29,10 +29,12 @@
 * [Appendix](#appendix)
 
 ## Glossary
-__activity:__ generally synonymous with content, it is the entity with which the learner interacts - ie: video, lesson, slides, etc   
-__activity provider:__ an application that delivers activities to the learner - ie: browser, e-reader, mobile app, etc  
-
-
+__activity:__ Generally synonymous with content, it is the entity with which the learner interacts - ie: video, lesson, slides, etc.   
+__activity provider:__ An application that delivers activities to the learner - ie: browser, e-reader, mobile app, etc.  
+__experience:__ A notable interaction or event between the learner(s) and an activity - ie: took a test, completed the activity, answered a question, etc.  
+__Experience API (xAPI):__ A specification created to provide a way to represent and report experiences between a learner, or group of learners, and some activity.  
+__Internationalized Resource Identifier (IRI):__ A format of an identifier, related to URI, that supports the Universal Character Set (Unicode). See [RFC 3987](http://tools.ietf.org/html/rfc3987).  
+__Statement:__ The xAPI data format for representing learner experience data. See [xAPI Statement](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#statement).
 
 ## 1.0 Purpose
 The Experience API (xAPI) was created in response to the eLearning community’s desire to modernize the Sharable Content Object Reference Model (SCORM) capabilities, which was initially developed to make courseware interoperable with learning management systems. Since its introduction in 2000, SCORM has played a critical role in the proliferation of online training and education courses. The Experience API introduces a new paradigm for tracking and recording learning-related data. We can track learners as they perform work tasks, produce work outputs, communicate, collaborate, and engage in just about any other online activity. This API uses a flexible data format that supports many different use cases and needs. However with this flexibility arises the need for developers to formalize the data they track and what that data means. By formalizing the data reported by content and the format of that data, tools can be created that can make sense of that data.
