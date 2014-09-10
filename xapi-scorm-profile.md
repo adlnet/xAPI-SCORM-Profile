@@ -10,7 +10,20 @@
 >Unless required by applicable law or agreed to in writing, software distributed under the License 
 >is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express 
 >or implied. See the License for the specific language governing permissions and limitations under 
->the License."
+>the License."  
+
+## Table of Contents
+* [Glossary](#glossary)
+* 1.0 [Purpose](#10-purpose)
+* 2.0 [When to Use this Profile](#20-when-to-use-this-profile)
+* 3.0 [How to Use this Profile](#30-how-to-use-this-profile)
+* 4.0 [Launching and Initializing Content](#40-launching-and-initializing-content)
+* 5.0 [Supporting the SCORM Temporal Model](#50-supporting-the-scorm-temporal-model)
+* 6.0 [Mapping the SCORM Data Model to xAPI Statements](#60-mapping-the-scorm-data-model-to-xapi-statements)
+* 7.0 [Retrieving and Interpreting xAPI Statements](#70-retrieving-and-interpreting-xapi-statements)
+* [Appendix](#appendix)
+
+## Glossary
 
 ## 1.0 Purpose
 The xAPI was created in response to the eLearning community’s desire to modernize the Sharable Content Object Reference Model (SCORM) capabilities, which was initially developed to make courseware interoperable with learning management systems. Since its introduction in 2000, SCORM has played a critical role in the proliferation of online training and education courses. The Experience API (xAPI) introduces a new paradigm for tracking and recording learning-related data. We can track learners as they perform work tasks, produce work outputs, communicate, collaborate, and engage in just about any other online activity. This API uses a flexible data format that supports many different use cases and needs. However with this flexibility arises the need for developers to formalize the data they track and what that data means. By formalizing the data reported by content and the format of that data, tools can be created that can make sense of that data.
