@@ -592,6 +592,9 @@ __Experience API Statement:__
 }
 ```  
 
+#### Note About Default Status
+It was a common practice to set a default status on SCOs in SCORM. Sometimes variations in how an LMS handled a status, if not reported by the activity, caused issues in getting consistent results. Developers often tried to resolve this default status by setting the status in the activity upon launch. Many SCOs at launch will set completion status to incomplete, success status to failed and a score scaled to 0.0. This often works because the LMS is only required to save the latest value for an element of the latest attempt. But since an LRS keeps all records it can start to cause conflicts or confusing results. So to try to prevent these issues, it is strongly recommended not to report a default status.  
+
 #### Interactions
 Interactions can be recorded using the xAPI. Interactions can be described in the xAPI using a predefined format that maps to SCORM interactions. Activity providers and activities shall use the ADL Verb `http://adlnet.gov/expapi/verbs/responded`, the result.response attribute of a statement for the response, and an activity definition as described in the xAPI specification to report the learner’s responses for an interaction. See the [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interaction-activities) section and the [interaction appendix](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#AppendixC) for more details.
 
@@ -775,10 +778,7 @@ statements/?agent={"account":{"homePage":"http://mycontent.example.com", "name":
 From those results, find the latest statements by ordering them by the timestamp property and then using the statements with the attemptId from the latest statements.
 
 #### Time
-All statements submitted by activity providers and activities following this profile are required to include a timestamp. Use of this timestamp property allows systems to create a timeline of the statements. Using this timeline can help resolve conflicts where the same property for the same granularity, authority, and attempt exist. In this case the most recent statement takes precedence. For example, if a SCO starts and reports that the learner failed this attempt, then the learner takes a test and passes this attempt, since the passed statement is the most recent, tools will use this one for the status of the attempt.
-
-### Note About Default Status
-It was a common practice to set a default status on SCOs in SCORM. Sometimes variations in how an LMS handled a status, if not reported by the activity, caused issues in getting consistent results. Developers often tried to resolve this default status by setting the status in the activity upon launch. Many SCOs at launch will set completion status to incomplete, success status to failed and a score scaled to 0.0. This often works because the LMS is only required to save the latest value for an element of the latest attempt. But since an LRS keeps all records it can start to cause conflicts or confusing results. So to try to prevent these issues, it is strongly recommended not to report a default status.  
+All statements submitted by activity providers and activities following this profile are required to include a timestamp. Use of this timestamp property allows systems to create a timeline of the statements. Using this timeline can help resolve conflicts where the same property for the same granularity, authority, and attempt exist. In this case the most recent statement takes precedence. For example, if a SCO starts and reports that the learner failed this attempt, then the learner takes a test and passes this attempt, since the passed statement is the most recent, tools will use this one for the status of the attempt.  
 
 ## Appendix
 
