@@ -65,7 +65,7 @@ However there are use cases that are difficult if not impossible to meet with SC
   - Reporting and data access requirements are not standardized in SCORM resulting in proprietary, LMS-specific, reporting functionality that can differ between vendors.
 
 ## 3.0 How to Use this Profile
-This document is intended to be used in addition to the xAPI specification. All communication, data formats and experiences shall follow the requirements in the xAPI specification. The guidance provided in this document is to add information specifically to support SCORM communications in xAPI format.  
+This document is intended to be used in addition to the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md). All communication, data formats and experiences shall follow the requirements in the xAPI specification. The guidance provided in this document is to add information specifically to support SCORM communications in xAPI format.  
 
 ### 3.1 Supporting SCORM Features
 SCORM is a mature and formal specification that allows for delivering content and tracking learner’s progress. By identifying the key features in SCORM, it is possible to provide guidance on how to implement the same features with the xAPI, such as:
@@ -213,7 +213,7 @@ __Guidelines for Activity IRI Contruction__
   - Objective path is any IRI path to the objective activity definition, ie `if-else/`
 
 ###### Activity Definition
-The activity definition provides information about the activity. At a minimum all statements will include an activity definition with a name and description. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
+The activity definition provides information about the activity. At a minimum all activities should include an activity definition with a name and description. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
   
 Activity definitions that differ from one that an LRS already has stored may not be accepted. It is recommended that organizations ensure that all references to the activity definition contain the same information. It is permissible for organizations to host their activity definitions at the location of the activity IRI. In this case the hosted definition is stored at the activity IRI location (IRL), and is retrievable by the LRS in application/json format. Additionally, the statements will not include the definition and instead expect the LRS to acquire the activity definition from its hosted location.
 
