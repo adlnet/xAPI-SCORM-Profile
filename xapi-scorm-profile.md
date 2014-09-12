@@ -410,9 +410,9 @@ __Experience API Statement:__
         }
     },
     "verb": {
-        "id": "http://adlnet.gov/expapi/verbs/terminated",
+        "id": "http://adlnet.gov/expapi/verbs/passed",
         "display": {
-            "en-US": "terminated"
+            "en-US": "passed"
         }
     },
     "object": {
