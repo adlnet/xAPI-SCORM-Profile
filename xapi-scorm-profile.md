@@ -123,7 +123,7 @@ __Group__
 ```  
 
 #### Verb
-Verbs in the xAPI spec represent the action that is being recorded for this experience, such as “read” a book and “answered” a question. The xAPI allows for any verb to be used within a statement assuming it follows the rules defined in the xAPI specification. However this flexibility causes issues when trying to report on the data. For consistency and interoperability, those implementing this profile shall use the verbs maintained by ADL at http://adlnet.gov/expapi/verbs/, and use the definition and usage on the ADL Verb pages as guidance.  
+Verbs in the xAPI spec represent the action that is being recorded for this experience, such as "read" a book and "answered" a question. The xAPI allows for any verb to be used within a statement assuming it follows the rules defined in the xAPI specification. However this flexibility causes issues when trying to report on the data. For consistency and interoperability, those implementing this profile shall use the verbs maintained by ADL at http://adlnet.gov/expapi/verbs/, and use the definition and usage on the ADL Verb pages as guidance.  
 __Verb__  
 ``` javascript
 "verb":{
@@ -169,7 +169,7 @@ Some verbs have special meaning when related to SCORM. Implementers of this prof
   <tr>
     <td><a href="http://adlnet.gov/expapi/verbs/failed/index.html">failed</a></td>
     <td>cmi.success_status=failed<br>cmi.core.lesson_status=failed</td>
-    <td>The performance on this attempt did not meet the minimum threshold for the activiy</td>
+    <td>The performance on this attempt did not meet the minimum threshold for the activity</td>
     <td>course<br>SCO<br>objective<br>interaction</td>
   </tr>
   <tr>
@@ -181,7 +181,7 @@ Some verbs have special meaning when related to SCORM. Implementers of this prof
   <tr>
     <td><a href="http://adlnet.gov/expapi/verbs/completed/index.html">completed</a></td>
     <td>cmi.completion_status=completed<br>cmi.core.lesson_status=completed</td>
-    <td>The learner has experienced a suffiecient amount of the activity</td>
+    <td>The learner has experienced a sufficient amount of the activity</td>
     <td>course<br>SCO<br>objective<br>interaction</td>
   </tr>
 </table>
