@@ -603,9 +603,10 @@ Interactions can be recorded using the xAPI. Interactions can be described in th
 #### Objectives
 Objectives are represented as another activity. As such, statements about a learner’s score, success or completion status are reported just as they are for any other activity. But determining a consistent naming scheme for the objective ID makes it easier for reporting systems to understand the statements. For consistency the following guidance is recommended:
 - The combination of course IRI, SCO ID, and objective ID should consistently and uniquely identify a single objective
-- Local objective (SCO or activity level): `<courseIRI>/<SCOID>/objective/<objectiveID>`
-- Course objective (course level): `<courseIRI>/objective/<objectiveID>`
-- Global objective (for all courses): `<user defined IRI>/objective/<objective ID>`
+- Use the following IRI syntax when defining an objective:
+ - Local objective (SCO or activity level): `<courseIRI>/<SCOID>/objective/<objectiveID>`
+ - Course objective (course level): `<courseIRI>/objective/<objectiveID>`
+ - Global objective (for all courses): `<user defined IRI>/objective/<objective ID>`
 
 > NOTE: To indicate where this objective statement occurred, include the SCO IRI in the context activities parent array.  
 
@@ -705,13 +706,13 @@ __Sequencing and Navigation Global Objective__
 Storing learning experiences in an xAPI LRS is not the only consideration. Retrieving the learning experiences and interpreting what those statements mean is another aspect that needs guidance for consistent reporting and tracking. The following sections discuss the processes to identify results from activities and their meaning.
 
 ### Trusting the Statements
-Determining what statements are trusted and authoritative is open to the individual organization. The following are a few strategies that can be applied to your organizations’ needs.
+Determining which statements are trusted and authoritative is open to the individual organization. The following are a few strategies that can be applied to your organizations’ needs.
 
 #### Private LRS
 The safest way to ensure that the available statements in an LRS are trustworthy is to host an LRS within your organization. By controlling the environment that hosts the LRS, you ensure that the data contained in the LRS was submitted by authorized activity providers and activities. In this case, no other evaluation of the statements is necessary.
 
 #### Authority
-If the LRS is publicly hosted, the first way to identify statements you trust is to search based on the authority value. Each statement stored in an LRS has an authority value set to the agent who submitted the statement. This value is set by the LRS, and is based on the agent associated with the credentials used to submit the statement. A system wishing to only retrieve statements issued by certain activity providers or activities can filter the LRS results using those providers’ agent information.  
+If the LRS is publicly hosted, the first way to identify trusted statements is to search based on the authority value. Each statement stored in an LRS has an authority value set to the agent who submitted the statement. This value is set by the LRS, and is based on the agent associated with the credentials used to submit the statement. A system wishing to only retrieve statements issued by certain activity providers or activities can filter the LRS results using those providers’ agent information.  
   
 ##### Retrieving Statements Based on the Authority
 __Decoded:__  
@@ -726,7 +727,7 @@ GET
 statements?agent=%7B%E2%80%9Caccount%E2%80%9D%3A%7B%E2%80%9ChomePage%E2%80%9D%3A%E2%80%9Chttp%3A%2F%2Fadlnet.gov%2Faccounts%2F%E2%80%9D%2C%E2%80%9Cname%E2%80%9D%3A%E2%80%9C449-002%E2%80%9D%7D%7D&related_agents=true
 </pre>
 #### Signed Statements
-Another option for identifying the authenticity of a statement is by issuing signed statements. An activity provider may attach a JSON web signature to the statement. This digital signature can be retrieved from the LRS with the statement and verified before considering the statement in the results. See the xAPI Specification for [how to sign](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#44-signed-statements) and [retrieve signed statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements).
+Another option for identifying the authenticity of a statement is by issuing signed statements. A statement is signed by an activity provider attaching a JSON web signature to the statement. This digital signature can be retrieved from the LRS with the statement and verified before considering the statement in the results. See the xAPI Specification for [how to sign](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#44-signed-statements) and [retrieve signed statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements).
 
 ##### Retrieving Statements with their Attachments
 <pre>
@@ -737,13 +738,13 @@ statements?attachments=true
 ### Determining Status
 Due to activity providers and activities reporting to an LRS instead of an LMS, the determination of status might not be decided by an LMS. An LMS may still be used for the determination of a learner’s status, but it may also be determined by the activity provider or activities, reporting tools, or other client applications consuming the LRS data. 
 
-The method of determining status is up to those developing the activities. For example, activites within a course may report individual status statements and a final piece of content could look at the collection of results and report an overall status for the course. Or a reporting tool customized with an organization’s accepted passing threshold could collect scores from a course and evaluate them based on the organization threshold. The results of that evaluation could be reported to the LRS as the success for the course.  
+The method of determining status is up to those developing the activities. For example, activities within a course may report individual status statements and leverage a final piece of content to look at the collection of results and report an overall status for the course. Another example is a reporting tool customized with an organization’s accepted passing threshold collecting scores from a course and evaluating them based on the organization threshold. The results of that evaluation could be reported to the LRS as the success for the course.  
 
 ### Resolving Conflicts
 Statements in an LRS are stored as a stream of information. It is possible to retrieve statements that conflict. It might be that a learner initially failed a test but later tried again and passed. In the LRS that result would likely appear as two separate, and conflicting, statements. Another issue that might arise is that the SCOs or lessons within a course may report one result while the course reports an overall status of another result. The following rules shall be followed to resolve such conflicts.
 
 #### Granularity
-It is possible to report status of a course in three different levels of granularity: course, SCO/lesson, objective. Since an LRS makes no assumptions about the statements it receives and has no rules about how to evaluate the statements contained within, it is recommended that all evaluation, rollup of results, and final course status be reported by the activity provider, the activity or a trusted evaluation tool.  
+It is possible to report status of a course in three different levels of granularity: course, SCO/lesson, objective. Since an LRS makes no assumptions about the statements it receives and has no rules about how to evaluate the statements contained within, it is recommended that all evaluation, rollup of results and final course status be reported by the activity provider, the activity or a trusted evaluation tool.  
   
 For determining status based on granularity:
 - If a system consuming the statements finds a course status, it shall use that result. 
@@ -751,17 +752,17 @@ For determining status based on granularity:
 - And at the most granular level, the consuming tools may use the status of all of the objectives for each of the activities that include the course IRI as a parent activity in the context activities property.  
   
 #### Status
-It is recommended that all activities report as much information about a learner’s status in an activity as it can.  
-- At a minimum activities should report a success status, such as passed or failed. 
-  - If that does not make sense for the type of activity, the activity should report completion status of completed when it is determined the learner has completed the activity. 
-  - And finally the activity may report a score.
+It is recommended that all activities report as much information about a learner’s status in an activity as they can.  
+- At a minimum, activities should report a success status, such as passed or failed. 
+  - If a success status does not make sense for the type of activity, the activity should report completion status of completed when it is determined the learner has completed the activity. 
+  - The activity may report a score.
 - For tools using these results from the LRS, the activity status is first based on the success status, if found. 
-  - If there is no success status the tool may then use the completion status. 
+  - If there is no success status, the tool may then use the completion status. 
   - If there is no success or completion status the tool may use the score. 
-    - If the tool can determine success from the score - ie. it has a threshold to compare with the score - it is permitted to use that evaluation.
+    - If the tool can determine success from the score, i.e., it has a threshold to compare with the score, it is permitted to use that evaluation.
 
 #### Authority
-The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the activity, a teacher or a reporting tool. It is up to the organization to choose what agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
+The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the activity, a teacher or a reporting tool. It is up to the organization to choose which agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
 __Decoded__
 <pre>
 GET  
@@ -775,7 +776,7 @@ __Decoded__
 GET  
 statements/?agent={"account":{"homePage":"http://mycontent.example.com", "name":"334-009"}&activity=http://example.com/cs400/lesson01
 </pre>
-From those results, find the latest statements by ordering them by the timestamp property and then using the statements with the attemptId from the latest statements.
+From those results, find the latest statements by ordering them by the timestamp property and then using the statements with the attemptId from the latest statement.
 
 #### Time
 All statements submitted by activity providers and activities following this profile are required to include a timestamp. Use of this timestamp property allows systems to create a timeline of the statements. Using this timeline can help resolve conflicts where the same property for the same granularity, authority, and attempt exist. In this case the most recent statement takes precedence. For example, if a SCO starts and reports that the learner failed this attempt, then the learner takes a test and passes this attempt, since the passed statement is the most recent, tools will use this one for the status of the attempt.  
