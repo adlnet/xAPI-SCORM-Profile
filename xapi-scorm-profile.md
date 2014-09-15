@@ -198,9 +198,9 @@ Activity IDs are required to be [IRIs](http://en.wikipedia.org/wiki/Internationa
 ###### Course IRI
 The course IRI may be decided by the organization as long as it follows the IRI rules described in the xAPI spec. The activity provider or activity must support the launch courseIRI property, described in the launch section of this document, and update the course IRI to that property value if the local and launch-provided values differ. This allows for content to use the most up-to-date identifier in the context of the current launch.  
   
-__Guidelines for Activity IRI Contruction__  
-- follow the guidance described in the Internationalized Resource Identifier (IRI) section in this document
-- course IRIs should be in the format: `<scheme>://<authority>/<course path>`
+__Guidelines for Activity IRI Construction__  
+- Follow the guidance described in the Internationalized Resource Identifier (IRI) section in this document
+- Course IRIs should be in the format: `<scheme>://<authority>/<course path>`
   - Course path is any IRI path to the course activity definition, ie `courses/CS/101`
 - SCO IRIs should be in the format: `<courseIRI>/<sco path>`
   - SCO path is any IRI path to the SCO activity definition, ie `lesson/01`
@@ -259,7 +259,7 @@ __URL-encoded:__
 The LMS provides an endpoint that activity providers can query to retrieve the launch parameters. Web-based applications can still access this information via an AJAX GET request to the LMS provided endpoint. All other content would access this information in a similar way by issuing an HTTP GET request for the launch parameters.  
 __Request:__  
 ``` HTTP GET launch/?agentid=<learner id>&courseiri=<course iri> ```  
-> NOTE: How the activity provider get the learner id, course IRI and location of the endpoint is up to the content developer and the LMS.  
+> NOTE: How the activity provider gets the learner id, course IRI and location of the endpoint is up to the content developer and the LMS.  
   
 __Response:__  
 ``` javascript
@@ -290,17 +290,17 @@ To initialize an attempt on a SCO or course component, send a statement with the
 
 During the session, Statements are collected and sent to the LRS much like SCORM SCOs reporting to the LMS. Statements can be sent to the LRS either immediately or collected and sent as a bundle.
 
-To indicate termination of the SCO attempt, send a statement with the terminated ADL Verb, the object ID set to the IRI for this SCO, and the context activities parent activity set to the course activity IRI. 
+To indicate termination of the SCO attempt, send a statement with the terminated ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. 
 
-To suspend a SCO session, send a statement with the suspended ADL Verb, the object ID set to the IRI for this SCO, and the context activities parent activity set to the course activity IRI. And to resume the SCO session, send a statement with the resumed ADL Verb, the object ID set to the IRI for this SCO, and the context activities parent activity set to the course activity IRI. Continue to use the same attemptId query parameter as generated during the initialization process.
+To suspend a SCO session, send a statement with the suspended ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. And to resume the SCO session, send a statement with the resumed ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. Continue to use the same attemptId query parameter as generated during the initialization process.
 
-To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activities grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
+To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activity's grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
 
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
 The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way.  
 
 #### Entry
-Entry is used to indicate the attempt state of the activity - is this a new attempt on the activity or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb initialized and a new attemptId on the grouping activity. 
+Entry is used to indicate the attempt state of the activity - is this a new attempt on the activity or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb `initialized` and a new attemptId on the grouping activity. 
 
 __SCORM 2004:__ `cmi.entry=ab-initio`  
 __SCORM 1.2:__ `cmi.core.entry=ab-initio`  
@@ -348,7 +348,7 @@ __Experience API Statement:__
 ```  
 
 #### Exit
-Exit is used to to indicate the attempt state at the end of the session. It is possible to send an xAPI exited statement but in most cases the intended meaning is that the session has terminated in either a suspended or terminated state. This is accomplished by issuing a statement with the ADL Verb suspended and maintaining the current attemptId for future sessions, or with the ADL Verb terminated and a new attemptId for future sessions.
+Exit is used to indicate the attempt state at the end of the session. It is possible to send an xAPI exited statement but in most cases the intended meaning is that the session has terminated in either a suspended or terminated state. This is accomplished by issuing a statement with the ADL Verb `suspended` and maintaining the current attemptId for future sessions, or with the ADL Verb `terminated` and a new attemptId for future sessions.
 
 __SCORM 2004:__ `cmi.exit=normal`  
 __SCORM 1.2:__ `cmi.core.exit=""`  
@@ -396,7 +396,7 @@ __Experience API Statement:__
 ```  
 
 #### Success
-Success indicates whether the learner’s attempt was successful. Use of success is recommended. To report the success, the statement verb will be set to the ADL Verb passed or failed depending on the learner’s success. When applied to courses, SCOs, and objectives the success value is the determining factor of whether or not the learner passed the current activity attempt. This value directly maps to the SCORM data model element lesson_status or success_status.
+Success indicates whether the learner’s attempt was successful. Use of success is recommended. To report the success, the statement verb will be set to the ADL Verb `passed` or `failed` depending on the learner’s success. When applied to courses, SCOs and objectives, the success value is the determining factor of whether or not the learner passed the current activity attempt. This value directly maps to the SCORM data model element lesson_status or success_status.
 
 __SCORM 2004:__ `cmi.success_status=passed`  
 __SCORM 1.2:__ `cmi.core.lesson_status=passed`  
@@ -444,7 +444,7 @@ __Experience API Statement:__
 ```  
 
 #### Completion
-Completion indicates if the learner has completed the activity. Setting completion is optional. If it is not set, completion will be assumed by the success status of the activity - if the activity has a success status, completion is assumed to be complete; if the activity does not have a success status, completion is assumed to be incomplete. If it is determined that your activity must have a completion status, you may set it explicitly in one of two ways - either as a separate completed statement, or as the result of a success status statement.
+Completion indicates if the learner has completed the activity. Setting completion is optional. If it is not set, completion will be assumed by the success status of the activity. If the activity has a success status, completion is assumed to be complete; if the activity does not have a success status, completion is assumed to be incomplete. If it is determined that the activity must have a completion status, set it explicitly in one of two ways - either as a separate completed statement, or as the result of a success status statement.
 
 __SCORM 2004:__ `cmi.completion_status=completed`  
 __SCORM 1.2:__ `cmi.core.lesson_status=completed`  
@@ -601,7 +601,7 @@ Interactions can be recorded using the xAPI. Interactions can be described in th
 > NOTE: The IRI used to identify an interaction is recommended to follow the format: `<courseiri>/<scoid>/interaction/<interactionid>`  
 
 #### Objectives
-Objectives are represented as another activity. As such, statements about a learner’s score, success or completion status are reported just as they are for any other activity. But coming up with a consistent naming scheme for the objective ID makes it easier for reporting systems to understand the statements. For consistency the following guidance is recommended:
+Objectives are represented as another activity. As such, statements about a learner’s score, success or completion status are reported just as they are for any other activity. But determining a consistent naming scheme for the objective ID makes it easier for reporting systems to understand the statements. For consistency the following guidance is recommended:
 - The combination of course IRI, SCO ID, and objective ID should consistently and uniquely identify a single objective
 - Local objective (SCO or activity level): `<courseIRI>/<SCOID>/objective/<objectiveID>`
 - Course objective (course level): `<courseIRI>/objective/<objectiveID>`
