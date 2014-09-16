@@ -617,6 +617,7 @@ Objectives are represented as another activity. As such, statements about a lear
 __SCORM 2004:__ `cmi.objectives.n.success_status=passed`  
 __SCORM 1.2:__ `cmi.objectives.n.status=passed`  
 __Experience API Statement:__
+_Statement with Local Objective_
 ``` javascript
 {
    "actor":{
@@ -661,7 +662,7 @@ __Experience API Statement:__
    }
 }
 ```  
-__Sequencing and Navigation Global Objective__  
+_Statement with Sequencing and Navigation Global Objective_  
 ``` javascript
 {
    "actor":{
