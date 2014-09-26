@@ -1390,7 +1390,59 @@ statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attempt
 
 
 ### Complete SCORM to xAPI Data Model Mapping
+#### Comments From Learner
 
+#### Comments From LMS
+
+#### Completion Status
+
+#### Completion Threshold
+
+#### Credit
+
+#### Entry
+
+#### Exit
+
+#### Interactions
+
+#### Launch Data
+
+#### Learner ID
+
+#### Learner Name
+
+#### Learner Preferences
+##### Audio Level
+##### Language
+##### Delivery Speed
+##### Audio Captioning
+
+#### Location
+
+#### Max Time Allowed
+
+#### Mode
+
+#### Objectives
+
+#### Progress Measure
+
+#### Scaled Passing Score
+
+#### Score
+
+#### Session Time
+
+#### Success Status
+
+#### Suspend Data
+
+#### Time Limit Action
+
+#### Total Time
+
+#### ADL Data
 
 ### References
 Advanced Distributed Learning Initiative. (2012). _SCORM 2004 4th Edition Run-Time Environment (RTE) Version 1.1_. (SCORM 2004 4th Edition Specification). Alexandria, VA: Author. 
