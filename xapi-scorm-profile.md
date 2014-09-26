@@ -302,7 +302,7 @@ To suspend a SCO session, send a statement with the suspended ADL Verb, the obje
 To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activity's grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
 
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
-The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way.  
+The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way. A complete list of SCORM data model elements and their mapping to xAPI is listed in the [Appendix]().  
 
 #### Entry
 Entry is used to indicate the attempt state of the activity - is this a new attempt on the activity or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb `initialized` and a new attemptId on the grouping activity. 
@@ -1386,6 +1386,9 @@ _Unencoded for readability_
 GET  
 statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=[attempt guid]&related_activities=true
 ```  
+
+
+### Complete SCORM to xAPI Data Model Mapping
 
 
 ### References
