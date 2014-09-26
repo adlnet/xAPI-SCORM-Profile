@@ -27,6 +27,7 @@
 * 6.0 [Mapping the SCORM Data Model to xAPI Statements](#60-mapping-the-scorm-data-model-to-xapi-statements)
 * 7.0 [Retrieving and Interpreting xAPI Statements](#70-retrieving-and-interpreting-xapi-statements)
 * [Appendix](#appendix)
+  * [Common Scenarios](#common-scenarios) 
 
 ## Glossary
 ##### Activity:  
