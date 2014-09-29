@@ -1391,7 +1391,59 @@ statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attempt
 
 ### Complete SCORM to xAPI Data Model Mapping
 #### Comments From Learner
-
+Comments and Comments from Learner mapped to an Experience API Statement with the `commented` ADL Verb with the comment as the xAPI Statement result response value. For SCORM 2004 where there is also a timestamp and a location, use the statement timestamp attribute for the comment timestamp value and the Activity URI as the location.  
+<table>
+<tr>
+</tr>
+<td><pre>cmi.comments</pre></td>
+<td><pre>cmi.comments_from_learner</pre></td>
+<tr>
+<td><pre>
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/commented",
+      "display":{
+         "en-US":"commented"
+      }
+   },
+   "result":{
+      "response":"This is a great question. You do such a wonderful job teaching"
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+</pre></td>
+</tr>
+</table>
 #### Comments From LMS
 
 #### Completion Status
