@@ -1392,13 +1392,10 @@ statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attempt
 ### Complete SCORM to xAPI Data Model Mapping
 #### Comments From Learner
 Comments and Comments from Learner mapped to an Experience API Statement with the `commented` ADL Verb with the comment as the xAPI Statement result response value. For SCORM 2004 where there is also a timestamp and a location, use the statement timestamp attribute for the comment timestamp value and the Activity URI as the location.  
-<table>
-<tr>
-</tr>
-<td><pre>cmi.comments</pre></td>
-<td><pre>cmi.comments_from_learner</pre></td>
-<tr>
-<td><pre>
+__SCORM 2004:__ `cmi.comments_from_learner`  
+__SCORM 1.2:__ `cmi.comments`  
+__Experience API Statement:__   
+``` javascript
 {
    "actor":{
       "account":{
@@ -1441,9 +1438,8 @@ Comments and Comments from Learner mapped to an Experience API Statement with th
       }
    }
 }
-</pre></td>
-</tr>
-</table>
+```  
+
 #### Comments From LMS
 
 #### Completion Status
