@@ -1421,7 +1421,7 @@ __Experience API Statement:__
       }
    },
    "result":{
-      "response":"This is a great question. You do such a wonderful job teaching"
+      "response":"This is a great lesson. You do such a wonderful job teaching!"
    },
    "timestamp":"2014-09-29T18:18:24.316Z",
    "context":{
