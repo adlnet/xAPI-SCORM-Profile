@@ -1600,12 +1600,81 @@ State ID: http://adlnet.gov/xapi/profile/scorm/activity-state
 See [SCORM Activity State Object](#scorm-activity-state) for object format.  
 
 #### Max Time Allowed
+Max Time Allowed defines how long a learner can interact with an activity. This value is the same for all learners, and is made available for each activity. For those reasons, Max Time Allowed is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.max_time_allowed`  
+__SCORM 1.2:__ `cmi.student_data.max_time_allowed`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Mode
+Mode is used to indicate the presentation mode of the activity. This value is can vary for learners, and is made available for each activity. For those reasons, Mode is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.mode`  
+__SCORM 1.2:__ `cmi.core.lesson_mode`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
 
 #### Objectives
+See [Objectives](#objectives)  
 
 #### Progress Measure
+Progress Measure indicates how much progress has been made in the activity. This value can be stored as a Statement using the `progressed` ADL Verb and `result.score.scaled` for the value.  
+__SCORM 2004:__ `cmi.progress_measure`  
+__SCORM 1.2:__ N/A  
+__Experience API Statement:__   
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/progressed",
+      "display":{
+         "en-US":"progressed"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "result":{
+      "score":{
+         "scaled":0.75
+      }
+   },
+   "timestamp":"2014-09-29T18:18:24.316Z",
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+```  
 
 #### Scaled Passing Score
 
@@ -1634,6 +1703,22 @@ See [SCORM Activity State Object](#scorm-activity-state) for object format.
 <tr>
  <td>completion_threshold</td>
  <td>Number (0 to 1)</td>
+</tr>
+<tr>
+ <td>launch_data</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>max_time_allowed</td>
+ <td>Number (0 to *)</td>
+</tr>
+<tr>
+ <td>scaled_passing_score</td>
+ <td>Number (-1 to 1)</td>
+</tr>
+<tr>
+ <td>time_limit_action</td>
+ <td>String ("exit,message", "continue,message", "exit,no message", "continue,no message")</td>
 </tr>
 </table>
 
