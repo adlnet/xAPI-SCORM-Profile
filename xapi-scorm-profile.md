@@ -1456,7 +1456,7 @@ See [Completion](#completion)
 
 #### Completion Threshold
 Completion Threshold is a value that can be used to determine if an activity is complete. This value is the same for all learners, and is made available for each activity. For those reasons, Completion Threshold is available at the Activity Profile endpoint.  
-__SCORM 2004:__ `cmi.completion_status`  
+__SCORM 2004:__ `cmi.completion_threshold`  
 __SCORM 1.2:__ N/A    
 __Experience API:__  
 [Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
