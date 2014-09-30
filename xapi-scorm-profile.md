@@ -1739,8 +1739,18 @@ __Experience API Statement:__
 }
 ``` 
 #### Success Status
+See [Success](#success)  
 
 #### Suspend Data
+Suspend Data is the place to store state information of the content. This value may be large. To accomdate for this, the [SCORM Activity State Object](#scorm-activity-state) suspend_data property contains an IRI to the [Suspend Data State Object]().  
+__SCORM 2004:__ `cmi.suspend_data`  
+__SCORM 1.2:__ `cmi.suspend_data`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format. 
 
 #### Time Limit Action
 
@@ -1815,7 +1825,7 @@ __Experience API Statement:__
 </tr>
 <tr>
  <td>suspend_data</td>
- <td>String</td>
+ <td>IRI</td>
 </tr>
 <tr>
  <td>total_time</td>
@@ -1838,6 +1848,22 @@ __Experience API Statement:__
  <td>id</td>
  <td>IRI</td>
 </tr>
+</table>
+
+#### ADL Suspend Data Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>type</td>
+ <td>http://adlnet.gov/xapi/profile/scorm/types/adl-suspend-data</td>
+</tr>
+<tr>
+ <td>id</td>
+ <td>IRI</td>
+</tr>
+<tr>
+ <td>data</td>
+ <td>String</td>
 </table>
 
 #### ADL Data Objects
