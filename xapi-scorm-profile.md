@@ -1449,7 +1449,7 @@ __Experience API:__
 [Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
 activityId: The activity IRI  
 profileId: http://adlnet.gov/xapi/profile/scorm/activity-profile
-See [SCORM Activity Profile Object]() for object format.
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.
 
 #### Completion Status
 
@@ -1507,7 +1507,7 @@ See [SCORM Activity Profile Object]() for object format.
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
  <td>comments_from_lms</td>
- <td>[SCORM Activity Profile Comment Object]()</td>
+ <td>[SCORM Activity Profile Comment Object](#scorm-activity-profile-comment-object)</td>
 </tr>
 </table>
 
