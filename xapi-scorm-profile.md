@@ -1500,7 +1500,7 @@ __SCORM 2004:__ `cmi.learner_id`
 __SCORM 1.2:__ `cmi.core.student_id`  
 __Experience API:__   
 [Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
-Agent: The Agent associated with the profile.
+Agent: The Agent associated with the profile.  
 Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
 See [Actor Profile Object](#actor-profile) for object format.  
 
