@@ -1589,6 +1589,15 @@ State ID: http://adlnet.gov/xapi/profile/scorm/activity-state
 See [SCORM Activity State Object](#scorm-activity-profile) for object format.  
 
 #### Location
+An element to hold a location for the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.location`  
+__SCORM 1.2:__ `cmi.core.lesson_location`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-profile) for object format.  
 
 #### Max Time Allowed
 
