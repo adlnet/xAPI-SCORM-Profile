@@ -27,6 +27,8 @@
 * 6.0 [Mapping the SCORM Data Model to xAPI Statements](#60-mapping-the-scorm-data-model-to-xapi-statements)
 * 7.0 [Retrieving and Interpreting xAPI Statements](#70-retrieving-and-interpreting-xapi-statements)
 * [Appendix](#appendix)
+  * [Common Scenarios](#common-scenarios) 
+  * [SCORM xAPI Data Model Mapping](#complete-scorm-to-xapi-data-model-mapping)
 
 ## Glossary
 ##### Activity:  
@@ -251,9 +253,13 @@ Since xAPI activites do not need to be web-based, the means of initializing the 
 The activity is hosted on some web server and is launched in a web browser. This strategy is similar to SCORM content but is not required to be hosted by the LMS. In this scenario, the LMS, or some system responsible for knowing about the learner and this activity, launches the activity with the launch parameters.  
 __Example:__
 __Decoded for readability:__  
-``` http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https://lrs.adlnet.gov/xapi/&actor={"account":{"homePage":"http://lms.adlnet.gov/scorm/","name":"149893"}}&courseiri=http://adlnet.gov/courses/compsci/xxx ```  
+``` 
+http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https://lrs.adlnet.gov/xapi/&actor={"account":{"homePage":"http://lms.adlnet.gov/scorm/","name":"149893"}}&courseiri=http://adlnet.gov/courses/compsci/xxx 
+```  
 __URL-encoded:__  
-``` http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https%3A%2F%2Flrs.adlnet.gov%2Fxapi%2F&actor=%7B%22account%22%3A%7B%22homePage%22%3A%22http%3A%2F%2Flms.adlnet.gov%2Fscorm%2F%22%2C%22name%22%3A%22149893%22%7D%7D&courseiri=http%3A%2F%2Fadlnet.gov%2Fcourses%2Fcompsci%2Fxxx ```  
+``` 
+http://adlnet.gov/mycontent?entry=ab-initio&endpoint=https%3A%2F%2Flrs.adlnet.gov%2Fxapi%2F&actor=%7B%22account%22%3A%7B%22homePage%22%3A%22http%3A%2F%2Flms.adlnet.gov%2Fscorm%2F%22%2C%22name%22%3A%22149893%22%7D%7D&courseiri=http%3A%2F%2Fadlnet.gov%2Fcourses%2Fcompsci%2Fxxx 
+```  
 
 ### 4.2 LMS-Provided Endpoint
 The LMS provides an endpoint that activity providers can query to retrieve the launch parameters. Web-based applications can still access this information via an AJAX GET request to the LMS provided endpoint. All other content would access this information in a similar way by issuing an HTTP GET request for the launch parameters.  
@@ -297,7 +303,7 @@ To suspend a SCO session, send a statement with the suspended ADL Verb, the obje
 To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activity's grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
 
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
-The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way.  
+The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way. A complete list of SCORM data model elements and their mapping to xAPI is listed in the [Appendix](#complete-scorm-to-xapi-data-model-mapping).  
 
 #### Entry
 Entry is used to indicate the attempt state of the activity - is this a new attempt on the activity or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb `initialized` and a new attemptId on the grouping activity. 
@@ -612,7 +618,8 @@ Objectives are represented as another activity. As such, statements about a lear
 
 __SCORM 2004:__ `cmi.objectives.n.success_status=passed`  
 __SCORM 1.2:__ `cmi.objectives.n.status=passed`  
-__Experience API Statement:__
+__Experience API Statement:__  
+_Statement with Local Objective_  
 ``` javascript
 {
    "actor":{
@@ -657,7 +664,7 @@ __Experience API Statement:__
    }
 }
 ```  
-__Sequencing and Navigation Global Objective__  
+_Statement with Sequencing and Navigation Global Objective_  
 ``` javascript
 {
    "actor":{
@@ -1381,6 +1388,564 @@ GET
 statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=[attempt guid]&related_activities=true
 ```  
 
+
+### Complete SCORM to xAPI Data Model Mapping
+#### Comments From Learner
+SCORM 1.2 Comments and SCORM 2004 Comments from Learner mapped to an Experience API Statement. The `commented` ADL Verb is used with the comment as the xAPI Statement result response value. For SCORM 2004 where there is also a timestamp and a location, use the statement timestamp attribute for the comment timestamp value and the Activity URI as the location.  
+__SCORM 2004:__ `cmi.comments_from_learner`  
+__SCORM 1.2:__ `cmi.comments`  
+__Experience API Statement:__   
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/commented",
+      "display":{
+         "en-US":"commented"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "result":{
+      "response":"This is a great lesson. You do such a wonderful job teaching!"
+   },
+   "timestamp":"2014-09-29T18:18:24.316Z",
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+```  
+
+#### Comments From LMS
+Comments From LMS allows an activity to see comments about the content. The value is the same for all learners, and is made available for each activity. For those reasons, Comments From LMS is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.comments_from_lms`  
+__SCORM 1.2:__ `cmi.comments_from_lms`  
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Completion Status
+See [Completion](#completion)  
+
+#### Completion Threshold
+Completion Threshold is a value that can be used to determine if an activity is complete. This value is the same for all learners, and is made available for each activity. For those reasons, Completion Threshold is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.completion_threshold`  
+__SCORM 1.2:__ N/A    
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Credit
+Credit is used to indicate if an activity attempt status should be credited. This value is can vary for learners, and is made available for each activity. For those reasons, Credit is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.credit`  
+__SCORM 1.2:__ `cmi.core.credit`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+
+#### Entry
+See [Entry](#entry)  
+
+#### Exit
+See [Exit](#exit)  
+
+#### Interactions
+See [Interactions](#interactions)  
+
+#### Launch Data
+Launch Data provides data to the activity to help initialize the content. The value is the same for all learners, and is made available for each activity. For those reasons, Launch Data is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.launch_data`  
+__SCORM 1.2:__ `cmi.launch_data`  
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Learner ID
+Learner ID contains the identifier associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Actor Profile Object](#actor-profile).  
+__SCORM 2004:__ `cmi.learner_id`   
+__SCORM 1.2:__ `cmi.core.student_id`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format.  
+
+#### Learner Name
+Learner Name contains the name associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Actor Profile Object](#actor-profile).  
+__SCORM 2004:__ `cmi.learner_name`   
+__SCORM 1.2:__ `cmi.core.student_name`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format.  
+
+#### Learner Preferences
+Preferences set by the learner about how the content is presented. These values are editable by the learner and span the attempts on the activity. Due to this, specific learner preference settings may be stored in the [SCORM Activity State Object](#scorm-activity-state). SCORM also describes that default values may be defined for the learner. These default values may be stored in the [Actor Profile Object](#actor-profile).
+##### Default Values
+###### Audio Level
+__SCORM 2004:__ `cmi.learner_preference.audio_level`   
+__SCORM 1.2:__ `cmi.student_preference.audio`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format.  
+###### Language
+__SCORM 2004:__ `cmi.learner_preference.language`   
+__SCORM 1.2:__ `cmi.student_preference.language`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format. 
+###### Delivery Speed
+__SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
+__SCORM 1.2:__ `cmi.student_preference.speed`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format. 
+###### Audio Captioning
+__SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
+__SCORM 1.2:__ `cmi.student_preference.text`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format.  
+
+##### Content Specific Values
+###### Audio Level
+__SCORM 2004:__ `cmi.learner_preference.audio_level`   
+__SCORM 1.2:__ `cmi.student_preference.audio`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.   
+###### Language
+__SCORM 2004:__ `cmi.learner_preference.language`   
+__SCORM 1.2:__ `cmi.student_preference.language`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format. 
+###### Delivery Speed
+__SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
+__SCORM 1.2:__ `cmi.student_preference.speed`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format. 
+###### Audio Captioning
+__SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
+__SCORM 1.2:__ `cmi.student_preference.text`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+
+#### Location
+An element to hold a location for the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.location`  
+__SCORM 1.2:__ `cmi.core.lesson_location`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+
+#### Max Time Allowed
+Max Time Allowed defines how long a learner can interact with an activity. This value is the same for all learners, and is made available for each activity. For those reasons, Max Time Allowed is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.max_time_allowed`  
+__SCORM 1.2:__ `cmi.student_data.max_time_allowed`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Mode
+Mode is used to indicate the presentation mode of the activity. This value is can vary for learners, and is made available for each activity. For those reasons, Mode is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.mode`  
+__SCORM 1.2:__ `cmi.core.lesson_mode`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+
+#### Objectives
+See [Objectives](#objectives)  
+
+#### Progress Measure
+Progress Measure indicates how much progress has been made in the activity. This value can be stored as a Statement using the `progressed` ADL Verb and `result.score.scaled` for the value.  
+__SCORM 2004:__ `cmi.progress_measure`  
+__SCORM 1.2:__ N/A  
+__Experience API Statement:__   
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/progressed",
+      "display":{
+         "en-US":"progressed"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "result":{
+      "score":{
+         "scaled":0.75
+      }
+   },
+   "timestamp":"2014-09-29T18:18:24.316Z",
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+```  
+
+#### Scaled Passing Score
+The score required for the learner to pass the content. This value is the same for all learners, and is made available for each activity. For those reasons, Scaled Passing Score is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.scaled_passing_score`  
+__SCORM 1.2:__ `cmi.student_data.mastery_score`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Score
+See [Score](#score)  
+
+#### Session Time
+Session Time indicates how much time has been spent in the activity during a specific session. This value can be stored as the `result.duration` property in a `terminated` or `suspended` Statement.  
+__SCORM 2004:__ `cmi.session_time`  
+__SCORM 1.2:__ `cmi.core.session_time`  
+__Experience API Statement:__   
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/terminated",
+      "display":{
+         "en-US":"terminated"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "result":{
+      "duration":"PT2H30M5S"
+   },
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+``` 
+#### Success Status
+See [Success](#success)  
+
+#### Suspend Data
+Suspend Data is the place to store state information of the content. This value may be large. To accomdate for this, the [SCORM Activity State Object](#scorm-activity-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
+__SCORM 2004:__ `cmi.suspend_data`  
+__SCORM 1.2:__ `cmi.suspend_data`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: The IRI stored in the SCORM Activity State suspend_data property.  
+See [SCORM Activity State Object](#scorm-activity-state) for object format. 
+
+#### Time Limit Action
+Time Limit Action defines what the content should do when the time limit has been surpassed. This value is the same for all learners, and is made available for each activity. For those reasons, Time Limit Action is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.time_limit_action`  
+__SCORM 1.2:__ `cmi.student_data.time_limit_action`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Total Time
+An element to hold a total time spent interacting with the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.total_time`  
+__SCORM 1.2:__ `cmi.core.total_time`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+
+#### ADL Data
+ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accomdate for this, the [SCORM Activity State Object](#scorm-activity-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
+__SCORM 2004:__ `adl.data`  
+__SCORM 1.2:__ N/A      
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: The IRI stored in the SCORM Activity State adl_data property.  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+
+
+### XAPI SCORM Data Objects
+#### SCORM Activity Profile
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>comments_from_lms</td>
+ <td><a href="#scorm-activity-profile-comment-object">SCORM Activity Profile Comment Object</a></td>
+</tr>
+<tr>
+ <td>completion_threshold</td>
+ <td>Number (0 to 1)</td>
+</tr>
+<tr>
+ <td>launch_data</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>max_time_allowed</td>
+ <td>Number (0 to *)</td>
+</tr>
+<tr>
+ <td>scaled_passing_score</td>
+ <td>Number (-1 to 1)</td>
+</tr>
+<tr>
+ <td>time_limit_action</td>
+ <td>String ("exit,message", "continue,message", "exit,no message", "continue,no message")</td>
+</tr>
+</table>
+
+#### SCORM Activity Profile Comment Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>comment</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>location</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>timestamp</td>
+ <td>Timestamp <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp">ISO 8601</a></td>
+</table>
+
+#### SCORM Activity State
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>credit</td>
+ <td>String ("credit", "no-credit")</td>
+</tr>
+<tr>
+ <td>lesson_mode</td>
+ <td>String ("browse", "normal", "review")</td>
+</tr>
+<tr>
+ <td>location</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>preference</td>
+ <td><a href="#preference-object">Preference Object</a></td>
+</tr>
+<tr>
+ <td>suspend_data</td>
+ <td>IRI</td>
+</tr>
+<tr>
+ <td>total_time</td>
+ <td>Formatted according to <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> with a precision of 0.01 seconds</td>
+</tr>
+<tr>
+ <td>adl_data</td>
+ <td>Array of <a href="#data-object">Data Objects</a></td>
+</tr>
+</table>
+
+#### Data Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>type</td>
+ <td>IRI</td>
+</tr>
+<tr>
+ <td>id</td>
+ <td>IRI</td>
+</tr>
+</table>
+
+#### SCORM Suspend Data Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>type</td>
+ <td>http://adlnet.gov/xapi/profile/scorm/types/adl-suspend-data</td>
+</tr>
+<tr>
+ <td>id</td>
+ <td>IRI</td>
+</tr>
+<tr>
+ <td>data</td>
+ <td>String</td>
+</table>
+
+#### ADL Data Objects
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>type</td>
+ <td>http://adlnet.gov/xapi/profile/scorm/types/adl-data</td>
+</tr>
+<tr>
+ <td>id</td>
+ <td>IRI</td>
+</tr>
+<tr>
+ <td>store</td>
+ <td>String</td>
+</table>
+
+#### Actor Profile
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>learner_id</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>learner_name</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>preference</td>
+ <td><a href="#preference-object">Preference Object</a></td>
+</tr>
+</table>
+
+#### Preference Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>audio_level</td>
+ <td>Number (0 to *)</td>
+</tr>
+<tr>
+ <td>language</td>
+ <td>String (language code <a href="http://tools.ietf.org/html/rfc5646">RFC 5646</a></td>
+</tr>
+<tr>
+ <td>delivery_speed</td>
+ <td>Number (0 to *)</td>
+</tr>
+<tr>
+ <td>audio_captioning</td>
+ <td>Number (-1 [off], 0 [no change], 1 [on])</td>
+</tr>
+</table>
 
 ### References
 Advanced Distributed Learning Initiative. (2012). _SCORM 2004 4th Edition Run-Time Environment (RTE) Version 1.1_. (SCORM 2004 4th Edition Specification). Alexandria, VA: Author. 
