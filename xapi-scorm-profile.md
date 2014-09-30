@@ -1495,7 +1495,7 @@ Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile
 See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Learner ID
-Learner ID contains the identifier associated with a learner in the LMS. This value is may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value may also be set in the [Actor Profile Object](#actor-profile).  
+Learner ID contains the identifier associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Actor Profile Object](#actor-profile).  
 __SCORM 2004:__ `cmi.learner_id`   
 __SCORM 1.2:__ `cmi.core.student_id`  
 __Experience API:__   
@@ -1505,12 +1505,88 @@ Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile
 See [Actor Profile Object](#actor-profile) for object format.  
 
 #### Learner Name
+Learner Name contains the name associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Actor Profile Object](#actor-profile).  
+__SCORM 2004:__ `cmi.learner_name`   
+__SCORM 1.2:__ `cmi.core.student_name`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format.  
 
 #### Learner Preferences
-##### Audio Level
-##### Language
-##### Delivery Speed
-##### Audio Captioning
+Preferences set by the learner about how the content is presented. These values are editable by the learner and span the attempts on the activity. Due to this, specific learner preference settings may be stored in the [SCORM Activity State Object](#scorm-activity-state). SCORM also describes that default values may be defined for the learner. These default values may be stored in the [Actor Profile Object](#actor-profile).
+##### Default Values
+###### Audio Level
+__SCORM 2004:__ `cmi.learner_preference.audio_level`   
+__SCORM 1.2:__ `cmi.student_preference.audio`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format.  
+###### Language
+__SCORM 2004:__ `cmi.learner_preference.language`   
+__SCORM 1.2:__ `cmi.student_preference.language`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format. 
+###### Delivery Speed
+__SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
+__SCORM 1.2:__ `cmi.student_preference.speed`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format. 
+###### Audio Captioning
+__SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
+__SCORM 1.2:__ `cmi.student_preference.text`  
+__Experience API:__   
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format.  
+
+##### Content Specific Values
+###### Audio Level
+__SCORM 2004:__ `cmi.learner_preference.audio_level`   
+__SCORM 1.2:__ `cmi.student_preference.audio`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-profile) for object format.   
+###### Language
+__SCORM 2004:__ `cmi.learner_preference.language`   
+__SCORM 1.2:__ `cmi.student_preference.language`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-profile) for object format. 
+###### Delivery Speed
+__SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
+__SCORM 1.2:__ `cmi.student_preference.speed`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-profile) for object format. 
+###### Audio Captioning
+__SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
+__SCORM 1.2:__ `cmi.student_preference.text`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-profile) for object format.  
 
 #### Location
 
@@ -1582,6 +1658,10 @@ See [Actor Profile Object](#actor-profile) for object format.
 <tr>
  <td>location</td>
  <td>String</td>
+</tr>
+<tr>
+ <td>preference</td>
+ <td><a href="#preference-object">Preference Object</a></td>
 </tr>
 <tr>
  <td>suspend_data</td>
