@@ -1495,10 +1495,10 @@ Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile
 See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Learner ID
-Learner ID contains the identifier associated with a learner in the LMS. This value is may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value may also be set in the [Actor Profile Object](#actor-profile).
-__SCORM 2004:__ `cmi.learner_id`  
-__SCORM 1.2:__ `cmi.core.student_id` 
-__Experience API:__  
+Learner ID contains the identifier associated with a learner in the LMS. This value is may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value may also be set in the [Actor Profile Object](#actor-profile).  
+__SCORM 2004:__ `cmi.learner_id`   
+__SCORM 1.2:__ `cmi.core.student_id`  
+__Experience API:__   
 [Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
 Agent: The Agent associated with the profile.
 Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
