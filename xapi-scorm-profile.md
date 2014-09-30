@@ -1473,7 +1473,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-profile) for object format.  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
 
 #### Entry
 See [Entry](#entry)  
@@ -1559,7 +1559,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-profile) for object format.   
+See [SCORM Activity State Object](#scorm-activity-state) for object format.   
 ###### Language
 __SCORM 2004:__ `cmi.learner_preference.language`   
 __SCORM 1.2:__ `cmi.student_preference.language`  
@@ -1568,7 +1568,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-profile) for object format. 
+See [SCORM Activity State Object](#scorm-activity-state) for object format. 
 ###### Delivery Speed
 __SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
 __SCORM 1.2:__ `cmi.student_preference.speed`  
@@ -1577,7 +1577,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-profile) for object format. 
+See [SCORM Activity State Object](#scorm-activity-state) for object format. 
 ###### Audio Captioning
 __SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
 __SCORM 1.2:__ `cmi.student_preference.text`  
@@ -1586,7 +1586,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-profile) for object format.  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
 
 #### Location
 An element to hold a location for the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
@@ -1597,7 +1597,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-profile) for object format.  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
 
 #### Max Time Allowed
 
