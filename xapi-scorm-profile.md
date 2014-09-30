@@ -1524,7 +1524,7 @@ See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.
 </tr>
 <tr>
  <td>timestamp</td>
- <td>Timestamp [ISO 8601](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp)</td>
+ <td>Timestamp <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp">ISO 8601</a></td>
 </table>
 
 ### References
