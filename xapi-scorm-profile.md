@@ -1476,14 +1476,33 @@ State ID: http://adlnet.gov/xapi/profile/scorm/activity-state
 See [SCORM Activity State Object](#scorm-activity-profile) for object format.  
 
 #### Entry
+See [Entry](#entry)  
 
 #### Exit
+See [Exit](#exit)  
 
 #### Interactions
+See [Interactions](#interactions)  
 
 #### Launch Data
+Launch Data provides data to the activity to help initialize the content. The value is the same for all learners, and is made available for each activity. For those reasons, Launch Data is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.launch_data`  
+__SCORM 1.2:__ `cmi.launch_data`  
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Learner ID
+Learner ID contains the identifier associated with a learner in the LMS. This value is may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value may also be set in the [Actor Profile Object](#actor-profile).
+__SCORM 2004:__ `cmi.learner_id`  
+__SCORM 1.2:__ `cmi.core.student_id` 
+__Experience API:__  
+[Actor Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.
+Profile ID: http://adlnet.gov/xapi/profile/scorm/actor-profile  
+See [Actor Profile Object](#actor-profile) for object format.  
 
 #### Learner Name
 
@@ -1610,6 +1629,14 @@ See [SCORM Activity State Object](#scorm-activity-profile) for object format.
 #### Actor Profile
 <table>
 <tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>learner_id</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>learner_name</td>
+ <td>String</td>
+</tr>
 <tr>
  <td>preference</td>
  <td><a href="#preference-object">Preference Object</a></td>
