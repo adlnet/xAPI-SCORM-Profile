@@ -1442,6 +1442,14 @@ __Experience API Statement:__
 ```  
 
 #### Comments From LMS
+Comments From LMS allows an activity to see comments about the content. The value is the same for all learners, and is made available for each activity. For those reasons, Comments From LMS is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.comments_from_lms`  
+__SCORM 1.2:__ `cmi.comments_from_lms`  
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+activityId: The activity IRI  
+profileId: http://adlnet.gov/xapi/profile/scorm/activity-profile
+See [SCORM Activity Profile Object]() for object format.
 
 #### Completion Status
 
@@ -1492,6 +1500,32 @@ __Experience API Statement:__
 #### Total Time
 
 #### ADL Data
+
+### XAPI SCORM Data Objects
+#### SCORM Activity Profile
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>comments_from_lms</td>
+ <td>[SCORM Activity Profile Comment Object]()</td>
+</tr>
+</table>
+
+#### SCORM Activity Profile Comment Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>comment</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>location</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>timestamp</td>
+ <td>Timestamp [ISO 8601](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp)</td>
+</table>
 
 ### References
 Advanced Distributed Learning Initiative. (2012). _SCORM 2004 4th Edition Run-Time Environment (RTE) Version 1.1_. (SCORM 2004 4th Edition Specification). Alexandria, VA: Author. 
