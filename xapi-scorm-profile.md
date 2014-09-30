@@ -1677,11 +1677,67 @@ __Experience API Statement:__
 ```  
 
 #### Scaled Passing Score
+The score required for the learner to pass the content. This value is the same for all learners, and is made available for each activity. For those reasons, Scaled Passing Score is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.scaled_passing_score`  
+__SCORM 1.2:__ `cmi.student_data.mastery_score`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Score
+See [Score](#score)  
 
 #### Session Time
-
+Session Time indicates how much time has been spent in the activity during a specific session. This value can be stored as the `result.duration` property in a `terminated` or `suspended` Statement.  
+__SCORM 2004:__ `cmi.session_time`  
+__SCORM 1.2:__ `cmi.core.session_time`  
+__Experience API Statement:__   
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/terminated",
+      "display":{
+         "en-US":"terminated"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "result":{
+      "duration":"PT2H30M5S"
+   },
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+``` 
 #### Success Status
 
 #### Suspend Data
