@@ -1749,12 +1749,29 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: The IRI stored in the SCORM Activity State suspend_data property.  
 See [SCORM Activity State Object](#scorm-activity-state) for object format. 
 
 #### Time Limit Action
+Time Limit Action defines what the content should do when the time limit has been surpassed. This value is the same for all learners, and is made available for each activity. For those reasons, Time Limit Action is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.time_limit_action`  
+__SCORM 1.2:__ `cmi.student_data.time_limit_action`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Total Time
+An element to hold a total time spent interacting with the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.total_time`  
+__SCORM 1.2:__ `cmi.core.total_time`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
 
 #### ADL Data
 
@@ -1829,7 +1846,7 @@ See [SCORM Activity State Object](#scorm-activity-state) for object format.
 </tr>
 <tr>
  <td>total_time</td>
- <td>Number (0 to *)</td>
+ <td>Formatted according to <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> with a precision of 0.01 seconds</td>
 </tr>
 <tr>
  <td>data</td>
