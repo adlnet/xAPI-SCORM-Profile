@@ -1465,6 +1465,15 @@ Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile
 See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Credit
+Credit is used to indicate if an activity attempt status should be credited. This value is can vary for learners, and is made available for each activity. For those reasons, Credit is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.credit`  
+__SCORM 1.2:__ `cmi.core.credit`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+See [SCORM Activity State Object](#scorm-activity-profile) for object format.  
 
 #### Entry
 
@@ -1520,7 +1529,7 @@ See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.
 </tr>
 <tr>
  <td>completion_threshold</td>
- <td>Number in Range 0 to 1</td>
+ <td>Number (0 to 1)</td>
 </tr>
 </table>
 
@@ -1538,6 +1547,94 @@ See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.
 <tr>
  <td>timestamp</td>
  <td>Timestamp <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp">ISO 8601</a></td>
+</table>
+
+#### SCORM Activity State
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>credit</td>
+ <td>String ("credit", "no-credit")</td>
+</tr>
+<tr>
+ <td>lesson_mode</td>
+ <td>String ("browse", "normal", "review")</td>
+</tr>
+<tr>
+ <td>location</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>suspend_data</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>total_time</td>
+ <td>Number (0 to *)</td>
+</tr>
+<tr>
+ <td>data</td>
+ <td>Array of <a href="#data-object">Data Objects</a></td>
+</tr>
+</table>
+
+#### Data Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>type</td>
+ <td>IRI</td>
+</tr>
+<tr>
+ <td>id</td>
+ <td>IRI</td>
+</tr>
+</table>
+
+#### ADL Data Objects
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>type</td>
+ <td>http://adlnet.gov/xapi/profile/scorm/types/adl-data</td>
+</tr>
+<tr>
+ <td>id</td>
+ <td>IRI</td>
+</tr>
+<tr>
+ <td>store</td>
+ <td>String</td>
+</table>
+
+#### Actor Profile
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>preference</td>
+ <td><a href="#preference-object">Preference Object</a></td>
+</tr>
+</table>
+
+#### Preference Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>audio_level</td>
+ <td>Number (0 to *)</td>
+</tr>
+<tr>
+ <td>language</td>
+ <td>String (language code <a href="http://tools.ietf.org/html/rfc5646">RFC 5646</a></td>
+</tr>
+<tr>
+ <td>delivery_speed</td>
+ <td>Number (0 to *)</td>
+</tr>
+<tr>
+ <td>audio_captioning</td>
+ <td>Number (-1 [off], 0 [no change], 1 [on])</td>
+</tr>
 </table>
 
 ### References
