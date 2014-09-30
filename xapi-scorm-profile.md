@@ -1447,11 +1447,12 @@ __SCORM 2004:__ `cmi.comments_from_lms`
 __SCORM 1.2:__ `cmi.comments_from_lms`  
 __Experience API:__  
 [Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
-activityId: The activity IRI  
-profileId: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
 See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Completion Status
+See [Completion](#completion)  
 
 #### Completion Threshold
 
