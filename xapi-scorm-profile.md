@@ -1742,7 +1742,7 @@ __Experience API Statement:__
 See [Success](#success)  
 
 #### Suspend Data
-Suspend Data is the place to store state information of the content. This value may be large. To accomdate for this, the [SCORM Activity State Object](#scorm-activity-state) suspend_data property contains an IRI to the [Suspend Data State Object]().  
+Suspend Data is the place to store state information of the content. This value may be large. To accomdate for this, the [SCORM Activity State Object](#scorm-activity-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
 __Experience API:__  
@@ -1774,6 +1774,16 @@ State ID: http://adlnet.gov/xapi/profile/scorm/activity-state
 See [SCORM Activity State Object](#scorm-activity-state) for object format.  
 
 #### ADL Data
+ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accomdate for this, the [SCORM Activity State Object](#scorm-activity-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
+__SCORM 2004:__ `adl.data`  
+__SCORM 1.2:__ N/A      
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: The IRI stored in the SCORM Activity State adl_data property.  
+See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+
 
 ### XAPI SCORM Data Objects
 #### SCORM Activity Profile
@@ -1849,7 +1859,7 @@ See [SCORM Activity State Object](#scorm-activity-state) for object format.
  <td>Formatted according to <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> with a precision of 0.01 seconds</td>
 </tr>
 <tr>
- <td>data</td>
+ <td>adl_data</td>
  <td>Array of <a href="#data-object">Data Objects</a></td>
 </tr>
 </table>
@@ -1867,7 +1877,7 @@ See [SCORM Activity State Object](#scorm-activity-state) for object format.
 </tr>
 </table>
 
-#### ADL Suspend Data Object
+#### SCORM Suspend Data Object
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
