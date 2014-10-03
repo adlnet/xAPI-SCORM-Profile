@@ -1,4 +1,9 @@
 # Experience API SCORM Profile
+# DRAFT
+This document is in progress. It will remain in draft until after a review process.  
+The information in this document may change.  
+If you would like to offer comments or issues, please submit an [issue](https://github.com/adlnet/xAPI-SCORM-Profile/issues)  
+
 ## Advanced Distributed Learning (ADL)
 
 >"Copyright 2014 Advanced Distributed Learning (ADL) Initiative, U.S. Department of Defense
