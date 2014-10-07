@@ -60,7 +60,7 @@
     <div class="jumbotron jumbo-tiny">
         <div class="container">
             <h1>ADL Tools and Resources</h1>
-            <img class="img-circle img-glow" width="80px" src="../img/adl-tools-icon.png" alt="developer page logo">
+            <img class="img-circle img-glow" width="80px" src="../img/adl-tools-icon.png" alt="adl tools page logo">
         </div>
     </div>
 
@@ -69,21 +69,20 @@
         <!-- START THE FEATURETTES -->
         <div class="row featurette">
             <div class="col-md-7">
-                <p class="lead">Dual Tracking uses the existing SCORM infrastructure to deliver content and both SCORM and xAPI to record the learner's progress.</p>
-                <p>ADL recognizes that many organizations already have an e-Learning infrastructure in place. The costs in building up those systems, experience, and content makes it cost prohibitive to make a complete switch to xAPI. But the Experience API was designed with the understanding that the API may be part of a larger system, such as an enterprise LMS. Also, the xAPI is effective as a stand-alone system to collect, and provide access to, learner experiences without the coupling to content required by SCORM LMSs. This first approach of leveraging the xAPI understands that organizations have a dependence on an LMS and offers a low-impact solution to xAPI adoption, with benefits such as:</p>
+                <h2 class="featurette-heading">ADL Learning Record Store</h2>
+                <p class="lead">Go to the publicly hosted <a target="_blank" href="https://lrs.adlnet.gov/xapi">ADL LRS &raquo;</a></p>
+                <p>An LRS is the system used by the Experience API to store learning information. It can range from a component in a large learning architecture to a personal record store. The ADL LRS is an open source project at GitHub of an Experience API LRS. It is freely available for download and use in organizations. ADL also welcomes developers to fork, modify, and update the current code base.</p>
+                <p>Content developers can use the LRS to help test the content. The hosted version uses SSL/TLS security and implements both HTTP Basic Auth and OAuth, as defined in the xAPI Spec. The ADL LRS allows users to create free accounts to use for HTTP Basic and client accounts for Oauth. It also provides content examples that showcase some of the features of the Experience API.
+                </p>
                 <ul>
-                    <li>Current investments in SCORM are not lost.</li>
-                    <li>Content is still launched by the LMS.</li>
-                    <li>Learners' progress and status is still stored in the LMS.</li>
-                    <li>Minimal effort to begin using the xAPI.</li>
-                    <ul>
-                        <li>Update content using the <a href="https://github.com/adlnet/SCORM-to-xAPI-Wrapper">SCORM to xAPI Wrapper</a>.</li>
-                        <li>Focus on specific parts of the SCORM Profile. Start at section <a href="#50-supporting-the-scorm-temporal-model">5.0 Supporting the SCORM Temporal Model</a>.</li>
-                    </ul>
+                    <li>Open source <a href="https://github.com/adlnet/ADL_LRS">xAPI LRS available at GitHub &raquo;</a></li>
+                    <li>Sign up for a <a href="https://lrs.adlnet.gov/xAPI/register/">free user account</a> in the ADL LRS. Use the Name and Password as the HTTP Basic Auth credentials.</li>
+                    <li><a href="https://lrs.adlnet.gov/xAPI/regclient/">Generate OAuth client credentials</a>, if you want to use OAuth instead of Basic Auth.</li>
+                    <li><a href="https://lrs.adlnet.gov/xAPI/statementvalidator">Validate Statements</a>. Ensure that generated Statements are valid without posting them to the LRS.</li>
                 </ul>
             </div> 
             <div class="col-md-5">
-                <img class="featurette-image img-responsive" width="500px" height="500px" alt="image of SCORM content reporting learner progress to both a SCORM LMS and an xAPI LRS" src="../img/dual-track.png">
+                <img class="featurette-image img-responsive" width="500px" height="500px" alt="image of SCORM content reporting learner progress to both a SCORM LMS and an xAPI LRS" src="../img/adllrs-screenshot.png">
             </div>
         </div>
         
