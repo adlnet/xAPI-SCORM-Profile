@@ -62,3 +62,6 @@ body{padding-bottom:40px;color:#5a5a5a}.navbar-wrapper{position:absolute;top:0;r
     margin-left: -15px;
   line-height: 20px;
 }
+.lower-heading {
+    margin-top: 120px;
+}
