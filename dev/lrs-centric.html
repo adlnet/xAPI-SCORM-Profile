@@ -66,8 +66,8 @@ end cuts  -->
 
     <div class="jumbotron jumbo-tiny">
         <div class="container">
-            <h1>Dual Tracking</h1>
-            <img class="img-circle img-glow" width="80px" src="../img/dt-icon.png" alt="developer page logo">
+            <h1>LRS Centric</h1>
+            <img class="img-circle img-glow" width="80px" src="../img/lrs-c-icon.png" alt="developer page logo">
         </div>
     </div>
 
@@ -76,21 +76,17 @@ end cuts  -->
         <!-- START THE FEATURETTES -->
         <div class="row featurette">
             <div class="col-md-7">
-                <p class="lead">Dual Tracking uses the existing SCORM infrastructure to deliver content and both SCORM and xAPI to record the learner's progress.</p>
-                <p>ADL recognizes that many organizations already have an e-Learning infrastructure in place. The costs in building up those systems, experience, and content makes it cost prohibitive to make a complete switch to xAPI. But the Experience API was designed with the understanding that the API may be part of a larger system, such as an enterprise LMS. Also, the xAPI is effective as a stand-alone system to collect, and provide access to, learner experiences without the coupling to content required by SCORM LMSs. This first approach of leveraging the xAPI understands that organizations have a dependence on an LMS and offers a low-impact solution to xAPI adoption, with benefits such as:</p>
+                <p class="lead">Report learner progress to an LRS. Allow clients, including LMSs, to communicate to the LRS via the xAPI.</p>
+                <p>The LRS Centric approach begins to reduce an organization’s reliance on an LMS, but still contains an LMS due to existing investments and interfaces with other systems. The xAPI SCORM profile and any additional xAPI data is tracked by native xAPI content.  Launch of this content is managed by a system other than the LMS. xAPI data which relates directly to LMS data may be synced between the LRS and LMS so existing system interfaces or reports continue to work.  This is the first server-side requirement and potentially incurs cost, either financial or human resources.</p>
+                <p>Features:</p>
                 <ul>
-                    <li>Current investments in SCORM are not lost.</li>
-                    <li>Content is still launched by the LMS.</li>
-                    <li>Learners' progress and status is still stored in the LMS.</li>
-                    <li>Minimal effort to begin using the xAPI.</li>
-                    <ul>
-                        <li>Update content using the <a href="https://github.com/adlnet/SCORM-to-xAPI-Wrapper">SCORM to xAPI Wrapper</a>.</li>
-                        <li>Focus on specific parts of the SCORM Profile. Start at section <a href="#50-supporting-the-scorm-temporal-model">5.0 Supporting the SCORM Temporal Model</a>.</li>
-                    </ul>
+                    <li>Support content that is not managed by an LMS: mobile, simulations, games, etc.</li>
+                    <li>Track data about individual learners, groups of learners, teams, instructors, mentors, peers, etc</li>
+                    <li>Exposes learning data via standardized interface for reports and analytics.</li>
                 </ul>
             </div> 
             <div class="col-md-5">
-                <img class="featurette-image img-responsive" width="500px" height="500px" alt="image of SCORM content reporting learner progress to both a SCORM LMS and an xAPI LRS" src="../img/dual-track.png">
+                <img class="featurette-image img-responsive" width="500px" height="500px" alt="image of content not launched by an LMS, that content reporting learner results to only the xAPI LRS, and the LMS querying the LRS for learner and content status updates" src="../img/lrs-centric.png">
             </div>
         </div>
         
@@ -98,16 +94,35 @@ end cuts  -->
 
         <div class="row featurette">
             <div class="col-md-5">
-                <img class="featurette-image img-responsive" width="500px" height="500px" alt="500x500" src="../img/free-data.png">
+                <img class="featurette-image img-responsive" width="500px" height="500px" alt="image of a checked checkbox" src="../img/check-mark.png">
             </div>
             <div class="col-md-7">
-                <h3>Free the data</h3>
-                <p>SCORM has been available for over 10 years. It is stable and has a large community. The reference model describes many aspects about progress reporting and learners' interactions within the content. But there is no defined behavior for accessing that data outside of the content. This means that consumers - students, teachers, administrators - are at the mercy of the LMS vendor to develop reports and tools for accessing the data. The Experience API was partially developed to address this omission in SCORM. By tracking to an xAPI LRS consumers can get access to relevant learner experiences. This makes possible:</p>
+                <h3>Implementing this Approach</h3>
+                <p>Embracing this approach to content development requires some steps to consider. The following are those steps and help to get started.</p>
                 <ul>
-                    <li>Support for 3rd party / custom reporting and analytics tools.</li>
-                    <li>Simple data export to other systems, such as various organizational LMS/LRS servers, personal data lockers.</li>
-                    <li>Visibility into previous learner attempts.</li>
-                    <li>Access to data beyond the current learner, like class trends or group results.</li>
+                    <li>Launching content will most likely still need some initalization data.</li>
+                    <ul>
+                        <li>Determine the data your content needs to initialize and run.</li>
+                        <li>Read the SCORM Profile section on <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#40-launching-and-initializing-activities">launching content</a>.</li>
+                        <li>Investigate other launch mechanisms such as <a href="https://github.com/AICC/CMI-5_Spec_Current">CMI-5</a>, <a href="http://www.imsglobal.org/lti/">IMS LTI</a>, or <a href="https://github.com/RusticiSoftware/launch/blob/master/lms_lrs.md">Rustici xAPI Launch</a> if the SCORM Profile does not meet all your launch needs.</li>
+                        
+                    </ul>
+                    <li>Determine identifiers for your activities and objectives.</li>
+                    <ul>
+                        <li>add some</li>
+                    </ul>
+                    <li>Determine the experiences to report and the mapping from SCORM data model elements to xAPI Statements.</li>
+                    <ul>
+                        <li>add some</li>
+                    </ul>
+                    <li>Register accounts on the LRS for your content.</li>
+                    <ul>
+                        <li>add some</li>
+                    </ul>
+                    <li>Configure your LMS to query the LRS.</li>
+                    <ul>
+                        <li>add some</li>
+                    </ul>
                 </ul>
             </div>
         </div>
