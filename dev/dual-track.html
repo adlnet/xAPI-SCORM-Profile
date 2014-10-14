@@ -88,11 +88,7 @@ end cuts  -->
                     <li>Current investments in SCORM are not lost.</li>
                     <li>Content is still launched by the LMS.</li>
                     <li>Learners' progress and status is still stored in the LMS.</li>
-                    <li>Minimal effort to begin using the xAPI.</li>
-                    <ul>
-                        <li>Update content using the <a href="https://github.com/adlnet/SCORM-to-xAPI-Wrapper">SCORM to xAPI Wrapper</a>.</li>
-                        <li>Focus on specific parts of the SCORM Profile. Start at section <a href="#50-supporting-the-scorm-temporal-model">5.0 Supporting the SCORM Temporal Model</a>.</li>
-                    </ul>
+                    <li>Minimal effort to begin using the xAPI. See below</li>
                 </ul>
             </div> 
             <div class="col-md-5">
@@ -120,8 +116,42 @@ end cuts  -->
 
         <hr class="featurette-divider">
 
+        <div class="row featurette">
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive" width="500px" height="500px" alt="image of a checked checkbox" src="../img/check-mark.png">
+            </div>
+            <div class="col-md-7">
+                <h3>Implementing this Approach</h3>
+                <p>Applying this approach to content development requires some steps to consider. The following are those steps and links to get started.</p>
+                <ol>
+                    <li>Determine identifiers for your activities and objectives.</li>
+                    <ul>
+                        <li>Read about <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#internationalized-resource-identifier-iri-1">IRIs in the SCORM Profile</a></li>
+                        <li>See guidance on <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#activity-iri">creating IRIs consistent with SCORM Profile Guidelines</a></li>
+                    </ul>
+                    <li>Determine the experiences to report and the mapping from SCORM data model elements to xAPI Statements.</li>
+                    <ul>
+                        <li>Review the <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#32-general-guidance-on-statements">General Guidance on Statements</a> in the SCORM Profile</li>
+                        <li>Determine if the content needs to report experiences within the <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#50-supporting-the-scorm-temporal-model">SCORM Temporal Model</a>. Do things like sessions and attempts matter for reports or evaluation?</li>
+                        <li>Create the Statements the content should report, <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#60-mapping-the-scorm-data-model-to-xapi-statements">mapping them from the equivalent SCORM data model</a></li>
+                        <li><a href="https://lrs.adlnet.gov/xAPI/statementvalidator">Verify</a> the Statements using the ADL LRS Statement Validator</li>
+                    </ul>
+                    <li>Register accounts on the LRS for your content.</li>
+                    <ul>
+                        <li>For HTTP Basic Auth, <a href="https://lrs.adlnet.gov/xAPI/register/">register</a> for an account on the ADL LRS</li>
+                        <li>For OAuth credentials, follow the <a href="https://lrs.adlnet.gov/xAPI/">instructions</a> on the ADL LRS home page</li>
+                    </ul>
+                    <li>Update the SCORM content to report xAPI Statements when chosen SCORM data model requests are made</li>
+                    <ul>
+                        <li>Update content using the <a href="https://github.com/adlnet/SCORM-to-xAPI-Wrapper">SCORM to xAPI Wrapper</a>.</li>
+                    </ul>
+                </ol>
+            </div>
+        </div>
+        
         <!-- /END THE FEATURETTES -->
 
+        <hr class="featurette-divider">
 
         <!-- FOOTER -->
         <footer>
