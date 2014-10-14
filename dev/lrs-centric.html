@@ -44,8 +44,14 @@
 end cuts  -->  
                             <li><a href="adl-tools.html" title="xAPI Resources">xAPI Resources</a>
                             </li>
+                            <li><a href="dual-track.html" title="xAPI Resources">Dual Track</a>
+                            </li>
+                            <li><a href="lrs-centric.html" title="xAPI Resources">LRS Centric</a>
+                            </li>
+<!--
                             <li><a href="#" title="Roadmap">Roadmap</a>
                             </li>
+-->
                             <li><a href="http://adlnet.gov" title="Advanced Distributed Learning Website">ADL</a>
                             </li>
 
@@ -98,9 +104,9 @@ end cuts  -->
             </div>
             <div class="col-md-7">
                 <h3>Implementing this Approach</h3>
-                <p>Embracing this approach to content development requires some steps to consider. The following are those steps and help to get started.</p>
+                <p>Applying this approach to content development requires some steps to consider. The following are those steps and links to get started.</p>
                 <ul>
-                    <li>Launching content will most likely still need some initalization data.</li>
+                    <li>Launching content will likely need some initalization data.</li>
                     <ul>
                         <li>Determine the data your content needs to initialize and run.</li>
                         <li>Read the SCORM Profile section on <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#40-launching-and-initializing-activities">launching content</a>.</li>
@@ -109,19 +115,30 @@ end cuts  -->
                     </ul>
                     <li>Determine identifiers for your activities and objectives.</li>
                     <ul>
-                        <li>add some</li>
+                        <li>Read about <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#internationalized-resource-identifier-iri-1">IRIs in the SCORM Profile</a></li>
+                        <li>See guidance on <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#activity-iri">creating IRIs consistent with SCORM Profile Guidelines</a></li>
                     </ul>
                     <li>Determine the experiences to report and the mapping from SCORM data model elements to xAPI Statements.</li>
                     <ul>
-                        <li>add some</li>
+                        <li>Review the <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#32-general-guidance-on-statements">General Guidance on Statements</a> in the SCORM Profile</li>
+                        <li>Determine if the content needs to report experiences within the <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#50-supporting-the-scorm-temporal-model">SCORM Temporal Model</a>. Do things like sessions and attempts matter for reports or evaluation?</li>
+                        <li>Create the Statements the content should report, <a href="https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#60-mapping-the-scorm-data-model-to-xapi-statements">mapping them from the equivalent SCORM data model</a></li>
+                        <li><a href="https://lrs.adlnet.gov/xAPI/statementvalidator">Verify</a> the Statements using the ADL LRS Statement Validator</li>
                     </ul>
                     <li>Register accounts on the LRS for your content.</li>
                     <ul>
-                        <li>add some</li>
+                        <li>For HTTP Basic Auth, <a href="https://lrs.adlnet.gov/xAPI/register/">register</a> for an account on the ADL LRS</li>
+                        <li>For OAuth credentials, follow the <a href="https://lrs.adlnet.gov/xAPI/">instructions</a> on the ADL LRS home page</li>
                     </ul>
-                    <li>Configure your LMS to query the LRS.</li>
+                    <li>Configure your LMS to query the LRS. Since the LMS no longer knows that content has been launched and experienced, the LMS needs to be updated to query the LRS for records.</li>
                     <ul>
-                        <li>add some</li>
+                        <li>Development of this process is up to each organization and LMS vendor</li>
+                        <li>xAPI client libraries may help</li>
+                        <ul>
+                            <li><a href="https://github.com/adlnet/jxapi">Java xAPI Library</a></li>
+                            <li><a href="https://github.com/adlnet/xapiwrapper-node"></a>Node xAPI Wrapper</li>
+                            <li><a href="https://github.com/adlnet">Check the ADL GitHub project</a> for more coming soon</li>
+                        </ul>
                     </ul>
                 </ul>
             </div>
