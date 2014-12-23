@@ -1478,7 +1478,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Entry
 See [Entry](#entry)  
@@ -1520,7 +1520,7 @@ Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile
 See [Agent Profile Object](#agent-profile) for object format.  
 
 #### Learner Preferences
-Preferences set by the learner about how the content is presented. These values are editable by the learner and span the attempts on the activity. Due to this, specific learner preference settings may be stored in the [SCORM Activity State Object](#scorm-activity-state). SCORM also describes that default values may be defined for the learner. These default values may be stored in the [Agent Profile Object](#agent-profile).
+Preferences set by the learner about how the content is presented. These values are editable by the learner and span the attempts on the activity. Due to this, specific learner preference settings may be stored in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state). SCORM also describes that default values may be defined for the learner. These default values may be stored in the [Agent Profile Object](#agent-profile).
 ##### Default Values
 ###### Audio Level
 __SCORM 2004:__ `cmi.learner_preference.audio_level`   
@@ -1564,7 +1564,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-state) for object format.   
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.   
 ###### Language
 __SCORM 2004:__ `cmi.learner_preference.language`   
 __SCORM 1.2:__ `cmi.student_preference.language`  
@@ -1573,7 +1573,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-state) for object format. 
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
 ###### Delivery Speed
 __SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
 __SCORM 1.2:__ `cmi.student_preference.speed`  
@@ -1582,7 +1582,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-state) for object format. 
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
 ###### Audio Captioning
 __SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
 __SCORM 1.2:__ `cmi.student_preference.text`  
@@ -1591,7 +1591,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Location
 An element to hold a location for the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
@@ -1602,7 +1602,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Max Time Allowed
 Max Time Allowed defines how long a learner can interact with an activity. This value is the same for all learners, and is made available for each activity. For those reasons, Max Time Allowed is available at the Activity Profile endpoint.  
@@ -1623,7 +1623,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Objectives
 See [Objectives](#objectives)  
@@ -1755,7 +1755,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: The IRI stored in the SCORM Activity State suspend_data property.  
-See [SCORM Activity State Object](#scorm-activity-state) for object format. 
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
 
 #### Time Limit Action
 Time Limit Action defines what the content should do when the time limit has been surpassed. This value is the same for all learners, and is made available for each activity. For those reasons, Time Limit Action is available at the Activity Profile endpoint.  
@@ -1776,10 +1776,10 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
-See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### ADL Data
-ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accomdate for this, the [SCORM Activity State Object](#scorm-activity-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
+ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accommodate for this, the [SCORM Activity State Object](#scorm-activity-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
 __SCORM 2004:__ `adl.data`  
 __SCORM 1.2:__ N/A      
 __Experience API:__  
@@ -1787,7 +1787,7 @@ __Experience API:__
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
 State ID: The IRI stored in the SCORM Activity State adl_data property.  
-See [SCORM Activity State Object](#scorm-activity-state) for object format.  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 
 ### XAPI SCORM Data Objects
