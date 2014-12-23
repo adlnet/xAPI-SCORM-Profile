@@ -1840,11 +1840,20 @@ See [SCORM Activity State Object](#scorm-activity-state) for object format.
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
+ <td>attempts</td>
+ <td>Array of Activity Attempt IRIs</td>
+</tr>
+</table>  
+
+#### SCORM Activity Attempt State
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
  <td>credit</td>
  <td>String ("credit", "no-credit")</td>
 </tr>
 <tr>
- <td>lesson_mode</td>
+ <td>mode</td>
  <td>String ("browse", "normal", "review")</td>
 </tr>
 <tr>
@@ -1852,12 +1861,12 @@ See [SCORM Activity State Object](#scorm-activity-state) for object format.
  <td>String</td>
 </tr>
 <tr>
- <td>preference</td>
- <td><a href="#preference-object">Preference Object</a></td>
+ <td>preferences</td>
+ <td><a href="#preferences-object">Preferences Object</a></td>
 </tr>
 <tr>
  <td>suspend_data</td>
- <td>IRI</td>
+ <td>Array of <a href="#scorm-suspend-data-object">Suspend Data Objects</a></td>
 </tr>
 <tr>
  <td>total_time</td>
@@ -1865,7 +1874,7 @@ See [SCORM Activity State Object](#scorm-activity-state) for object format.
 </tr>
 <tr>
  <td>adl_data</td>
- <td>Array of <a href="#data-object">Data Objects</a></td>
+ <td>Array of <a href="#adl-data-objects">ADL Data Objects</a></td>
 </tr>
 </table>
 
@@ -1926,12 +1935,12 @@ See [SCORM Activity State Object](#scorm-activity-state) for object format.
  <td>String</td>
 </tr>
 <tr>
- <td>preference</td>
- <td><a href="#preference-object">Preference Object</a></td>
+ <td>preferences</td>
+ <td><a href="#preferences-object">Preferences Object</a></td>
 </tr>
 </table>
 
-#### Preference Object
+#### Preferences Object
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
