@@ -1477,7 +1477,7 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Entry
@@ -1563,7 +1563,7 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.   
 ###### Language
 __SCORM 2004:__ `cmi.learner_preference.language`   
@@ -1572,7 +1572,7 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
 ###### Delivery Speed
 __SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
@@ -1581,7 +1581,7 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
 ###### Audio Captioning
 __SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
@@ -1590,7 +1590,7 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Location
@@ -1601,7 +1601,7 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Max Time Allowed
@@ -1622,7 +1622,7 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Objectives
@@ -1747,7 +1747,7 @@ __Experience API Statement:__
 See [Success](#success)  
 
 #### Suspend Data
-Suspend Data is the place to store state information of the content. This value may be large. To accomdate for this, the [SCORM Activity State Object](#scorm-activity-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
+Suspend Data is the place to store state information of the content. This value may be large. To accomdate for this, the [SCORM Activity State Object](#scorm-attempt-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
 __Experience API:__  
@@ -1775,7 +1775,7 @@ __Experience API:__
 [Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
 Agent: The agent object associated with the current learner
 Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/activity-state  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### ADL Data
@@ -1792,6 +1792,7 @@ See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for obj
 
 ### XAPI SCORM Data Objects
 #### SCORM Activity Profile
+__Profile ID:__ http://adlnet.gov/xapi/profile/scorm/activity-profile
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
@@ -1837,6 +1838,7 @@ See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for obj
 </table>
 
 #### SCORM Activity State
+__State ID:__ http://adlnet.gov/xapi/profile/scorm/activity-state
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
@@ -1846,6 +1848,7 @@ See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for obj
 </table>  
 
 #### SCORM Activity Attempt State
+__State ID:__ http://adlnet.gov/xapi/profile/scorm/attempt-state
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
@@ -1924,6 +1927,7 @@ See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for obj
 </table>
 
 #### Agent Profile
+__Profile ID:__ http://adlnet.gov/xapi/profile/scorm/agent-profile
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
