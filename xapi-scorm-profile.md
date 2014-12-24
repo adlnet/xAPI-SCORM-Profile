@@ -53,8 +53,7 @@ The xAPI data format for representing learner experience data. See [xAPI Stateme
 The Experience API (xAPI) was created in response to the eLearning community’s desire to modernize the Sharable Content Object Reference Model (SCORM) capabilities, which was initially developed to make courseware interoperable with learning management systems. Since its introduction in 2000, SCORM has played a critical role in the proliferation of online training and education courses. The Experience API introduces a new paradigm for tracking and recording learning-related data. Learners can be tracked as they perform work tasks, produce work outputs, communicate, collaborate, and engage in just about any other online activity. This API uses a flexible data format that supports many different use cases and needs. However with this flexibility arises the need for developers to formalize the data they track and what that data means. By formalizing the data reported by content and the format of that data, tools can be created that can make sense of that data.
 
 The Sharable Content Object Reference Model (SCORM) community is one area that could benefit from providing a formalized method for compiling and formatting learner experiences. Using the xAPI and the guidance contained within this profile, developers can create xAPI statements that can be interpreted by any other system that understands the guidelines described in this document. This will support the integrity and consistency of the data across SCORM content and provide a base vocabulary needed for interpreting and reporting on that data.
-
-## 2.0 When to Use this Profile
+  
 SCORM is well established and accepted in many organizations around the world as the interoperable way to deliver and track web-based learning content. If the traditional LMS and content model is working for your organization, there is no need to change to use the xAPI.
 
 However there are use cases that are difficult if not impossible to meet with SCORM. These cases prompted ADL to begin looking for alternative options. The initial effort resulted in the xAPI specification. It was intended to resolve issues such as:
@@ -69,8 +68,17 @@ However there are use cases that are difficult if not impossible to meet with SC
   - Data about instructors, tutors, mentors and peers cannot be stored with SCORM.
 - SCORM does not provide guidance on how to get data back out of an LMS (Advanced Distributed Learning Initiative, 2012, p. RTE-2-5).
   - The interface described in SCORM only exists during the life of a sharable content object (SCO) communication session. There is no SCORM API that exists outside of that communication session.
-  - Reporting and data access requirements are not standardized in SCORM resulting in proprietary, LMS-specific, reporting functionality that can differ between vendors.
+  - Reporting and data access requirements are not standardized in SCORM resulting in proprietary, LMS-specific, reporting functionality that can differ between vendors.  
 
+## 2.0 When to Use this Profile
+The Experience API by design is flexible enough to support many training scenarios. This flexibility enables it to support learning solutions that are currently difficult or impossible in the SCORM model. But flexibility without consensus on how to represent the data prevents interoperability.  
+   
+This profile should be used when the organization already has a SCORM learning environment but wants to utilize the xAPI to enable features that SCORM does not support, such as the examples listed in section 1.0. These can include:
+1. Modifying SCORM content to post learning events (xAPI Statements) to an LRS to allow for other systems to access the data typically stored in and LMS.
+2. Creating learning applications that are not SCORM content that can report data to an LRS in the same way as SCORM content, providing an interoperable data format for learning experiences produced both by SCORM content and other learning content.  
+  
+This approach allows organizations to incrementally transition from a centralized SCORM LMS to diverse and flexible systems without the loss of interoperability. It also allows for systems, such as SCORM LMSs and third party reports, to treat experiences from SCORM content and non SCORM content the same way.  
+  
 ## 3.0 How to Use this Profile
 This document is intended to be used in addition to the [xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md). All communication, data formats and experiences shall follow the requirements in the xAPI specification. The guidance provided in this document is to add information specifically to support SCORM communications in xAPI format.  
 
