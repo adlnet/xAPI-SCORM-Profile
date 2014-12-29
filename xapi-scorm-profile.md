@@ -179,25 +179,31 @@ Some verbs have special meaning when related to SCORM. Implementers of this prof
     <td><a href="http://adlnet.gov/expapi/verbs/passed">passed</a></td>
     <td>cmi.success_status=passed<br>cmi.core.lesson_status=passed</td>
     <td>The leaner's performance on this attempt at least met the minimum threshold for the activity</td>
-    <td>course<br>SCO<br>objective<br>interaction</td>
+    <td>course<br>SCO<br>objective</td>
   </tr>
   <tr>
     <td><a href="http://adlnet.gov/expapi/verbs/failed">failed</a></td>
     <td>cmi.success_status=failed<br>cmi.core.lesson_status=failed</td>
     <td>The performance on this attempt did not meet the minimum threshold for the activity</td>
-    <td>course<br>SCO<br>objective<br>interaction</td>
+    <td>course<br>SCO<br>objective</td>
   </tr>
   <tr>
     <td><a href="http://adlnet.gov/expapi/verbs/scored">scored</a></td>
     <td>cmi.scored.scaled<br>cmi.core.score.raw</td>
     <td>Used when the activity wants to record a score without implying a level of satisfaction or completion of the activity, or wants to provide evidence toward satisfaction or completion</td>
-    <td>course<br>SCO<br>objective<br>interaction</td>
+    <td>course<br>SCO<br>objective</td>
   </tr>
   <tr>
     <td><a href="http://adlnet.gov/expapi/verbs/completed">completed</a></td>
     <td>cmi.completion_status=completed<br>cmi.core.lesson_status=completed</td>
     <td>The learner has experienced a sufficient amount of the activity</td>
-    <td>course<br>SCO<br>objective<br>interaction</td>
+    <td>course<br>SCO<br>objective</td>
+  </tr>
+  <tr>
+    <td><a href="http://adlnet.gov/expapi/verbs/responded">responded</a></td>
+    <td>cmi.interactions.n.learner_response<br>cmi.interactions.n.student_response</td>
+    <td>The learner's response to some interaction</td>
+    <td>interaction</td>
   </tr>
 </table>
 
