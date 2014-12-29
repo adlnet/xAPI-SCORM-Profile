@@ -74,8 +74,8 @@ However there are use cases that are difficult if not impossible to meet with SC
 The Experience API by design is flexible enough to support many training scenarios. This flexibility enables it to support learning solutions that are currently difficult or impossible in the SCORM model. But flexibility without consensus on how to represent the data prevents interoperability.  
    
 This profile should be used when the organization already has a SCORM learning environment but wants to utilize the xAPI to enable features that SCORM does not support, such as the examples listed in section 1.0. These can include:  
-1. Modifying SCORM content to post learning events (xAPI Statements) to an LRS to allow for other systems to access the data typically stored in an LMS.  
-2. Creating learning applications that are not SCORM content that can report data to an LRS in the same way as SCORM content, providing an interoperable data format for learning experiences produced both by SCORM content and other learning content.  
+- Modifying SCORM content to post learning events (xAPI Statements) to an LRS to allow for other systems to access the data typically stored in an LMS.  
+- Creating learning applications that are not SCORM content that can report data to an LRS in the same way as SCORM content, providing an interoperable data format for learning experiences produced both by SCORM content and other learning content.  
   
 Use of this profile allows organizations to incrementally transition from a centralized SCORM LMS to diverse and flexible systems without the loss of interoperability. It also allows for systems, such as SCORM LMSs and third party reports, to treat experiences from SCORM content and non SCORM content the same way.  
   
