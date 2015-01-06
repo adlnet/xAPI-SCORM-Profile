@@ -138,7 +138,7 @@ __Group__
 ```  
 
 #### Verb
-[Verbs in the xAPI spec](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#verb) represent the action that is being recorded for this experience, such as "read" a book and "answered" a question. The xAPI allows for any verb to be used within a statement assuming it follows the rules defined in the xAPI specification. However this flexibility causes issues when trying to report on the data. For consistency and interoperability, those implementing this profile shall use the verbs maintained by ADL at http://adlnet.gov/expapi/verbs/, and use the definition and usage on the ADL Verb pages as guidance.  
+Verbs in the xAPI spec represent the action that is being recorded for this experience, such as "read" a book and "answered" a question. The xAPI allows for any verb to be used within a statement assuming it follows the [rules defined in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#verb). However this flexibility causes issues when trying to report on the data. For consistency and interoperability, those implementing this profile shall use the verbs maintained by ADL at http://adlnet.gov/expapi/verbs/, and use the definition and usage on the ADL Verb pages as guidance.  
 __Verb__  
 ``` javascript
 "verb":{
