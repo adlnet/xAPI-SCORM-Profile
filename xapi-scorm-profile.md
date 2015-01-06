@@ -105,7 +105,7 @@ Bad IRIs are not unique and could conflict with others using the same identifier
     <pre>`http://example.com/activity/01`</pre>
 
 #### Actor
-The actor property refers to the learner that is interacting with the activity. The actor should be able to be mapped back to the learner in the LMS. Any of the Actor formats described in the xAPI specification are allowed. However some formats can potentially expose personally identifiable information, it is recommended to use a format that protects the learner’s information.  
+The actor property refers to the learner that is interacting with the activity. The actor should be able to be mapped back to the learner in the LMS. Any of the [Actor formats described in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actor) are allowed. However some formats can potentially expose personally identifiable information, it is recommended to use a format that protects the learner’s information.  
 __Agent__
 ``` javascript
   "actor":{
