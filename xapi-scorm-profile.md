@@ -326,7 +326,8 @@ The following is a list of SCORM data model elements and the equivalent xAPI sta
 
 #### Entry
 Entry is used to indicate the attempt state of the activity - is this a new attempt on the activity or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb `initialized` and a new attemptId on the grouping activity. 
-
+  
+##### Initialize a new attempt  
 __SCORM 2004:__ `cmi.entry=ab-initio`  
 __SCORM 1.2:__ `cmi.core.entry=ab-initio`  
 __Experience API Statement:__
@@ -371,7 +372,53 @@ __Experience API Statement:__
     }
 }
 ```  
-
+  
+##### Resume a suspended attempt  
+__SCORM 2004:__ `cmi.entry=resume`  
+__SCORM 1.2:__ `cmi.core.entry=resume`  
+__Experience API Statement:__
+``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/resumed",
+        "display": {
+            "en-US": "resumed"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+```  
+  
 #### Exit
 Exit is used to indicate the attempt state at the end of the session. It is possible to send an xAPI exited statement but in most cases the intended meaning is that the session has terminated in either a suspended or terminated state. This is accomplished by issuing a statement with the ADL Verb `suspended` and maintaining the current attemptId for future sessions, or with the ADL Verb `terminated` and a new attemptId for future sessions.
 
