@@ -317,7 +317,7 @@ During the session, Statements are collected and sent to the LRS much like SCORM
 
 To indicate termination of the SCO attempt, send a statement with the terminated ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. 
 
-To suspend a SCO session, send a statement with the suspended ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. And to resume the SCO session, send a statement with the resumed ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. Continue to use the same attemptId query parameter as generated during the initialization process.
+To suspend a SCO attempt, send a statement with the suspended ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. And to resume the SCO attempt, send a statement with the resumed ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. Continue to use the same attemptId query parameter as generated during the initialization process.
 
 To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activity's grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
 
