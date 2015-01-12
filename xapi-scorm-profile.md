@@ -312,11 +312,11 @@ If the above launch options are not possible developers can preconfigure the act
 SCORM has a temporal model which describes interaction states such as an attempt and a session. The xAPI uses an Activity Stream style model where experiences are all reported to the stream without a sense of session or attempt. This does not mean, however, that xAPI statements cannot be related to one another. By properly using the context attribute of a Statement it is possible to group Statements using the registration ID or broader activity IDs.  
   
 ### Providing support data
-Some SCORM data model elements represent data that is not about learner experiences or performance. Elements such as launch data and learner preferences may be important or necessary, but are not expected to be reported as xAPI Statements. This data can be stored in the LRS document storage, such as Activity Profile and Activity State. A complete representation of the document data and formats is defined in the [Appendix](https://github.com/creighton/xAPI-SCORM-Profile/blob/dev/xapi-scorm-profile.md#xapi-scorm-data-objects).  
+Some SCORM data model elements represent data that is not about learner experiences or performance. Elements such as launch data and learner preferences may be important or necessary, but are not expected to be reported as xAPI Statements. This data can be stored in the LRS document storage, such as Activity Profile and Activity State. A complete representation of the document data and formats is defined in the [Appendix](#xapi-scorm-data-objects).  
   
 ### Initializing an attempt
 *  Generate the activity attempt IRI. The way this is done is up to the developer. The only requirement is that the attempt IRI is unique.  
-*  Add the attempt IRI to the `attempts` array in the Activity State document either by creating the `attempts` array or appending to the existing array. See the [Appendix](https://github.com/creighton/xAPI-SCORM-Profile/blob/dev/xapi-scorm-profile.md#scorm-activity-state) for the Activity State format.  
+*  Add the attempt IRI to the `attempts` array in the Activity State document either by creating the `attempts` array or appending to the existing array. See the [Appendix](#scorm-activity-state) for the Activity State format.  
 *  Create a Statement  
     *  Set `actor` to the learner's agent object  
     *  Set `verb` to the ADL Verb [initialized](http://adlnet.gov/expapi/verbs/initialized)  
