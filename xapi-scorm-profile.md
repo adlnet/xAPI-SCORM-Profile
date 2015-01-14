@@ -337,7 +337,7 @@ During the session, Statements are collected and sent to the LRS much like SCORM
     *  set `object` to the activity object for the SCO -  determination of the activity ID is outside the scope of this profile 
     *  set `context.contextActivities.parent` array to include the activity object for the SCO
 *  Set `context.contextActivities.grouping` array to include the attempt activity and the course activity  
-*  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity
+*  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity ([See context for profile activity](#context))
 *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details
   
 ### Terminating an attempt  
