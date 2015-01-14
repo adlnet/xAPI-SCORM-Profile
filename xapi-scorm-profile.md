@@ -332,6 +332,7 @@ Some SCORM data model elements represent data that is not about learner experien
   
 ### Reporting learner activity during an attempt  
 During the session, Statements are collected and sent to the LRS much like SCORM SCOs reporting to the LMS. Statements can be sent to the LRS either immediately or collected and sent as a bundle. A few rules need to be followed to connect attempt relevant statements.
+*  Set `actor` to the learner's agent object 
 *  If the statement is about the SCO, such as completed or commented, set `object` to the activity object for the SCO, using the SCO IRI as the activity's ID
 *  If the statement is about something within the SCO, such as a video or test, 
     *  set `object` to the activity object for the SCO -  determination of the activity ID is outside the scope of this profile 
@@ -341,13 +342,24 @@ During the session, Statements are collected and sent to the LRS much like SCORM
 *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details
   
 ### Terminating an attempt  
-
-
-During the session, Statements are collected and sent to the LRS much like SCORM SCOs reporting to the LMS. Statements can be sent to the LRS either immediately or collected and sent as a bundle.
-
-To indicate termination of the SCO attempt, send a statement with the terminated ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. 
-
-To suspend a SCO attempt, send a statement with the suspended ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. And to resume the SCO attempt, send a statement with the resumed ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. Continue to use the same attemptId query parameter as generated during the initialization process.
+*  Create a Statement  
+    *  Set `actor` to the learner's agent object  
+    *  Set `verb` to the ADL Verb [terminated](http://adlnet.gov/expapi/verbs/terminated)  
+    *  Set `object` to the activity object for the SCO, using the SCO IRI as the activity's ID  
+    *  Set `object.definition.type` to `http://adlnet.gov/expapi/activities/lesson`
+    *  Set `context.contextActivities.grouping` array to include the attempt activity and the course activity  
+    *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity
+    *  Set `timestamp` to the time the attempt was terminated, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details
+    *  Set `result` to the overall result for the SCO
+         *  If success_status of the SCO is known, `success` is `true` if success_status is passed, and `false` if success_status is failed
+         *  If completion_status of the SCO is known, `completion` is `true` if completion_status is completed, and `false` if completion_status is incomplete
+         *  If score of the SCO is known, use the appropriate score property to store SCORM score data model elements, such as `score.scaled` for `cmi.score.scaled`
+  
+### Suspending an attempt
+To suspend a SCO attempt, send a statement with the suspended ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI.  
+  
+### Resuming an attempt
+o resume the SCO attempt, send a statement with the resumed ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. Continue to use the same attemptId query parameter as generated during the initialization process.
 
 To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activity's grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
   
