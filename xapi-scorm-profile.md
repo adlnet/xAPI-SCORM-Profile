@@ -321,8 +321,17 @@ Some SCORM data model elements represent data that is not about learner experien
     *  Set `actor` to the learner's agent object  
     *  Set `verb` to the ADL Verb [initialized](http://adlnet.gov/expapi/verbs/initialized)  
     *  Set `object` to the activity object for the SCO, using the SCO IRI as the activity's ID  
-    *
-To initialize an attempt on a SCO or course component, send a statement with the initialized ADL Verb, the object ID set to the IRI for this SCO, and the context activities parent activity of the course activity IRI to the LRS. When a new session is initialized, generate an attempt GUID, append it to the SCO IRI as an attemptId query parameter and include this attempt-specific SCO IRI to the context activities grouping array. ([See an example in the Appendix](#initialize-a-sco-attempt))
+    *  Set `context.contextActivities.grouping` array to include the attempt activity and the course activity  
+    *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity
+    *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details
+  
+([See an example in the Appendix](#initialize-a-sco-attempt))  
+  
+### Reporting learner activity during an attempt  
+  
+  
+### Terminating an attempt  
+
 
 During the session, Statements are collected and sent to the LRS much like SCORM SCOs reporting to the LMS. Statements can be sent to the LRS either immediately or collected and sent as a bundle.
 
@@ -332,11 +341,6 @@ To suspend a SCO attempt, send a statement with the suspended ADL Verb, the obje
 
 To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activity's grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
   
-
-### Single session attempt process  
-The following steps illustrate the general process to represent a single session attempt. See the appendix for a full example.  
-1. The 
-
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
 The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way. A complete list of SCORM data model elements and their mapping to xAPI is listed in the [Appendix](#complete-scorm-to-xapi-data-model-mapping).  
 
