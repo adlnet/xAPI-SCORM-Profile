@@ -234,7 +234,7 @@ __Guidelines for Activity IRI Construction__
   - Objective path is any IRI path to the objective activity definition, ie `if-else/`
 
 ###### Activity Definition
-The [activity definition](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#activity-definition) provides information about the activity. At a minimum all activities should include an activity definition with a name and description. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
+The [activity definition](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#activity-definition) provides information about the activity. At a minimum all activities should include an activity definition with a name, description and type. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
   
 Activity definitions that differ from one that an LRS already has stored may not be accepted. It is recommended that organizations ensure that all references to the activity definition contain the same information. It is permissible for organizations to host their activity definitions at the location of the activity IRI. In this case the hosted definition is stored at the activity IRI location (IRL), and is retrievable by the LRS in application/json format. Additionally, the statements will not include the definition and instead expect the LRS to acquire the activity definition from its hosted location.
 
@@ -321,6 +321,7 @@ Some SCORM data model elements represent data that is not about learner experien
     *  Set `actor` to the learner's agent object  
     *  Set `verb` to the ADL Verb [initialized](http://adlnet.gov/expapi/verbs/initialized)  
     *  Set `object` to the activity object for the SCO, using the SCO IRI as the activity's ID  
+    *  Set `object.definition.type` to `http://adlnet.gov/expapi/activities/lesson`
     *  Set `context.contextActivities.grouping` array to include the attempt activity and the course activity  
     *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity
     *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details
