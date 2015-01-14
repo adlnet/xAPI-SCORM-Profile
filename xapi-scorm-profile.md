@@ -242,7 +242,9 @@ Activity definitions that differ from one that an LRS already has stored may not
 The [result property of a statement](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#415-result) represents the outcome of a learner experience. Statements issued using a result shall follow the requirements listed in the xAPI specification and the additional guidance described in this document.
 
 ###### Context
-The context property adds additional contextual information about the learner experience. Information like who is the instructor of this content, with what registration this experience is associated, or to what activities this experience is related. Statements shall meet all the [requirements in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#416-context) and the additional guidelines described in this document.
+The context property adds additional contextual information about the learner experience. Information like who is the instructor of this content, with what registration this experience is associated, or to what activities this experience is related. Statements shall meet all the [requirements in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#416-context) and the additional guidelines described in this document.  
+  
+All statements generated following the guidelines described in this document should include a context activity category object of `{"id":"http://adlnet.gov/xapi/profile/scorm"}`.
 
 ###### Timestamp
 The [timestamp property](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) gives the activity provider or activity the ability to set the date and time when the experience occurred. This is different from the [stored timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#418-stored) property, which indicates when the LRS saved the statement about the experience. All statements shall set the timestamp property. By doing this, it makes it possible to order statements in the same order as they were submitted by the activity provider or activity.
