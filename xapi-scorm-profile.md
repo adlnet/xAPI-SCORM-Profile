@@ -1557,17 +1557,139 @@ https://lrs.adlnet.gov/xapi/activities/state
 
 #### Find all Statements from the Latest Attempt  
 *  [Find the latest attempt IRI](#find-the-latest-attempt-iri) for the SCO  
-*  [Find the Statements by the attempt IRI](#find-statements-by-activity-iri)
+*  [Find the Statements by the latest attempt IRI](#find-statements-by-activity-iri)  *  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI  
   
-#### Find all Statements for a SCO
-
-#### Find all Statements for a course
+#### Find all Statements for a SCO  
+*  Identify the SCO IRI from launch, activity IRI generation, or out-of-band configuration  
+*  [Find the Statements by the SCO IRI](#find-statements-by-activity-iri)  
+*  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI  
+  
+#### Find all Statements for a course  
+*  Identify the course IRI from launch
+*  [Find the Statements by the course IRI](#find-statements-by-activity-iri)
+*  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI  
 
 #### Find all learner's Statements for a course
-
+*  Identify the course IRI from launch
+*  Identify the learner's agent (actor) object from launch
+*  Issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS  
+  
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>statements</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>agent</td><td>leaner agent object</td></tr>
+   <tr><td>activity</td><td>course IRI</td></tr>
+   <tr><td>related_activities</td><td>true</td></tr>
+</table>  
+ 
+_Unencoded and formatted for readability_  
+```
+GET  
+https://lrs.adlnet.gov/xapi/statements
+?agent={"account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"}}
+?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
+&related_activities=true
+```  
+  
+*  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI and the actor as the learner agent.  
+  
 #### Find learner's results for each SCO in a course  
+*  Identify the course IRI from launch
+*  Identify the learner's agent (actor) object from launch
+*  Issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS  
+  
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>statements</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>agent</td><td>leaner agent object</td></tr>
+  <tr><td>verb</td><td>ADL verb [terminated](http://adlnet.gov/expapi/verbs/terminated)
+   <tr><td>activity</td><td>course IRI</td></tr>
+   <tr><td>related_activities</td><td>true</td></tr>
+</table>  
+ 
+_Unencoded and formatted for readability_  
+```
+GET  
+https://lrs.adlnet.gov/xapi/statements
+?agent={"account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"}}
+?verb=http://adlnet.gov/expapi/verbs/terminated
+?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
+&related_activities=true
+```  
+  
+*  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI, the terminated ADL verb and the actor as the learner agent.  
+*  Each of these terminated Statements contain the SCO status in the `result` parameter, such as `score`, `completed` and `success`.
 
+#### Get attempt state for current attempt  
+*  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
+*  Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api) request to the LRS  
+  
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>activities/state</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>activityId</td><td>attempt IRI</td></tr>
+   <tr><td>agent</td><td>Learner's Agent object</td></tr>
+   <tr><td>stateId</td><td>http://adlnet.gov/xapi/profile/scorm/attempt-state</td></tr>
+</table>  
+  
+_Unencoded and formatted for readability_  
+```
+GET
+https://lrs.adlnet.gov/xapi/activities/state
+?activityId=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/01
+&agent={"account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"}}
+&stateId=http://adlnet.gov/xapi/profile/scorm/attempt-state
+```  
+  
+*  The response content is a [SCORM Attempt State](#scorm-attempt-state) JSON object.
 
+#### Set attempt state for current attempt  
+*  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
+*  Attempt to [Get the attempt state JSON object](#get-attempt-state-for-current-attempt) from the LRS
+*  If the response returns the attempt state, 
+    *  update with current values
+    *  issue a POST activity state request with the updated JSON object
+*  If the response returns a `404 Not Found`, 
+    *  create a new [attempt state JSON object](#scorm-activity-attempt-state) with current values
+    *  issue a PUT activity state request with the new JSON object
+>NOTE: The request method change of POST or PUT is based on xAPI requirements for updating vs creating a new document. This example demonstrates a generalized case. Organizations are free to update/create the document however works best within the [rules defined in xAPI](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#json-procedure-with-requirements).
+  
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>activities/state</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>activityId</td><td>attempt IRI</td></tr>
+   <tr><td>agent</td><td>Learner's Agent object</td></tr>
+   <tr><td>stateId</td><td>http://adlnet.gov/xapi/profile/scorm/attempt-state</td></tr>
+</table>  
+  
+_Unencoded and formatted for readability_  
+```
+POST/PUT
+https://lrs.adlnet.gov/xapi/activities/state
+?activityId=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/01
+&agent={"account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"}}
+&stateId=http://adlnet.gov/xapi/profile/scorm/attempt-state
+
+Content Body
+{
+    "location":"page-02",
+    "total_time":"PT0H20M"
+}
+```  
+   
+  
 ### Complete SCORM to xAPI Data Model Mapping
 #### Comments From Learner
 SCORM 1.2 Comments and SCORM 2004 Comments from Learner mapped to an Experience API Statement. The `commented` ADL Verb is used with the comment as the xAPI Statement result response value. For SCORM 2004 where there is also a timestamp and a location, use the statement timestamp attribute for the comment timestamp value and the Activity URI as the location.  
@@ -2047,7 +2169,7 @@ __State ID:__ http://adlnet.gov/xapi/profile/scorm/attempt-state
 </tr>
 <tr>
  <td>total_time</td>
- <td>Formatted according to <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> with a precision of 0.01 seconds</td>
+ <td>Formatted <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601 Duration</a> with a precision of 0.01 seconds</td>
 </tr>
 <tr>
  <td>adl_data</td>
