@@ -1504,15 +1504,17 @@ __xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and com
 ### Query Examples  
 #### Find Attempt IRIs for a SCO
 *  Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api) request to the LRS  
+  
 <table>
    <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
    <tr><td>GET</td><td>activities/state</tr>
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>activityId</td><td>SCO IRI</td></tr>
    <tr><td>agent</td><td>Learner's Agent object</td></tr>
-   <tr><td>stateId</td><td><pre>http://adlnet.gov/xapi/profile/scorm/activity-state</pre></td></tr>
+   <tr><td>stateId</td><td>http://adlnet.gov/xapi/profile/scorm/activity-state</td></tr>
 </table>  
-_Unencoded for readability_
+  
+_Unencoded and formatted for readability_  
 ```
 GET
 https://lrs.adlnet.gov/xapi/activities/state
@@ -1521,9 +1523,10 @@ https://lrs.adlnet.gov/xapi/activities/state
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
 &stateId=http://adlnet.gov/xapi/profile/scorm/activity-state
-```
-*  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object with the Attempt IRIs stored in the `attempts` property.
-
+```  
+  
+*  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object with the Attempt IRIs stored in the `attempts` property.  
+  
 #### Find Statements by Attempt ID
 - append the `attemptId` url query parameter to the SCO IRI  
   - `http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6`
