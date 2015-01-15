@@ -1528,23 +1528,22 @@ https://lrs.adlnet.gov/xapi/activities/state
   
 *  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object with the Attempt IRIs stored in the `attempts` property.  
   
-#### Find Statements by Attempt ID
-- append the `attemptId` url query parameter to the SCO IRI  
-  - `http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6`
-- issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS with activity request parameter set to the attempt SCO IRI, and `related_activities` request parameter set to `true`   
+#### Find Statements by Attempt IRI  
+- Issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS  
+  
 <table>
    <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
    <tr><td>GET</td><td>statements</tr>
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>activity</td><td>SCO attempt IRI</td></tr>
    <tr><td>related_activities</td><td>true</td></tr>
-</table>
+</table>  
  
 _Unencoded and formatted for readability_  
 ```
 GET  
 https://lrs.adlnet.gov/xapi/statements
-?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
+?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
 &related_activities=true
 ```  
 
