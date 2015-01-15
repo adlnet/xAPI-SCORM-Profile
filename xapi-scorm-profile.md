@@ -1546,35 +1546,24 @@ https://lrs.adlnet.gov/xapi/statements
 ?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
 &related_activities=true
 ```  
+  
+*  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the IRI of the attempt IRI
 
-#### Find the Latest Attempt ID  
-- Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api) request to the LRS with the activity request parameter set to the SCO IRI  
- 
-_Unencoded for readability_  
-```
-GET  
-activities/state?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01
-```  
-
-- find the context activities grouping id set to the attempt SCO IRI of the first statement in the StatementResults array returned from the LRS  
+#### Find the Latest Attempt IRI
+*  [Find the attempt IRIs for the SCO](#find-attempt-iris-for-a-sco)  
+*  The last IRI in the `attempts` parameter of the response [SCORM Activity State](#scorm-activity-state) JSON object is the latest attempt IRI  
 
 #### Find all Statements from the Latest Attempt  
-- Issue a get statements request to the LRS with the activity request parameter set to the SCO IRI
- 
-_Unencoded for readability_  
-```
-GET  
-statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01
-```  
+*  [Find the latest attempt IRI](#find-the-latest-attempt-iri) for the SCO  
+*  [Find the Statements by the attempt IRI](#find-statements-by-attempt-iri)
+  
+#### Find all Statements for a SCO
 
-- Find the context activities grouping id set to the attempt SCO IRI of the first statement in the StatementResults array returned from the LRS
-- Issue a get statements request to the LRS with the activity request parameter set to the attempt SCO IRI, and related_activities request parameter set to true  
- 
-_Unencoded for readability_  
-```
-GET  
-statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=[attempt guid]&related_activities=true
-```  
+#### Find all Statements for a course
+
+#### Find all learner's Statements for a course
+
+#### Find learner's results for each SCO in a course  
 
 
 ### Complete SCORM to xAPI Data Model Mapping
