@@ -325,8 +325,8 @@ Some SCORM data model elements represent data that is not about learner experien
     *  Set `object` to the activity object for the SCO, using the SCO IRI as the activity's ID  
     *  Set `object.definition.type` to `http://adlnet.gov/expapi/activities/lesson`
     *  Set `context.contextActivities.grouping` array to include the attempt activity and the course activity  
-    *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity
-    *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details
+    *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity ([See context for profile activity](#context))  
+    *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details  
   
 ([See an example in the Appendix](#initialize-a-sco-attempt))  
   
@@ -348,7 +348,7 @@ During the session, Statements are collected and sent to the LRS much like SCORM
     *  Set `object` to the activity object for the SCO, using the SCO IRI as the activity's ID  
     *  Set `object.definition.type` to `http://adlnet.gov/expapi/activities/lesson`
     *  Set `context.contextActivities.grouping` array to include the attempt activity and the course activity  
-    *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity
+    *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity ([See context for profile activity](#context))  
     *  Set `timestamp` to the time the attempt was terminated, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details
     *  Set `result` to the overall result for the SCO
          *  If success_status of the SCO is known, `success` is `true` if success_status is passed, and `false` if success_status is failed
@@ -356,12 +356,34 @@ During the session, Statements are collected and sent to the LRS much like SCORM
          *  If score of the SCO is known, use the appropriate score property to store SCORM score data model elements, such as `score.scaled` for `cmi.score.scaled`
   
 ### Suspending an attempt
-To suspend a SCO attempt, send a statement with the suspended ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI.  
+To suspend a SCO attempt,  
+ *  Create a Statement  
+    *  Set `actor` to the learner's agent object  
+    *  Set `verb` to the ADL Verb [suspended](http://adlnet.gov/expapi/verbs/suspended)  
+    *  Set `object` to the activity object for the SCO, using the SCO IRI as the activity's ID  
+    *  Set `object.definition.type` to `http://adlnet.gov/expapi/activities/lesson`
+    *  Set `context.contextActivities.grouping` array to include the attempt activity and the course activity  
+    *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity ([See context for profile activity](#context))  
+    *  Set `timestamp` to the time the attempt was suspended, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details
+    *  (Optional) Set `result` to the overall result for the SCO
+         *  If success_status of the SCO is known, `success` is `true` if success_status is passed, and `false` if success_status is failed
+         *  If completion_status of the SCO is known, `completion` is `true` if completion_status is completed, and `false` if completion_status is incomplete
+         *  If score of the SCO is known, use the appropriate score property to store SCORM score data model elements, such as `score.scaled` for `cmi.score.scaled`  
+*  (Optional) Set the [attempt state values](#scorm-activity-attempt-state)  
   
 ### Resuming an attempt
-o resume the SCO attempt, send a statement with the resumed ADL Verb, the object ID set to the IRI for this SCO, and the context activity's parent activity set to the course activity IRI. Continue to use the same attemptId query parameter as generated during the initialization process.
-
-To find the learner’s experiences of the latest attempt, query the LRS for statements with an activity ID of the SCO IRI. Since the LRS returns statements ordered by descending stored time, the first statement in the list should be from the latest attempt. Use the context activity's grouping SCO IRI, with the attemptId query parameter, to query the LRS again for all statements with a related activity ID of that attempt SCO IRI.  
+To resume the SCO attempt,  
+*  Create a Statement  
+    *  Set `actor` to the learner's agent object  
+    *  Set `verb` to the ADL Verb [resumed](http://adlnet.gov/expapi/verbs/resumed)  
+    *  Set `object` to the activity object for the SCO, using the SCO IRI as the activity's ID  
+    *  Set `object.definition.type` to `http://adlnet.gov/expapi/activities/lesson`
+    *  Set `context.contextActivities.grouping` array to include the attempt activity, created during the original initialization of the SCO, and the course activity  
+    *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity ([See context for profile activity](#context))  
+    *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details  
+  
+### Querying the LRS for Statements in an attempt  
+Querying systems can find the the list of attempt IRIs for a SCO by [getting the Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api). The resulting JSON object contains an `attempts` array containing the attempt IRIs ordered from first to latest attempt. The querying system can get the Statements from the LRS by [querying for all Statements]() with the attempt IRI. See the Appendix for [query examples](#query-examples).  
   
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
 The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way. A complete list of SCORM data model elements and their mapping to xAPI is listed in the [Appendix](#complete-scorm-to-xapi-data-model-mapping).  
@@ -1479,50 +1501,32 @@ __xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and com
 }
 ```
 
-#### Group Statements by Attempt ID
-- On Initialize of an attempt generate an attempt guid
-  - `50fd6961-ab6c-4e75-e6c7-ca42dce50dd6`
-- Append the attemptId url query parameter to SCO IRI
-  - `http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6`
-- Include the attempt SCO IRI in the context activities grouping list  
-``` javascript
- ...,
- "context": {
-      "contextActivities": {
-          "parent": [
-              {
-                  "id": "http://adlnet.gov/courses/compsci/CS204/"
-              }
-          ],
-          "grouping": [
-              {
-                  "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-              }
-          ]
-      }
-  },
-  ...
-```  
-- On Terminate of an attempt clear the attempt guid
-
+### Query Examples  
 #### Find Statements by Attempt ID
-- append the attemptId url query parameter to the SCO IRI  
+- append the `attemptId` url query parameter to the SCO IRI  
   - `http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6`
-- issue a get statements request to the LRS with activity request parameter set to the attempt SCO IRI, and related_activities request parameter set to true   
+- issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS with activity request parameter set to the attempt SCO IRI, and `related_activities` request parameter set to `true`   
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>statements</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>activity</td><td>SCO attempt IRI</td></tr>
+   <tr><td>related_activities</td><td>true</td></tr>
+</table>
  
 _Unencoded for readability_  
 ```
 GET  
-statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6&related_activities=true
+https://lrs.adlnet.gov/xapi/statements?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6&related_activities=true
 ```  
 
 #### Find the Latest Attempt ID  
-- Issue a get statements request to the LRS with the activity request parameter set to the SCO IRI  
+- Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api) request to the LRS with the activity request parameter set to the SCO IRI  
  
 _Unencoded for readability_  
 ```
 GET  
-statements/?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01
+activities/state?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01
 ```  
 
 - find the context activities grouping id set to the attempt SCO IRI of the first statement in the StatementResults array returned from the LRS  
