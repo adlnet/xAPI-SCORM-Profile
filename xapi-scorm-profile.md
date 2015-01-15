@@ -33,6 +33,7 @@ If you would like to offer comments or issues, please submit an [issue](https://
 * 7.0 [Retrieving and Interpreting xAPI Statements](#70-retrieving-and-interpreting-xapi-statements)
 * [Appendix](#appendix)
   * [Common Scenarios](#common-scenarios) 
+  * [Query Examples](#query-examples)  
   * [SCORM xAPI Data Model Mapping](#complete-scorm-to-xapi-data-model-mapping)
 
 ## Glossary
