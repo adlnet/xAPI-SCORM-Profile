@@ -1503,6 +1503,28 @@ __xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and com
 ```
 
 ### Query Examples  
+#### Find Statements by activity IRI  
+- Issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS  
+  
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>statements</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>activity</td><td>IRI</td></tr>
+   <tr><td>related_activities</td><td>true</td></tr>
+</table>  
+ 
+_Unencoded and formatted for readability_  
+```
+GET  
+https://lrs.adlnet.gov/xapi/statements
+?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
+&related_activities=true
+```  
+  
+*  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI  
+  
+
 #### Find Attempt IRIs for a SCO
 *  Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api) request to the LRS  
   
@@ -1528,26 +1550,6 @@ https://lrs.adlnet.gov/xapi/activities/state
   
 *  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object with the Attempt IRIs stored in the `attempts` property.  
   
-#### Find Statements by Attempt IRI  
-- Issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS  
-  
-<table>
-   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
-   <tr><td>GET</td><td>statements</tr>
-   <tr><th>Parameter</th><th>Value</th></tr>
-   <tr><td>activity</td><td>SCO attempt IRI</td></tr>
-   <tr><td>related_activities</td><td>true</td></tr>
-</table>  
- 
-_Unencoded and formatted for readability_  
-```
-GET  
-https://lrs.adlnet.gov/xapi/statements
-?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
-&related_activities=true
-```  
-  
-*  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the IRI of the attempt IRI
 
 #### Find the Latest Attempt IRI
 *  [Find the attempt IRIs for the SCO](#find-attempt-iris-for-a-sco)  
@@ -1555,7 +1557,7 @@ https://lrs.adlnet.gov/xapi/statements
 
 #### Find all Statements from the Latest Attempt  
 *  [Find the latest attempt IRI](#find-the-latest-attempt-iri) for the SCO  
-*  [Find the Statements by the attempt IRI](#find-statements-by-attempt-iri)
+*  [Find the Statements by the attempt IRI](#find-statements-by-activity-iri)
   
 #### Find all Statements for a SCO
 
