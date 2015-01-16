@@ -238,6 +238,18 @@ __Guidelines for Activity IRI Construction__
 The [activity definition](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#activity-definition) provides information about the activity. At a minimum all activities should include an activity definition with a name, description and type. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
   
 Activity definitions that differ from one that an LRS already has stored may not be accepted. It is recommended that organizations ensure that all references to the activity definition contain the same information. It is permissible for organizations to host their activity definitions at the location of the activity IRI. In this case the hosted definition is stored at the activity IRI location (IRL), and is retrievable by the LRS in application/json format. Additionally, the statements will not include the definition and instead expect the LRS to acquire the activity definition from its hosted location.
+  
+###### Activity Types  
+<table>
+<tr><th>SCORM object</th><th>Activity Type IRI</th></tr>
+<tr><td>course</td><td><a href="http://adlnet.gov/expapi/activities/course">http://adlnet.gov/expapi/activities/course</a></td></tr>
+<tr><td>module</td><td><a href="http://adlnet.gov/expapi/activities/module">http://adlnet.gov/expapi/activities/module</a></td></tr>
+<tr><td>SCO</td><td><a href="http://adlnet.gov/expapi/activities/lesson">http://adlnet.gov/expapi/activities/lesson</a></td></tr>
+<tr><td>assessment</td><td><a href="http://adlnet.gov/expapi/activities/assessment">http://adlnet.gov/expapi/activities/assessment</a></td></tr>
+<tr><td>interaction</td><td><a href="http://adlnet.gov/expapi/activities/interaction">http://adlnet.gov/expapi/activities/interaction</a></td></tr>
+<tr><td>objective</td><td><a href="http://adlnet.gov/expapi/activities/objective">http://adlnet.gov/expapi/activities/objective</a></td></tr>
+<tr><td>attempt</td><td><a href="http://adlnet.gov/expapi/activities/attempt">http://adlnet.gov/expapi/activities/attempt</a></td></tr>
+</table>
 
 ###### Result
 The [result property of a statement](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#415-result) represents the outcome of a learner experience. Statements issued using a result shall follow the requirements listed in the xAPI specification and the additional guidance described in this document.
