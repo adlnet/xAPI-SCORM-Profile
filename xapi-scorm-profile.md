@@ -526,7 +526,8 @@ __Experience API Statement:__
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -617,7 +618,8 @@ __Experience API Statement:__
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -690,7 +692,8 @@ __Experience API Statement:__
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -760,7 +763,8 @@ __Experience API Statement:__
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -828,7 +832,8 @@ __Experience API Statement:__
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -1046,7 +1051,8 @@ _Statement with Local Objective_
          },
          "description":{
             "en-US":"Show proficiency in creating if-else blocks"
-         }
+         },
+         "type": "http://adlnet.gov/expapi/activities/objective"
       }
    },
    "context":{
@@ -1123,7 +1129,8 @@ _Statement with Sequencing and Navigation Global Objective_
          },
          "description":{
             "en-US":"Show proficiency in creating if-else blocks"
-         }
+         },
+         "type": "http://adlnet.gov/expapi/activities/lesson"
       }
    },
    "context":{
@@ -1205,7 +1212,8 @@ __Experience API Statement:__
          },
          "description":{
             "en-US":"The first lesson of CS204"
-         }
+         },
+         "type": "http://adlnet.gov/expapi/activities/lesson"
       }
    },
    "result":{
@@ -1297,7 +1305,8 @@ __Experience API Statement:__
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -1365,7 +1374,8 @@ __Experience API Statement:__
          },
          "description":{
             "en-US":"The first lesson of CS204"
-         }
+         },
+         "type": "http://adlnet.gov/expapi/activities/lesson"
       }
    },
    "result":{
@@ -1437,7 +1447,8 @@ __Experience API Statement:__
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -1629,7 +1640,8 @@ __xAPI:__ actor 500-627-490 initialized lesson01 with attempt id (x) in course C
          },
          "description":{
             "en-US":"The first lesson of CS204"
-         }
+         },
+         "type": "http://adlnet.gov/expapi/activities/lesson"
       }
    },
    "context":{
@@ -1696,7 +1708,8 @@ __xAPI:__ actor 500-627-490 terminated lesson01 with attempt id (x) in the cours
             },
             "description": {
                 "en-US": "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -1771,7 +1784,8 @@ __xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -1839,7 +1853,8 @@ __xAPI:__ agent 500-627-490 resumed lesson01 with same attempt id in the course 
             },
             "description" : {
                "en-US" : "The first lesson of CS204"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
         }
     },
     "context": {
@@ -1911,7 +1926,8 @@ __xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and com
             },
             "description": {
                 "en-US": "The CS204 course"
-            }
+            },
+            "type": "http://adlnet.gov/expapi/activities/course"
         }
     },
     "context": {
