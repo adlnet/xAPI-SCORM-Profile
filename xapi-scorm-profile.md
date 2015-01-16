@@ -456,6 +456,11 @@ __Experience API Statement:__
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
+         ],
+         "category": [
+            {
+               "id": "http://adlnet.gov/xapi/profile/scorm"
+            }
          ]
       }
    }
@@ -512,6 +517,11 @@ __Experience API Statement:__
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     }
@@ -580,6 +590,11 @@ __Experience API Statement:__
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     }
@@ -625,6 +640,11 @@ __Experience API Statement:__
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     }
@@ -672,6 +692,11 @@ __Experience API Statement:__
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     }
@@ -717,6 +742,11 @@ __Experience API Statement:__
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     }
@@ -917,6 +947,11 @@ _Statement with Local Objective_
             {
                "id" : "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
+         ],
+         "category": [
+            {
+               "id": "http://adlnet.gov/xapi/profile/scorm"
+            }
          ]
       }
    }
@@ -961,6 +996,11 @@ _Statement with Sequencing and Navigation Global Objective_
             },
             {
                "id" : "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ],
+         "category": [
+            {
+               "id": "http://adlnet.gov/xapi/profile/scorm"
             }
          ]
       }
@@ -1012,6 +1052,11 @@ __Experience API Statement:__
             },
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ],
+         "category": [
+            {
+               "id": "http://adlnet.gov/xapi/profile/scorm"
             }
          ]
       }
@@ -1076,6 +1121,11 @@ __Experience API Statement:__
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     }
@@ -1124,6 +1174,11 @@ __Experience API Statement:__
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
+         ],
+         "category": [
+            {
+               "id": "http://adlnet.gov/xapi/profile/scorm"
+            }
          ]
       }
    }
@@ -1170,6 +1225,11 @@ __Experience API Statement:__
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     }
@@ -1339,6 +1399,11 @@ __xAPI:__ actor 500-627-490 initialized lesson01 with attempt id (x) in course C
             {
                "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
+         ],
+         "category": [
+            {
+               "id": "http://adlnet.gov/xapi/profile/scorm"
+            }
          ]
       }
    },
@@ -1383,6 +1448,11 @@ __xAPI:__ actor 500-627-490 terminated lesson01 with attempt id (x) in the cours
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     },
@@ -1435,6 +1505,11 @@ __xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     },
@@ -1480,6 +1555,11 @@ __xAPI:__ agent 500-627-490 resumed lesson01 with same attempt id in the course 
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ]
         }
     },
@@ -1518,6 +1598,15 @@ __xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and com
             "description": {
                 "en-US": "The CS204 course"
             }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
+            ]
         }
     },
    "timestamp":"2014-08-01T15:05:04-04:00"
