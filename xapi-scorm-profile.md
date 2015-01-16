@@ -449,12 +449,10 @@ __Experience API Statement:__
    "timestamp":"2014-09-29T18:18:24.316Z",
    "context":{
       "contextActivities":{
-         "parent":[
+         "grouping":[
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/"
-            }
-         ],
-         "grouping":[
+            },
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
@@ -507,12 +505,10 @@ __Experience API Statement:__
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -577,12 +573,10 @@ __Experience API Statement:__
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -624,12 +618,10 @@ __Experience API Statement:__
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -673,12 +665,10 @@ __Experience API Statement:__
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -720,12 +710,10 @@ __Experience API Statement:__
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -919,13 +907,13 @@ _Statement with Local Objective_
       "contextActivities":{
          "parent":[
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/"
-            },
-            {
                "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01"
             }
          ],
          "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            },
             {
                "id" : "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
@@ -964,13 +952,13 @@ _Statement with Sequencing and Navigation Global Objective_
       "contextActivities":{
          "parent":[
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/"
-            },
-            {
                "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01"
             }
          ],
          "grouping":[
+           {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            },
             {
                "id" : "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
@@ -1018,12 +1006,10 @@ __Experience API Statement:__
    "timestamp":"2014-09-29T18:18:24.316Z",
    "context":{
       "contextActivities":{
-         "parent":[
+         "grouping":[
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/"
-            }
-         ],
-         "grouping":[
+            },
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
@@ -1083,12 +1069,10 @@ __Experience API Statement:__
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -1133,12 +1117,10 @@ __Experience API Statement:__
    },
    "context":{
       "contextActivities":{
-         "parent":[
+         "grouping":[
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/"
-            }
-         ],
-         "grouping":[
+            },
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
@@ -1181,12 +1163,10 @@ __Experience API Statement:__
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -1352,12 +1332,10 @@ __xAPI:__ actor 500-627-490 initialized lesson01 with attempt id (x) in course C
    },
    "context":{
       "contextActivities":{
-         "parent":[
+         "grouping":[
             {
                "id":"http://adlnet.gov/courses/compsci/CS204/"
-            }
-         ],
-         "grouping":[
+            },
             {
                "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
             }
@@ -1398,12 +1376,10 @@ __xAPI:__ actor 500-627-490 terminated lesson01 with attempt id (x) in the cours
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -1452,12 +1428,10 @@ __xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
@@ -1499,12 +1473,10 @@ __xAPI:__ agent 500-627-490 resumed lesson01 with same attempt id in the course 
     },
     "context": {
         "contextActivities": {
-            "parent": [
+            "grouping": [
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
+                },
                 {
                     "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
                 }
