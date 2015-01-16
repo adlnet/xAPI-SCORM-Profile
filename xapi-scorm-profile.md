@@ -267,7 +267,7 @@ The context property adds additional contextual information about the learner ex
 <tr><th>Type</th><th>Use</th></tr>
 <tr><td>parent</td><td>Used to identify the activity which contains the current activity, such as the activity of the SCO that contains an assessment, interaction, or objective.</td></tr>
 <tr><td>grouping</td><td>Used to identify the course activity and any other activities that should be grouped together.</td></tr>
-<tr><td>category</td><td>All Statements based on this profile shall include the xAPI SCORM Profile activity.<br> `{"id":"http://adlnet.gov/xapi/profile/scorm"}`</td></tr>
+<tr><td>category</td><td>All Statements based on this profile shall include the xAPI SCORM Profile activity.<br> {"id":"http://adlnet.gov/xapi/profile/scorm"}</td></tr>
 <tr><td>other</td><td>Up to the organization or developer.</td></tr>
 </table>
 
