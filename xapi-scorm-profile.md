@@ -399,7 +399,137 @@ To resume the SCO attempt,
 Querying systems can find the the list of attempt IRIs for a SCO by [getting the Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api). The resulting JSON object contains an `attempts` array containing the attempt IRIs ordered from first to latest attempt. The querying system can get the Statements from the LRS by [querying for all Statements]() with the attempt IRI. See the Appendix for [query examples](#query-examples).  
   
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
-The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way. A complete list of SCORM data model elements and their mapping to xAPI is listed in the [Appendix](#complete-scorm-to-xapi-data-model-mapping).  
+The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way.   
+
+#### Comments From Learner
+SCORM 1.2 Comments and SCORM 2004 Comments from Learner mapped to an Experience API Statement. The `commented` ADL Verb is used with the comment as the xAPI Statement result response value. For SCORM 2004 where there is also a timestamp and a location, use the statement timestamp attribute for the comment timestamp value and the Activity URI as the location.  
+__SCORM 2004:__ `cmi.comments_from_learner`  
+__SCORM 1.2:__ `cmi.comments`  
+__Experience API Statement:__   
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/commented",
+      "display":{
+         "en-US":"commented"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "result":{
+      "response":"This is a great lesson. You do such a wonderful job teaching!"
+   },
+   "timestamp":"2014-09-29T18:18:24.316Z",
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+```  
+
+#### Comments From LMS
+Comments From LMS allows an activity to see comments about the content. The value is the same for all learners, and is made available for each activity. For those reasons, Comments From LMS is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.comments_from_lms`  
+__SCORM 1.2:__ `cmi.comments_from_lms`  
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Completion Status
+Completion indicates if the learner has completed the activity. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate completion of the activity. If it is determined that the activity must have a completion status, set it explicitly as the [result of terminated Statement](#terminating-an-attempt).  
+  
+__SCORM 2004:__ `cmi.completion_status=completed`  
+__SCORM 1.2:__ `cmi.core.lesson_status=completed`  
+__Experience API Statement:__   
+``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/completed",
+        "display": {
+            "en-US": "completed"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+```    
+
+#### Completion Threshold
+Completion Threshold is a value that can be used to determine if an activity is complete. This value is the same for all learners, and is made available for each activity. For those reasons, Completion Threshold is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.completion_threshold`  
+__SCORM 1.2:__ N/A    
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Credit
+Credit is used to indicate if an activity attempt status should be credited. This value is can vary for learners, and is made available for each activity. For those reasons, Credit is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.credit`  
+__SCORM 1.2:__ `cmi.core.credit`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Entry
 Entry is used to indicate the attempt state of the activity - is this a new attempt on the activity or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb `initialized` and a new attemptId on the grouping activity. 
@@ -495,8 +625,8 @@ __Experience API Statement:__
         }
     }
 }
-```  
-  
+```   
+
 #### Exit
 Exit is used to indicate the attempt state at the end of the session. It is possible to send an xAPI exited statement but in most cases the intended meaning is that the session has terminated in either a suspended or terminated state. This is accomplished by issuing a statement with the ADL Verb `suspended` and maintaining the current attemptId for future sessions, or with the ADL Verb `terminated` and a new attemptId for future sessions.
   
@@ -592,211 +722,147 @@ __Experience API Statement:__
     }
 }
 ```  
-  
-#### Success
-Success indicates whether the learner’s attempt was successful. Use of success is recommended. To report the success, the statement verb will be set to the ADL Verb `passed` or `failed` depending on the learner’s success. When applied to courses, SCOs and objectives, the success value is the determining factor of whether or not the learner passed the current activity attempt. This value directly maps to the SCORM data model element lesson_status or success_status.
-
-__SCORM 2004:__ `cmi.success_status=passed`  
-__SCORM 1.2:__ `cmi.core.lesson_status=passed`  
-__Experience API Statement:__
-``` javascript
-{
-    "actor": {
-        "account": {
-            "homePage": "http://lms.adlnet.gov/",
-            "name": "500-627-490"
-        }
-    },
-    "verb": {
-        "id": "http://adlnet.gov/expapi/verbs/passed",
-        "display": {
-            "en-US": "passed"
-        }
-    },
-    "object": {
-        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
-        "definition": {
-            "name": {
-               "en-US" : "lesson 01"
-            },
-            "description" : {
-               "en-US" : "The first lesson of CS204"
-            }
-        }
-    },
-    "context": {
-        "contextActivities": {
-            "parent": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
-            ]
-        }
-    }
-}
-```  
-
-#### Completion
-Completion indicates if the learner has completed the activity. Setting completion is optional. If it is not set, completion will be assumed by the success status of the activity. If the activity has a success status, completion is assumed to be complete; if the activity does not have a success status, completion is assumed to be incomplete. If it is determined that the activity must have a completion status, set it explicitly in one of two ways - either as a separate completed statement, or as the result of a success status statement.
-
-__SCORM 2004:__ `cmi.completion_status=completed`  
-__SCORM 1.2:__ `cmi.core.lesson_status=completed`  
-__Experience API Statement:__  
-_Statement with Completed as the Verb_  
-``` javascript
-{
-    "actor": {
-        "account": {
-            "homePage": "http://lms.adlnet.gov/",
-            "name": "500-627-490"
-        }
-    },
-    "verb": {
-        "id": "http://adlnet.gov/expapi/verbs/completed",
-        "display": {
-            "en-US": "completed"
-        }
-    },
-    "object": {
-        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
-        "definition": {
-            "name": {
-               "en-US" : "lesson 01"
-            },
-            "description" : {
-               "en-US" : "The first lesson of CS204"
-            }
-        }
-    },
-    "context": {
-        "contextActivities": {
-            "parent": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
-            ]
-        }
-    }
-}
-```  
-_Statement with Completion in the Result_
-``` javascript
-{
-    "actor": {
-        "account": {
-            "homePage": "http://lms.adlnet.gov/",
-            "name": "500-627-490"
-        }
-    },
-    "verb": {
-        "id": "http://adlnet.gov/expapi/verbs/passed",
-        "display": {
-            "en-US": "passed"
-        }
-    },
-    "result": {
-        "completion": true
-    },
-    "object": {
-        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
-        "definition": {
-            "name": {
-               "en-US" : "lesson 01"
-            },
-            "description" : {
-               "en-US" : "The first lesson of CS204"
-            }
-        }
-    },
-    "context": {
-        "contextActivities": {
-            "parent": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
-            ]
-        }
-    }
-}
-```  
-
-#### Score
-Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or activity cannot imply success or completion of an activity solely based on a score. If the score is used for determination of success, this should be evaluated by the activity provider or activity and the relevant success or completion statement should be issued.  
-  
-> NOTE: For compatibility between SCORM versions, the value of SCORM 1.2 cmi.core.score.raw divided by 100, and of SCORM 2004 cmi.score.scaled should be reported to xAPI as score.scaled. All other scores -  raw, min, max - may be reported directly as xAPI score.raw, score.min, and score.max.  
-
-__SCORM 2004:__ `cmi.score.scaled=0.95`  
-__SCORM 1.2:__ `cmi.core.score.raw=95`  
-__Experience API Statement:__
-``` javascript
-{
-    "actor": {
-        "account": {
-            "homePage": "http://lms.adlnet.gov/",
-            "name": "500-627-490"
-        }
-    },
-    "verb": {
-        "id": "http://adlnet.gov/expapi/verbs/scored",
-        "display": {
-            "en-US": "scored"
-        }
-    },
-     "result" : {
-        "score" : {
-            "scaled" : 0.95
-        }
-    },
-    "object": {
-        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
-        "definition": {
-            "name": {
-               "en-US" : "lesson 01"
-            },
-            "description" : {
-               "en-US" : "The first lesson of CS204"
-            }
-        }
-    },
-    "context": {
-        "contextActivities": {
-            "parent": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                }
-            ],
-            "grouping": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
-            ]
-        }
-    }
-}
-```  
-
-#### Note About Default Status
-It was a common practice to set a default status on SCOs in SCORM. Sometimes variations in how an LMS handled a status, if not reported by the activity, caused issues in getting consistent results. Developers often tried to resolve this default status by setting the status in the activity upon launch. Many SCOs at launch will set completion status to incomplete, success status to failed and a score scaled to 0.0. This often works because the LMS is only required to save the latest value for an element of the latest attempt. But since an LRS keeps all records it can start to cause conflicts or confusing results. So to try to prevent these issues, it is strongly recommended not to report a default status.  
 
 #### Interactions
 Interactions can be recorded using the xAPI. Interactions can be described in the xAPI using a predefined format that maps to SCORM interactions. Activity providers and activities shall use the ADL Verb `http://adlnet.gov/expapi/verbs/responded`, the result.response attribute of a statement for the response, and an activity definition as described in the xAPI specification to report the learner’s responses for an interaction. See the [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interaction-activities) section and the [interaction appendix](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#AppendixC) for more details.
 
 > NOTE: The IRI used to identify an interaction is recommended to follow the format: `<courseiri>/<scoid>/interaction/<interactionid>`  
+
+#### Launch Data
+Launch Data provides data to the activity to help initialize the content. The value is the same for all learners, and is made available for each activity. For those reasons, Launch Data is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.launch_data`  
+__SCORM 1.2:__ `cmi.launch_data`  
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Learner ID
+Learner ID contains the identifier associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Agent Profile Object](#agent-profile).  
+__SCORM 2004:__ `cmi.learner_id`   
+__SCORM 1.2:__ `cmi.core.student_id`  
+__Experience API:__   
+[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
+See [Agent Profile Object](#agent-profile) for object format.  
+
+#### Learner Name
+Learner Name contains the name associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Agent Profile Object](#agent-profile).  
+__SCORM 2004:__ `cmi.learner_name`   
+__SCORM 1.2:__ `cmi.core.student_name`  
+__Experience API:__   
+[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
+See [Agent Profile Object](#agent-profile) for object format.  
+
+#### Learner Preferences
+Preferences set by the learner about how the content is presented. These values are editable by the learner and span the attempts on the activity. Due to this, specific learner preference settings may be stored in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state). SCORM also describes that default values may be defined for the learner. These default values may be stored in the [Agent Profile Object](#agent-profile).
+##### Default Values
+###### Audio Level
+__SCORM 2004:__ `cmi.learner_preference.audio_level`   
+__SCORM 1.2:__ `cmi.student_preference.audio`  
+__Experience API:__   
+[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
+See [Agent Profile Object](#agent-profile) for object format.  
+###### Language
+__SCORM 2004:__ `cmi.learner_preference.language`   
+__SCORM 1.2:__ `cmi.student_preference.language`  
+__Experience API:__   
+[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
+See [Agent Profile Object](#agent-profile) for object format. 
+###### Delivery Speed
+__SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
+__SCORM 1.2:__ `cmi.student_preference.speed`  
+__Experience API:__   
+[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
+See [Agent Profile Object](#agent-profile) for object format. 
+###### Audio Captioning
+__SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
+__SCORM 1.2:__ `cmi.student_preference.text`  
+__Experience API:__   
+[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
+Agent: The Agent associated with the profile.  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
+See [Agent Profile Object](#agent-profile) for object format.  
+
+##### Content Specific Values
+###### Audio Level
+__SCORM 2004:__ `cmi.learner_preference.audio_level`   
+__SCORM 1.2:__ `cmi.student_preference.audio`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.   
+###### Language
+__SCORM 2004:__ `cmi.learner_preference.language`   
+__SCORM 1.2:__ `cmi.student_preference.language`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
+###### Delivery Speed
+__SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
+__SCORM 1.2:__ `cmi.student_preference.speed`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
+###### Audio Captioning
+__SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
+__SCORM 1.2:__ `cmi.student_preference.text`  
+__Experience API:__   
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+
+#### Location
+An element to hold a location for the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.location`  
+__SCORM 1.2:__ `cmi.core.lesson_location`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+
+#### Max Time Allowed
+Max Time Allowed defines how long a learner can interact with an activity. This value is the same for all learners, and is made available for each activity. For those reasons, Max Time Allowed is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.max_time_allowed`  
+__SCORM 1.2:__ `cmi.student_data.max_time_allowed`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Mode
+Mode is used to indicate the presentation mode of the activity. This value is can vary for learners, and is made available for each activity. For those reasons, Mode is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.mode`  
+__SCORM 1.2:__ `cmi.core.lesson_mode`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### Objectives
 Objectives are represented as another activity. As such, statements about a learner’s score, success or completion status are reported just as they are for any other activity. But determining a consistent naming scheme for the objective ID makes it easier for reporting systems to understand the statements. For consistency the following guidance is recommended:
@@ -900,7 +966,269 @@ _Statement with Sequencing and Navigation Global Objective_
       }
    }
 }
-```
+```  
+
+#### Progress Measure
+Progress Measure indicates how much progress has been made in the activity. This value can be stored as a Statement using the `progressed` ADL Verb and `result.score.scaled` for the value.  
+__SCORM 2004:__ `cmi.progress_measure`  
+__SCORM 1.2:__ N/A  
+__Experience API Statement:__   
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/progressed",
+      "display":{
+         "en-US":"progressed"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "result":{
+      "score":{
+         "scaled":0.75
+      }
+   },
+   "timestamp":"2014-09-29T18:18:24.316Z",
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+```  
+
+#### Scaled Passing Score
+The score required for the learner to pass the content. This value is the same for all learners, and is made available for each activity. For those reasons, Scaled Passing Score is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.scaled_passing_score`  
+__SCORM 1.2:__ `cmi.student_data.mastery_score`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Score
+Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or activity cannot imply success or completion of an activity solely based on a score. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate the score of the activity. If it is determined that the activity must have a score, set it explicitly as the [result of terminated Statement](#terminating-an-attempt).  
+  
+> NOTE: For compatibility between SCORM versions, the value of SCORM 1.2 cmi.core.score.raw divided by 100, and of SCORM 2004 cmi.score.scaled should be reported to xAPI as score.scaled. All other scores -  raw, min, max - may be reported directly as xAPI score.raw, score.min, and score.max.  
+
+__SCORM 2004:__ `cmi.score.scaled=0.95`  
+__SCORM 1.2:__ `cmi.core.score.raw=95`  
+__Experience API Statement:__
+``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/scored",
+        "display": {
+            "en-US": "scored"
+        }
+    },
+     "result" : {
+        "score" : {
+            "scaled" : 0.95
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+```  
+
+#### Session Time
+Session Time indicates how much time has been spent in the activity during a specific session. This value can be stored as the `result.duration` property in a `terminated` or `suspended` Statement.  
+__SCORM 2004:__ `cmi.session_time`  
+__SCORM 1.2:__ `cmi.core.session_time`  
+__Experience API Statement:__   
+``` javascript
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/terminated",
+      "display":{
+         "en-US":"terminated"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         }
+      }
+   },
+   "result":{
+      "duration":"PT2H30M5S"
+   },
+   "context":{
+      "contextActivities":{
+         "parent":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/"
+            }
+         ],
+         "grouping":[
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+            }
+         ]
+      }
+   }
+}
+```  
+  
+#### Success Status  
+Success indicates whether the learner’s attempt was successful. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate success of the activity. If it is determined that the activity must have a success status, set it explicitly as the [result of terminated Statement](#terminating-an-attempt). 
+
+__SCORM 2004:__ `cmi.success_status=passed`  
+__SCORM 1.2:__ `cmi.core.lesson_status=passed`  
+__Experience API Statement:__
+``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/passed",
+        "display": {
+            "en-US": "passed"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            }
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "parent": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/"
+                }
+            ],
+            "grouping": [
+                {
+                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+                }
+            ]
+        }
+    }
+}
+```  
+  
+
+#### Suspend Data
+Suspend Data is the place to store state information of the content. This value may be large. To accomdate for this, the [SCORM Activity State Object](#scorm-attempt-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
+__SCORM 2004:__ `cmi.suspend_data`  
+__SCORM 1.2:__ `cmi.suspend_data`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: The IRI stored in the SCORM Activity State suspend_data property.  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
+
+#### Time Limit Action
+Time Limit Action defines what the content should do when the time limit has been surpassed. This value is the same for all learners, and is made available for each activity. For those reasons, Time Limit Action is available at the Activity Profile endpoint.  
+__SCORM 2004:__ `cmi.time_limit_action`  
+__SCORM 1.2:__ `cmi.student_data.time_limit_action`   
+__Experience API:__  
+[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
+Activity ID: The activity IRI  
+Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+
+#### Total Time
+An element to hold a total time spent interacting with the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
+__SCORM 2004:__ `cmi.total_time`  
+__SCORM 1.2:__ `cmi.core.total_time`    
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+
+#### ADL Data
+ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accommodate for this, the [SCORM Activity State Object](#scorm-activity-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
+__SCORM 2004:__ `adl.data`  
+__SCORM 1.2:__ N/A      
+__Experience API:__  
+[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
+Agent: The agent object associated with the current learner
+Activity ID: The activity IRI  
+State ID: The IRI stored in the SCORM Activity State adl_data property.  
+See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+  
+
 ## 7.0 Retrieving and Interpreting xAPI Statements
 Storing learning experiences in an xAPI LRS is not the only consideration. Retrieving the learning experiences and interpreting what those statements mean is another aspect that needs guidance for consistent reporting and tracking. The following sections discuss the processes to identify results from activities and their meaning.
 
@@ -938,6 +1266,9 @@ statements?attachments=true
 Due to activity providers and activities reporting to an LRS instead of an LMS, the determination of status might not be decided by an LMS. An LMS may still be used for the determination of a learner’s status, but it may also be determined by the activity provider or activities, reporting tools, or other client applications consuming the LRS data. 
 
 The method of determining status is up to those developing the activities. For example, activities within a course may report individual status statements and leverage a final piece of content to look at the collection of results and report an overall status for the course. Another example is a reporting tool customized with an organization’s accepted passing threshold collecting scores from a course and evaluating them based on the organization threshold. The results of that evaluation could be reported to the LRS as the success for the course.  
+
+#### Note About Default Status
+It was a common practice to set a default status on SCOs in SCORM. Sometimes variations in how an LMS handled a status, if not reported by the activity, caused issues in getting consistent results. Developers often tried to resolve this default status by setting the status in the activity upon launch. Many SCOs at launch will set completion status to incomplete, success status to failed and a score scaled to 0.0. This often works because the LMS is only required to save the latest value for an element of the latest attempt. But since an LRS keeps all records it can start to cause conflicts or confusing results. So to try to prevent these issues, it is strongly recommended not to report a default status.  
 
 ### Resolving Conflicts
 Statements in an LRS are stored as a stream of information. It is possible to retrieve statements that conflict. It might be that a learner initially failed a test but later tried again and passed. In the LRS that result would likely appear as two separate, and conflicting, statements. Another issue that might arise is that the SCOs or lessons within a course may report one result while the course reports an overall status of another result. The following rules shall be followed to resolve such conflicts.
