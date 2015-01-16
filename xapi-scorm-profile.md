@@ -442,7 +442,8 @@ __Experience API Statement:__
          },
          "description":{
             "en-US":"The first lesson of CS204"
-         }
+         },
+         "type": "http://adlnet.gov/expapi/activities/lesson"
       }
    },
    "result":{
@@ -453,10 +454,28 @@ __Experience API Statement:__
       "contextActivities":{
          "grouping":[
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/"
+               "id":"http://adlnet.gov/courses/compsci/CS204/",
+               "definition":{
+                  "name":{
+                     "en-US":"CS204"
+                  },
+                  "description":{
+                     "en-US":"The activity representing the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/course"
+               }
             },
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+               "definition":{
+                  "name":{
+                     "en-US":"Attempt of CS204 lesson 01"
+                  },
+                  "description":{
+                     "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/attempt"
+               }
             }
          ],
          "category": [
@@ -514,11 +533,29 @@ __Experience API Statement:__
         "contextActivities": {
             "grouping": [
                 {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
@@ -586,12 +623,35 @@ __Experience API Statement:__
     "context": {
         "contextActivities": {
             "grouping": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
+            ],
+            "category": [
+               {
+                  "id": "http://adlnet.gov/xapi/profile/scorm"
+               }
             ],
             "category": [
                {
@@ -636,12 +696,30 @@ __Experience API Statement:__
     "context": {
         "contextActivities": {
             "grouping": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
@@ -689,11 +767,29 @@ __Experience API Statement:__
         "contextActivities": {
             "grouping": [
                 {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
@@ -739,11 +835,29 @@ __Experience API Statement:__
         "contextActivities": {
             "grouping": [
                 {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
@@ -939,16 +1053,43 @@ _Statement with Local Objective_
       "contextActivities":{
          "parent":[
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01"
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/lesson"
+                  }
             }
          ],
          "grouping":[
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/"
-            },
-            {
-               "id" : "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-            }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
          ],
          "category": [
             {
@@ -989,16 +1130,43 @@ _Statement with Sequencing and Navigation Global Objective_
       "contextActivities":{
          "parent":[
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01"
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/lesson"
+                  }
             }
          ],
          "grouping":[
-           {
-               "id":"http://adlnet.gov/courses/compsci/CS204/"
-            },
             {
-               "id" : "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-            }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
          ],
          "category": [
             {
@@ -1049,11 +1217,29 @@ __Experience API Statement:__
    "context":{
       "contextActivities":{
          "grouping":[
-            {
-               "id":"http://adlnet.gov/courses/compsci/CS204/"
+           {
+               "id":"http://adlnet.gov/courses/compsci/CS204/",
+               "definition":{
+                  "name":{
+                     "en-US":"CS204"
+                  },
+                  "description":{
+                     "en-US":"The activity representing the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/course"
+               }
             },
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+               "definition":{
+                  "name":{
+                     "en-US":"Attempt of CS204 lesson 01"
+                  },
+                  "description":{
+                     "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/attempt"
+               }
             }
          ],
          "category": [
@@ -1118,11 +1304,29 @@ __Experience API Statement:__
         "contextActivities": {
             "grouping": [
                 {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
@@ -1170,11 +1374,29 @@ __Experience API Statement:__
    "context":{
       "contextActivities":{
          "grouping":[
-            {
-               "id":"http://adlnet.gov/courses/compsci/CS204/"
+           {
+               "id":"http://adlnet.gov/courses/compsci/CS204/",
+               "definition":{
+                  "name":{
+                     "en-US":"CS204"
+                  },
+                  "description":{
+                     "en-US":"The activity representing the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/course"
+               }
             },
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+               "definition":{
+                  "name":{
+                     "en-US":"Attempt of CS204 lesson 01"
+                  },
+                  "description":{
+                     "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/attempt"
+               }
             }
          ],
          "category": [
@@ -1222,11 +1444,29 @@ __Experience API Statement:__
         "contextActivities": {
             "grouping": [
                 {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
@@ -1396,10 +1636,28 @@ __xAPI:__ actor 500-627-490 initialized lesson01 with attempt id (x) in course C
       "contextActivities":{
          "grouping":[
             {
-               "id":"http://adlnet.gov/courses/compsci/CS204/"
+               "id":"http://adlnet.gov/courses/compsci/CS204/",
+               "definition":{
+                  "name":{
+                     "en-US":"CS204"
+                  },
+                  "description":{
+                     "en-US":"The activity representing the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/course"
+               }
             },
             {
-               "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+               "definition":{
+                  "name":{
+                     "en-US":"Attempt of CS204 lesson 01"
+                  },
+                  "description":{
+                     "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/attempt"
+               }
             }
          ],
          "category": [
@@ -1445,11 +1703,29 @@ __xAPI:__ actor 500-627-490 terminated lesson01 with attempt id (x) in the cours
         "contextActivities": {
             "grouping": [
                 {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                 }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
@@ -1502,11 +1778,29 @@ __xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course
         "contextActivities": {
             "grouping": [
                 {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
@@ -1551,12 +1845,30 @@ __xAPI:__ agent 500-627-490 resumed lesson01 with same attempt id in the course 
     "context": {
         "contextActivities": {
             "grouping": [
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/"
-                },
-                {
-                    "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6"
-                }
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
             ],
             "category": [
                {
