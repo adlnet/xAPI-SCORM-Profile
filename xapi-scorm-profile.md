@@ -1457,7 +1457,9 @@ __Experience API:__ `total_time` in the [SCORM Activity Attempt State Object](#s
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### ADL Data
-ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accommodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
+ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. Additionally ADL Data can be allocated on a per SCO, per attempt basis making it difficult to define a standard place or process to store this arbitrary data. Instead this document describes the format and possible solutions. Ultimately, the implementation of this data model element is left largely up to the organization or developer.  
+
+It is recommended that ADL Data is implemented similar to suspend data. Due to the potentially large amount of data that could be stored, each of the ADL Data stores should be individual xAPI activity state documents. The IRI and state IDs should be used to uniquely identify the ADL Data store. And like suspend data, an array of available ADL Data store IDs can be saved in the ADL activity attempt state object. This same data format could be used to save information broader than an activity attempt, such as course state data. To accommodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an array of IRIs to the [ADL Data  Object](#adl-data-objects).  
 __SCORM 2004:__ `adl.data`  
 __SCORM 1.2:__ N/A      
 __Experience API:__ `adl_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
@@ -2112,52 +2114,6 @@ Content Body
    
   
 ### XAPI SCORM Data Objects
-#### SCORM Activity Profile
-__Profile ID:__ http://adlnet.gov/xapi/profile/scorm/activity-profile
-<table>
-<tr><th>Property</th><th>Description</th></tr>
-<tr>
- <td>comments_from_lms</td>
- <td><a href="#scorm-activity-profile-comment-object">SCORM Activity Profile Comment Object</a></td>
-</tr>
-<tr>
- <td>completion_threshold</td>
- <td>Number (0 to 1)</td>
-</tr>
-<tr>
- <td>launch_data</td>
- <td>String</td>
-</tr>
-<tr>
- <td>max_time_allowed</td>
- <td>Number (0 to *)</td>
-</tr>
-<tr>
- <td>scaled_passing_score</td>
- <td>Number (-1 to 1)</td>
-</tr>
-<tr>
- <td>time_limit_action</td>
- <td>String ("exit,message", "continue,message", "exit,no message", "continue,no message")</td>
-</tr>
-</table>
-
-#### SCORM Activity Profile Comment Object
-<table>
-<tr><th>Property</th><th>Description</th></tr>
-<tr>
- <td>comment</td>
- <td>String</td>
-</tr>
-<tr>
- <td>location</td>
- <td>String</td>
-</tr>
-<tr>
- <td>timestamp</td>
- <td>Timestamp <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp">ISO 8601</a></td>
-</table>
-
 #### SCORM Activity State
 __State ID:__ http://adlnet.gov/xapi/profile/scorm/activity-state
 <table>
@@ -2200,6 +2156,71 @@ __State ID:__ http://adlnet.gov/xapi/profile/scorm/attempt-state
  <td>adl_data</td>
  <td>Array of <a href="#adl-data-objects">ADL Data Objects</a></td>
 </tr>
+</table>
+
+#### SCORM Activity Profile
+__Profile ID:__ http://adlnet.gov/xapi/profile/scorm/activity-profile
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>comments_from_lms</td>
+ <td><a href="#scorm-activity-profile-comment-object">SCORM Activity Profile Comment Object</a></td>
+</tr>
+<tr>
+ <td>completion_threshold</td>
+ <td>Number (0 to 1)</td>
+</tr>
+<tr>
+ <td>launch_data</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>max_time_allowed</td>
+ <td>Number (0 to *)</td>
+</tr>
+<tr>
+ <td>scaled_passing_score</td>
+ <td>Number (-1 to 1)</td>
+</tr>
+<tr>
+ <td>time_limit_action</td>
+ <td>String ("exit,message", "continue,message", "exit,no message", "continue,no message")</td>
+</tr>
+</table>
+
+
+#### Agent Profile
+__Profile ID:__ http://adlnet.gov/xapi/profile/scorm/agent-profile
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>learner_id</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>learner_name</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>preferences</td>
+ <td><a href="#preferences-object">Preferences Object</a></td>
+</tr>
+</table>
+
+#### SCORM Activity Profile Comment Object
+<table>
+<tr><th>Property</th><th>Description</th></tr>
+<tr>
+ <td>comment</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>location</td>
+ <td>String</td>
+</tr>
+<tr>
+ <td>timestamp</td>
+ <td>Timestamp <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp">ISO 8601</a></td>
 </table>
 
 #### Data Object
@@ -2245,24 +2266,6 @@ __State ID:__ http://adlnet.gov/xapi/profile/scorm/attempt-state
 <tr>
  <td>store</td>
  <td>String</td>
-</table>
-
-#### Agent Profile
-__Profile ID:__ http://adlnet.gov/xapi/profile/scorm/agent-profile
-<table>
-<tr><th>Property</th><th>Description</th></tr>
-<tr>
- <td>learner_id</td>
- <td>String</td>
-</tr>
-<tr>
- <td>learner_name</td>
- <td>String</td>
-</tr>
-<tr>
- <td>preferences</td>
- <td><a href="#preferences-object">Preferences Object</a></td>
-</tr>
 </table>
 
 #### Preferences Object
