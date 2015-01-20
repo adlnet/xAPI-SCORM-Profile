@@ -34,7 +34,7 @@ If you would like to offer comments or issues, please submit an [issue](https://
 * [Appendix](#appendix)
   * [Common Scenarios](#common-scenarios) 
   * [Query Examples](#query-examples)  
-  * [SCORM xAPI Data Objects](##xapi-scorm-data-objects)
+  * [SCORM xAPI Data Objects](#xapi-scorm-data-objects)
 
 ## Glossary
 ##### Activity:  
