@@ -2102,7 +2102,7 @@ https://lrs.adlnet.gov/xapi/activities/state
    <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
    <tr><td>GET</td><td>activities/profile</tr>
    <tr><th>Parameter</th><th>Value</th></tr>
-   <tr><td>activityId</td><td>attempt IRI</td></tr>
+   <tr><td>activityId</td><td>Activity IRI</td></tr>
    <tr><td>profileId</td><td>http://adlnet.gov/xapi/profile/scorm/activity-profile</td></tr>
 </table>  
   
@@ -2134,7 +2134,7 @@ https://lrs.adlnet.gov/xapi/agents/profile
 &agent={"account": {
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
-&profileId=http://adlnet.gov/xapi/profile/scorm/agent-state
+&profileId=http://adlnet.gov/xapi/profile/scorm/agent-profile
 ```  
   
 *  The response content is a [SCORM Agent Profile](#agent-profile) JSON object.  
