@@ -494,8 +494,8 @@ __SCORM 2004:__ `cmi.comments_from_lms`
 __SCORM 1.2:__ `cmi.comments_from_lms`  
 __Experience API:__  
 [Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
-_Activity ID_: The activity IRI  
-_Profile ID_: http://adlnet.gov/xapi/profile/scorm/activity-profile  
+__Activity ID__: The activity IRI  
+__Profile ID__: http://adlnet.gov/xapi/profile/scorm/activity-profile  
 See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
 
 #### Completion Status
@@ -1945,7 +1945,7 @@ __xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and com
 
 ### Query Examples  
 #### Find Statements by activity IRI  
-- Issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS  
+* Issue a [get Statements](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#723-getstatements) request to the LRS  
   
 <table>
    <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
@@ -1967,31 +1967,9 @@ https://lrs.adlnet.gov/xapi/statements
   
 
 #### Find Attempt IRIs for a SCO
-*  Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api) request to the LRS  
-  
-<table>
-   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
-   <tr><td>GET</td><td>activities/state</tr>
-   <tr><th>Parameter</th><th>Value</th></tr>
-   <tr><td>activityId</td><td>SCO IRI</td></tr>
-   <tr><td>agent</td><td>Learner's Agent object</td></tr>
-   <tr><td>stateId</td><td>http://adlnet.gov/xapi/profile/scorm/activity-state</td></tr>
-</table>  
-  
-_Unencoded and formatted for readability_  
-```
-GET
-https://lrs.adlnet.gov/xapi/activities/state
-?activityId=http://adlnet.gov/courses/compsci/CS204/lesson01/01
-&agent={"account": {
-            "homePage": "http://lms.adlnet.gov/",
-            "name": "500-627-490"}}
-&stateId=http://adlnet.gov/xapi/profile/scorm/activity-state
-```  
-  
+*  Issue a [get Activity State](#get-xapi-scorm-activity-state) request to the LRS  
 *  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object with the Attempt IRIs stored in the `attempts` property.  
   
-
 #### Find the Latest Attempt IRI
 *  [Find the attempt IRIs for the SCO](#find-attempt-iris-for-a-sco)  
 *  The last IRI in the `attempts` parameter of the response [SCORM Activity State](#scorm-activity-state) JSON object is the latest attempt IRI  
@@ -2065,10 +2043,34 @@ https://lrs.adlnet.gov/xapi/statements
 ```  
   
 *  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI, the terminated ADL verb and the actor as the learner agent.  
-*  Each of these terminated Statements contain the SCO status in the `result` parameter, such as `score`, `completed` and `success`.
+*  Each of these terminated Statements contain the SCO status in the `result` parameter, such as `score`, `completed` and `success`.  
+  
+#### Get xAPI SCORM Activity State
+*  Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api) request to the LRS  
+  
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>activities/state</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>activityId</td><td>SCO IRI</td></tr>
+   <tr><td>agent</td><td>Learner's Agent object</td></tr>
+   <tr><td>stateId</td><td>http://adlnet.gov/xapi/profile/scorm/activity-state</td></tr>
+</table>  
+  
+_Unencoded and formatted for readability_  
+```
+GET
+https://lrs.adlnet.gov/xapi/activities/state
+?activityId=http://adlnet.gov/courses/compsci/CS204/lesson01/01
+&agent={"account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"}}
+&stateId=http://adlnet.gov/xapi/profile/scorm/activity-state
+```  
+  
+*  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object. 
 
-#### Get attempt state for current attempt  
-*  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
+#### Get xAPI SCORM Activity Attempt State
 *  Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api) request to the LRS  
   
 <table>
@@ -2091,7 +2093,55 @@ https://lrs.adlnet.gov/xapi/activities/state
 &stateId=http://adlnet.gov/xapi/profile/scorm/attempt-state
 ```  
   
-*  The response content is a [SCORM Attempt State](#scorm-attempt-state) JSON object.
+*  The response content is a [SCORM Attempt State](#scorm-attempt-state) JSON object.  
+
+#### Get xAPI SCORM Activity Profile
+*  Issue a [get Activity Profile](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi) request to the LRS  
+  
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>activities/profile</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>activityId</td><td>attempt IRI</td></tr>
+   <tr><td>profileId</td><td>http://adlnet.gov/xapi/profile/scorm/activity-profile</td></tr>
+</table>  
+  
+_Unencoded and formatted for readability_  
+```
+GET
+https://lrs.adlnet.gov/xapi/activities/profile
+?activityId=http://adlnet.gov/courses/compsci/CS204/lesson01/01/
+&profileId=http://adlnet.gov/xapi/profile/scorm/activity-profile
+```  
+  
+*  The response content is a [SCORM Activity Profile](#scorm-activity-profile) JSON object.  
+
+#### Get xAPI SCORM Agent Profile
+*  Issue a [get Agent Profile](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api) request to the LRS  
+  
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>agents/profile</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>agent</td><td>Agent object</td></tr>
+   <tr><td>profileId</td><td>http://adlnet.gov/xapi/profile/scorm/agent-profile</td></tr>
+</table>  
+  
+_Unencoded and formatted for readability_  
+```
+GET
+https://lrs.adlnet.gov/xapi/agents/profile
+&agent={"account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"}}
+&profileId=http://adlnet.gov/xapi/profile/scorm/agent-state
+```  
+  
+*  The response content is a [SCORM Agent Profile](#agent-profile) JSON object.  
+
+#### Get attempt state for current attempt  
+*  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
+*  Issue a [get Activity Attempt State](#get-xapi-scorm-activity-attempt-state) request to the LRS  
 
 #### Set attempt state for current attempt  
 *  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
