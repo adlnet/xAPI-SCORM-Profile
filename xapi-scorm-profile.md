@@ -1523,7 +1523,7 @@ State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state
 See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
 
 #### ADL Data
-ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accommodate for this, the [SCORM Activity State Object](#scorm-activity-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
+ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accommodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
 __SCORM 2004:__ `adl.data`  
 __SCORM 1.2:__ N/A      
 __Experience API:__  
