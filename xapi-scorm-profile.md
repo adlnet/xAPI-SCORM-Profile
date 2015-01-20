@@ -2047,7 +2047,7 @@ https://lrs.adlnet.gov/xapi/statements
    <tr><td>GET</td><td>statements</tr>
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>agent</td><td>leaner agent object</td></tr>
-  <tr><td>verb</td><td>ADL verb [terminated](http://adlnet.gov/expapi/verbs/terminated)
+  <tr><td>verb</td><td>ADL verb <a href="http://adlnet.gov/expapi/verbs/terminated">terminated</a>
    <tr><td>activity</td><td>course IRI</td></tr>
    <tr><td>related_activities</td><td>true</td></tr>
 </table>  
