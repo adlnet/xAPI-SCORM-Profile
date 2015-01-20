@@ -492,8 +492,7 @@ __Experience API Statement:__
 Comments From LMS allows an activity to see comments about the content. The value is the same for all learners, and is made available for each activity. For those reasons, Comments From LMS is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.comments_from_lms`  
 __SCORM 1.2:__ `cmi.comments_from_lms`  
-__Experience API:__  
-`comments_from_lms` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+__Experience API:__ `comments_from_lms` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
 See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
 
 #### Completion Status
@@ -570,16 +569,14 @@ __Experience API Statement:__
 Completion Threshold is a value that can be used to determine if an activity is complete. This value is the same for all learners, and is made available for each activity. For those reasons, Completion Threshold is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.completion_threshold`  
 __SCORM 1.2:__ N/A    
-__Experience API:__  
-`completion_threshold` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+__Experience API:__ `completion_threshold` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
 See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
 
 #### Credit
 Credit is used to indicate if an activity attempt status should be credited. This value is can vary for learners, and is made available for each activity. For those reasons, Credit is available at the Activity State endpoint.  
 __SCORM 2004:__ `cmi.credit`  
 __SCORM 1.2:__ `cmi.core.credit`    
-__Experience API:__  
-`credit` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) 
+__Experience API:__ `credit` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)  
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Entry
@@ -876,24 +873,21 @@ Interactions can be recorded using the xAPI. Interactions can be described in th
 Launch Data provides data to the activity to help initialize the content. The value is the same for all learners, and is made available for each activity. For those reasons, Launch Data is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.launch_data`  
 __SCORM 1.2:__ `cmi.launch_data`  
-__Experience API:__  
-`launch_data` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+__Experience API:__ `launch_data` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
 See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
 
 #### Learner ID
 Learner ID contains the identifier associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Agent Profile Object](#agent-profile).  
 __SCORM 2004:__ `cmi.learner_id`   
 __SCORM 1.2:__ `cmi.core.student_id`  
-__Experience API:__   
-`learner_id` in the [SCORM Agent Profile Object](#agent-profile)  
+__Experience API:__  `learner_id` in the [SCORM Agent Profile Object](#agent-profile)  
 See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
 
 #### Learner Name
 Learner Name contains the name associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Agent Profile Object](#agent-profile).  
 __SCORM 2004:__ `cmi.learner_name`   
 __SCORM 1.2:__ `cmi.core.student_name`  
-__Experience API:__   
-`learner_name` in the [SCORM Agent Profile Object](#agent-profile)  
+__Experience API:__  `learner_name` in the [SCORM Agent Profile Object](#agent-profile)  
 See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
 
 #### Learner Preferences
@@ -902,82 +896,71 @@ Preferences set by the learner about how the content is presented. These values 
 ###### Audio Level
 __SCORM 2004:__ `cmi.learner_preference.audio_level`   
 __SCORM 1.2:__ `cmi.student_preference.audio`  
-__Experience API:__   
-`audio_level` in the [SCORM Agent Profile Object](#agent-profile)  
+__Experience API:__ `audio_level` in the [SCORM Agent Profile Object](#agent-profile)  
 See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
  
 ###### Language
 __SCORM 2004:__ `cmi.learner_preference.language`   
 __SCORM 1.2:__ `cmi.student_preference.language`  
-__Experience API:__   
-`language` in the [SCORM Agent Profile Object](#agent-profile)  
+__Experience API:__  `language` in the [SCORM Agent Profile Object](#agent-profile)  
 See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
 
 ###### Delivery Speed
 __SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
 __SCORM 1.2:__ `cmi.student_preference.speed`  
-__Experience API:__   
-`delivery_speed` in the [SCORM Agent Profile Object](#agent-profile)  
+__Experience API:__  `delivery_speed` in the [SCORM Agent Profile Object](#agent-profile)  
 See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
 
 ###### Audio Captioning
 __SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
 __SCORM 1.2:__ `cmi.student_preference.text`  
-__Experience API:__   
-`audio_captioning` in the [SCORM Agent Profile Object](#agent-profile)  
+__Experience API:__ `audio_captioning` in the [SCORM Agent Profile Object](#agent-profile)  
 See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
 
 ##### Content Specific Values
 ###### Audio Level
 __SCORM 2004:__ `cmi.learner_preference.audio_level`   
 __SCORM 1.2:__ `cmi.student_preference.audio`  
-__Experience API:__   
-`audio_level` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `audio_level` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 ###### Language
 __SCORM 2004:__ `cmi.learner_preference.language`   
 __SCORM 1.2:__ `cmi.student_preference.language`  
-__Experience API:__   
-`language` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `language` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 ###### Delivery Speed
 __SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
 __SCORM 1.2:__ `cmi.student_preference.speed`  
-__Experience API:__   
-`delivery_speed` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `delivery_speed` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 ###### Audio Captioning
 __SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
 __SCORM 1.2:__ `cmi.student_preference.text`  
-__Experience API:__   
-`audio_captioning` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `audio_captioning` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Location
 An element to hold a location for the content. This value is specific to the learner, and the activity, and is available at the Activity Attempt State endpoint.  
 __SCORM 2004:__ `cmi.location`  
 __SCORM 1.2:__ `cmi.core.lesson_location`    
-__Experience API:__  
-`location` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `location` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Max Time Allowed
 Max Time Allowed defines how long a learner can interact with an activity. This value is the same for all learners, and is made available for each activity. For those reasons, Max Time Allowed is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.max_time_allowed`  
 __SCORM 1.2:__ `cmi.student_data.max_time_allowed`   
-__Experience API:__  
-`max_time_allowed` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+__Experience API:__ `max_time_allowed` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
 See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object. 
 
 #### Mode
 Mode is used to indicate the presentation mode of the activity. This value is can vary for learners, and is made available for each activity. For those reasons, Mode is available at the Activity Attempt State endpoint.  
 __SCORM 2004:__ `cmi.mode`  
 __SCORM 1.2:__ `cmi.core.lesson_mode`    
-__Experience API:__  
-`mode` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `mode` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Objectives
@@ -1229,8 +1212,7 @@ __Experience API Statement:__
 The score required for the learner to pass the content. This value is the same for all learners, and is made available for each activity. For those reasons, Scaled Passing Score is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.scaled_passing_score`  
 __SCORM 1.2:__ `cmi.student_data.mastery_score`   
-__Experience API:__  
-`scaled_passing_score` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+__Experience API:__ `scaled_passing_score` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
 See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
 
 #### Score
@@ -1457,32 +1439,28 @@ __Experience API Statement:__
 Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
-__Experience API:__  
-`suspend_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `suspend_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Time Limit Action
 Time Limit Action defines what the content should do when the time limit has been surpassed. This value is the same for all learners, and is made available for each activity. For those reasons, Time Limit Action is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.time_limit_action`  
 __SCORM 1.2:__ `cmi.student_data.time_limit_action`   
-__Experience API:__  
-`time_limit_action` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+__Experience API:__ `time_limit_action` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
 See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object. 
 
 #### Total Time
 An element to hold a total time spent interacting with the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
 __SCORM 2004:__ `cmi.total_time`  
 __SCORM 1.2:__ `cmi.core.total_time`    
-__Experience API:__  
-`total_time` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `total_time` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### ADL Data
 ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accommodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
 __SCORM 2004:__ `adl.data`  
 __SCORM 1.2:__ N/A      
-__Experience API:__  
-`adl_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+__Experience API:__ `adl_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
 See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
   
 
