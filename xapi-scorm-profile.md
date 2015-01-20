@@ -1491,7 +1491,7 @@ __Experience API Statement:__
   
 
 #### Suspend Data
-Suspend Data is the place to store state information of the content. This value may be large. To accomdate for this, the [SCORM Activity State Object](#scorm-attempt-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
+Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
 __Experience API:__  
