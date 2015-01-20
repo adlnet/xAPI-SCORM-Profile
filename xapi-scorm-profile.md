@@ -493,10 +493,8 @@ Comments From LMS allows an activity to see comments about the content. The valu
 __SCORM 2004:__ `cmi.comments_from_lms`  
 __SCORM 1.2:__ `cmi.comments_from_lms`  
 __Experience API:__  
-[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
-__Activity ID__: The activity IRI  
-__Profile ID__: http://adlnet.gov/xapi/profile/scorm/activity-profile  
-See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+`comments_from_lms` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
 
 #### Completion Status
 Completion indicates if the learner has completed the activity. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate completion of the activity. If it is determined that the activity must have a completion status, set it explicitly as the [result of terminated Statement](#terminating-an-attempt).  
@@ -573,21 +571,16 @@ Completion Threshold is a value that can be used to determine if an activity is 
 __SCORM 2004:__ `cmi.completion_threshold`  
 __SCORM 1.2:__ N/A    
 __Experience API:__  
-[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
-Activity ID: The activity IRI  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
-See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+`completion_threshold` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
 
 #### Credit
 Credit is used to indicate if an activity attempt status should be credited. This value is can vary for learners, and is made available for each activity. For those reasons, Credit is available at the Activity State endpoint.  
 __SCORM 2004:__ `cmi.credit`  
 __SCORM 1.2:__ `cmi.core.credit`    
 __Experience API:__  
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+`credit` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) 
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Entry
 Entry is used to indicate the attempt state of the activity - is this a new attempt on the activity or a continuation of the previous attempt? There is no direct mapping to an xAPI statement such as “actor entered activity with result ab-initio”. Instead this is implied by issuing a statement with the ADL Verb `initialized` and a new attemptId on the grouping activity. 
@@ -884,30 +877,24 @@ Launch Data provides data to the activity to help initialize the content. The va
 __SCORM 2004:__ `cmi.launch_data`  
 __SCORM 1.2:__ `cmi.launch_data`  
 __Experience API:__  
-[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
-Activity ID: The activity IRI  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
-See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+`launch_data` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
 
 #### Learner ID
 Learner ID contains the identifier associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Agent Profile Object](#agent-profile).  
 __SCORM 2004:__ `cmi.learner_id`   
 __SCORM 1.2:__ `cmi.core.student_id`  
 __Experience API:__   
-[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
-Agent: The Agent associated with the profile.  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
-See [Agent Profile Object](#agent-profile) for object format.  
+`learner_id` in the [SCORM Agent Profile Object](#agent-profile)  
+See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
 
 #### Learner Name
 Learner Name contains the name associated with a learner in the LMS. This value may be used to generate the [Agent information for launch](#40-launching-and-initializing-activities). This value also may be set in the [Agent Profile Object](#agent-profile).  
 __SCORM 2004:__ `cmi.learner_name`   
 __SCORM 1.2:__ `cmi.core.student_name`  
 __Experience API:__   
-[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
-Agent: The Agent associated with the profile.  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
-See [Agent Profile Object](#agent-profile) for object format.  
+`learner_name` in the [SCORM Agent Profile Object](#agent-profile)  
+See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
 
 #### Learner Preferences
 Preferences set by the learner about how the content is presented. These values are editable by the learner and span the attempts on the activity. Due to this, specific learner preference settings may be stored in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state). SCORM also describes that default values may be defined for the learner. These default values may be stored in the [Agent Profile Object](#agent-profile).
@@ -916,104 +903,82 @@ Preferences set by the learner about how the content is presented. These values 
 __SCORM 2004:__ `cmi.learner_preference.audio_level`   
 __SCORM 1.2:__ `cmi.student_preference.audio`  
 __Experience API:__   
-[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
-Agent: The Agent associated with the profile.  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
-See [Agent Profile Object](#agent-profile) for object format.  
+`audio_level` in the [SCORM Agent Profile Object](#agent-profile)  
+See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
+ 
 ###### Language
 __SCORM 2004:__ `cmi.learner_preference.language`   
 __SCORM 1.2:__ `cmi.student_preference.language`  
 __Experience API:__   
-[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
-Agent: The Agent associated with the profile.  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
-See [Agent Profile Object](#agent-profile) for object format. 
+`language` in the [SCORM Agent Profile Object](#agent-profile)  
+See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
+
 ###### Delivery Speed
 __SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
 __SCORM 1.2:__ `cmi.student_preference.speed`  
 __Experience API:__   
-[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
-Agent: The Agent associated with the profile.  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
-See [Agent Profile Object](#agent-profile) for object format. 
+`delivery_speed` in the [SCORM Agent Profile Object](#agent-profile)  
+See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
+
 ###### Audio Captioning
 __SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
 __SCORM 1.2:__ `cmi.student_preference.text`  
 __Experience API:__   
-[Agent Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#76-agent-profile-api)  
-Agent: The Agent associated with the profile.  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/agent-profile  
-See [Agent Profile Object](#agent-profile) for object format.  
+`audio_captioning` in the [SCORM Agent Profile Object](#agent-profile)  
+See [Get xAPI SCORM Agent Profile](#get-xapi-scorm-agent-profile) for retrieving the Agent Profile Object.  
 
 ##### Content Specific Values
 ###### Audio Level
 __SCORM 2004:__ `cmi.learner_preference.audio_level`   
 __SCORM 1.2:__ `cmi.student_preference.audio`  
 __Experience API:__   
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.   
+`audio_level` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
+
 ###### Language
 __SCORM 2004:__ `cmi.learner_preference.language`   
 __SCORM 1.2:__ `cmi.student_preference.language`  
 __Experience API:__   
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
+`language` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
+
 ###### Delivery Speed
 __SCORM 2004:__ `cmi.learner_preference.delivery_speed`   
 __SCORM 1.2:__ `cmi.student_preference.speed`  
 __Experience API:__   
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
+`delivery_speed` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
+
 ###### Audio Captioning
 __SCORM 2004:__ `cmi.learner_preference.audio_captioning`   
 __SCORM 1.2:__ `cmi.student_preference.text`  
 __Experience API:__   
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+`audio_captioning` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Location
-An element to hold a location for the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
+An element to hold a location for the content. This value is specific to the learner, and the activity, and is available at the Activity Attempt State endpoint.  
 __SCORM 2004:__ `cmi.location`  
 __SCORM 1.2:__ `cmi.core.lesson_location`    
 __Experience API:__  
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+`location` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Max Time Allowed
 Max Time Allowed defines how long a learner can interact with an activity. This value is the same for all learners, and is made available for each activity. For those reasons, Max Time Allowed is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.max_time_allowed`  
 __SCORM 1.2:__ `cmi.student_data.max_time_allowed`   
 __Experience API:__  
-[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
-Activity ID: The activity IRI  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
-See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+`max_time_allowed` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object. 
 
 #### Mode
-Mode is used to indicate the presentation mode of the activity. This value is can vary for learners, and is made available for each activity. For those reasons, Mode is available at the Activity State endpoint.  
+Mode is used to indicate the presentation mode of the activity. This value is can vary for learners, and is made available for each activity. For those reasons, Mode is available at the Activity Attempt State endpoint.  
 __SCORM 2004:__ `cmi.mode`  
 __SCORM 1.2:__ `cmi.core.lesson_mode`    
 __Experience API:__  
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+`mode` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Objectives
 Objectives are represented as another activity. As such, statements about a learner’s score, success or completion status are reported just as they are for any other activity. But determining a consistent naming scheme for the objective ID makes it easier for reporting systems to understand the statements. For consistency the following guidance is recommended:
@@ -1265,10 +1230,8 @@ The score required for the learner to pass the content. This value is the same f
 __SCORM 2004:__ `cmi.scaled_passing_score`  
 __SCORM 1.2:__ `cmi.student_data.mastery_score`   
 __Experience API:__  
-[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
-Activity ID: The activity IRI  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
-See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+`scaled_passing_score` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
 
 #### Score
 Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or activity cannot imply success or completion of an activity solely based on a score. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate the score of the activity. If it is determined that the activity must have a score, set it explicitly as the [result of terminated Statement](#terminating-an-attempt).  
@@ -1495,43 +1458,32 @@ Suspend Data is the place to store state information of the content. This value 
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
 __Experience API:__  
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: The IRI stored in the SCORM Activity State suspend_data property.  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format. 
+`suspend_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Time Limit Action
 Time Limit Action defines what the content should do when the time limit has been surpassed. This value is the same for all learners, and is made available for each activity. For those reasons, Time Limit Action is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.time_limit_action`  
 __SCORM 1.2:__ `cmi.student_data.time_limit_action`   
 __Experience API:__  
-[Activity Profile Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#actprofapi)  
-Activity ID: The activity IRI  
-Profile ID: http://adlnet.gov/xapi/profile/scorm/activity-profile  
-See [SCORM Activity Profile Object](#scorm-activity-profile) for object format.  
+`time_limit_action` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
+See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object. 
 
 #### Total Time
 An element to hold a total time spent interacting with the content. This value is specific to the learner, and the activity, and is available at the Activity State endpoint.  
 __SCORM 2004:__ `cmi.total_time`  
 __SCORM 1.2:__ `cmi.core.total_time`    
 __Experience API:__  
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: http://adlnet.gov/xapi/profile/scorm/attempt-state  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+`total_time` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### ADL Data
 ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. To accommodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an IRI to the [ADL Data  Object](#adl-data-objects).  
 __SCORM 2004:__ `adl.data`  
 __SCORM 1.2:__ N/A      
 __Experience API:__  
-[Activity State Endpoint](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api)  
-Agent: The agent object associated with the current learner
-Activity ID: The activity IRI  
-State ID: The IRI stored in the SCORM Activity State adl_data property.  
-See [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) for object format.  
+`adl_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
   
 
 ## 7.0 Retrieving and Interpreting xAPI Statements
