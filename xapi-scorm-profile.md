@@ -1908,7 +1908,8 @@ https://lrs.adlnet.gov/xapi/statements
 
 #### Find all Statements from the Latest Attempt  
 *  [Find the latest attempt IRI](#find-the-latest-attempt-iri) for the SCO  
-*  [Find the Statements by the latest attempt IRI](#find-statements-by-activity-iri)  *  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI  
+*  [Find the Statements by the latest attempt IRI](#find-statements-by-activity-iri)  
+*  The response content is a [Statement Result](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#retstmts) of all the Statements that contained an activity with the requested IRI  
   
 #### Find all Statements for a SCO  
 *  Identify the SCO IRI from launch, activity IRI generation, or out-of-band configuration  
