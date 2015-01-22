@@ -232,7 +232,7 @@ __Guidelines for Activity IRI Construction__
   - If the objective is local to the SCO: `<scoIRI>/objectives/<objective path>`
   - If the objective is available to the entire course: `<courseIRI>/objectives/<objective path>`
   - If the objective is available to any course (global): `<scheme>://<authority>/objectives/<objective path>`
-  - Objective path is any IRI path to the objective activity definition, ie `if-else/`
+  - Objective path is any IRI path to the objective activity definition, ie `recognize-shapes-obj/`
 
 ###### Activity Definition
 The [activity definition](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#activity-definition) provides information about the activity. At a minimum all activities should include an activity definition with a name, description and type. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
