@@ -1516,7 +1516,13 @@ For determining status based on granularity:
 - If no course status is found consuming tools may use the status of all activities that include the course IRI in the context activities property.
 - And at the most granular level, the consuming tools may use the status of all of the objectives for each of the activities that include the course IRI in the context activities property.  
   
-#### Status
+#### Course Status
+Determining and reporting course status is optional. However to maintain consistency of Statements, if course status is reported it must follow the guidance listed below.
+- Use the verb [completed](http://adlnet.gov/expapi/verbs/completed/)  
+- Set the `object` of the Statement to the course activity
+- If known, include the sucess and score in the `result` property of the Statement
+  
+#### SCO Status
 Activities shall report as much information about a learner’s status in the `result` property of the [terminated Statement](#terminating-an-attempt) of the activity.  
 - At a minimum, completion should be reported in the terminated Statement.  
 - Additional status, such as success and score, may be reported in the terminated Statement.  
@@ -1823,8 +1829,8 @@ __xAPI:__ agent 500-627-490 resumed lesson01 with same attempt id in the course 
 }
 ```
   
-#### Setting the course status with completion and score in result
-__xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and completion true
+#### Setting the course status with success and score in result
+__xAPI:__ agent 500-627-490 completed the course CS204 with a score of 0.85 and success true
 ``` javascript
 {
     "actor": {
@@ -1834,16 +1840,16 @@ __xAPI:__ agent 500-627-490 passed the course CS204 with a score of 0.85 and com
         }
     },
     "verb": {
-        "id": "http://adlnet.gov/expapi/verbs/passed",
+        "id": "http://adlnet.gov/expapi/verbs/completed",
         "display": {
-            "en-US": "passed"
+            "en-US": "completed"
         }
     },
     "result": {
         "score": {
             "scaled": 0.85
         },
-        "completion": true
+        "success": true
     },
     "object": {
         "id": "http://adlnet.gov/courses/compsci/CS204/",
