@@ -1522,6 +1522,8 @@ Determining and reporting course status is optional. However to maintain consist
 - Set the `object` of the Statement to the course activity
 - If known, include the sucess and score in the `result` property of the Statement
   
+See an [example course status](#setting-the-course-status-with-success-and-score-in-result) Statement in the Appendix.
+  
 #### SCO Status
 Activities shall report as much information about a learner’s status in the `result` property of the [terminated Statement](#terminating-an-attempt) of the activity.  
 - At a minimum, completion should be reported in the terminated Statement.  
