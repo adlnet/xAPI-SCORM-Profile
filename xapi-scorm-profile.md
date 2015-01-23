@@ -1504,8 +1504,6 @@ Due to activity providers and activities reporting to an LRS instead of an LMS, 
 
 The method of determining status is up to those developing the activities. For example, activities within a course may report individual status statements and leverage a final piece of content to look at the collection of results and report an overall status for the course. Another example is a reporting tool customized with an organization’s accepted passing threshold collecting scores from a course and evaluating them based on the organization threshold. The results of that evaluation could be reported to the LRS as the success for the course.  
 
-#### Note About Default Status
-It was a common practice to set a default status on SCOs in SCORM. Sometimes variations in how an LMS handled a status, if not reported by the activity, caused issues in getting consistent results. Developers often tried to resolve this default status by setting the status in the activity upon launch. Many SCOs at launch will set completion status to incomplete, success status to failed and a score scaled to 0.0. This often works because the LMS is only required to save the latest value for an element of the latest attempt. But since an LRS keeps all records it can start to cause conflicts or confusing results. So to try to prevent these issues, it is strongly recommended not to report a default status.  
 
 ### Resolving Conflicts
 Statements in an LRS are stored as a stream of information. It is possible to retrieve statements that conflict. It might be that a learner initially failed a test but later tried again and passed. In the LRS that result would likely appear as two separate, and conflicting, statements. Another issue that might arise is that the SCOs or lessons within a course may report one result while the course reports an overall status of another result. The following rules shall be followed to resolve such conflicts.
@@ -1515,18 +1513,18 @@ It is possible to report status of a course in three different levels of granula
   
 For determining status based on granularity:
 - If a system consuming the statements finds a course status, it shall use that result. 
-- If no course status is found consuming tools may use the status of all activities that include the course IRI as a parent activity in the context activities property.
-- And at the most granular level, the consuming tools may use the status of all of the objectives for each of the activities that include the course IRI as a parent activity in the context activities property.  
+- If no course status is found consuming tools may use the status of all activities that include the course IRI in the context activities property.
+- And at the most granular level, the consuming tools may use the status of all of the objectives for each of the activities that include the course IRI in the context activities property.  
   
 #### Status
-It is recommended that all activities report as much information about a learner’s status in the `result` property of the [terminated Statement](#terminating-an-attempt) of the activity.  
-- At a minimum, activities should report a success status, such as passed or failed. 
-  - If a success status does not make sense for the type of activity, the activity should report completion status of completed when it is determined the learner has completed the activity. 
-  - The activity may report a score.
-- For tools using these results from the LRS, the activity status is first based on the success status, if found. 
-  - If there is no success status, the tool may then use the completion status. 
-  - If there is no success or completion status the tool may use the score. 
-    - If the tool can determine success from the score, i.e., it has a threshold to compare with the score, it is permitted to use that evaluation.
+Activities shall report as much information about a learner’s status in the `result` property of the [terminated Statement](#terminating-an-attempt) of the activity.  
+- At a minimum, completion should be reported in the terminated Statement.  
+- Additional status, such as success and score, may be reported in the terminated Statement.  
+  
+For tools using these results from the LRS, the activity status is first based on the success status, if found. 
+ - If there is no success status, the tool may then use the completion status. 
+ - If there is no success or completion status the tool may use the score. 
+   - If the tool can determine success from the score, i.e., it has a threshold to compare with the score, it is permitted to use that evaluation.
 
 #### Authority
 The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the activity, a teacher or a reporting tool. It is up to the organization to choose which agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
