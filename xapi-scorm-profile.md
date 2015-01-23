@@ -1521,11 +1521,8 @@ Activities shall report as much information about a learner’s status in the `r
 - At a minimum, completion should be reported in the terminated Statement.  
 - Additional status, such as success and score, may be reported in the terminated Statement.  
   
-For tools using these results from the LRS, the activity status is first based on the success status, if found. 
- - If there is no success status, the tool may then use the completion status. 
- - If there is no success or completion status the tool may use the score. 
-   - If the tool can determine success from the score, i.e., it has a threshold to compare with the score, it is permitted to use that evaluation.
-
+For tools using these results from the LRS, the activity status is based on the status found in the `result` property of a terminated Statement.  
+  
 #### Authority
 The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the activity, a teacher or a reporting tool. It is up to the organization to choose which agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
 __Decoded__
