@@ -1440,12 +1440,11 @@ Suspend Data is the place to store state information of the content. This value 
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
 __Experience API:__ xAPI State Document  
-`activityId`: The activity ID for the current attempt
-`agent`: The current learner agent object
-`stateId`: http://adlnet.gov/xapi/profile/scorm/types/adl-suspend-data
-`registration`: (Optional) Registration UUID associated with the current attempt
-
-
+`activityId`: The activity ID for the current attempt  
+`agent`: The current learner agent object  
+`stateId`: http://adlnet.gov/xapi/profile/scorm/types/adl-suspend-data  
+`registration`: (Optional) Registration UUID associated with the current attempt  
+  
 #### Time Limit Action
 Time Limit Action defines what the content should do when the time limit has been surpassed. This value is the same for all learners, and is made available for each activity. For those reasons, Time Limit Action is available at the Activity Profile endpoint.  
 __SCORM 2004:__ `cmi.time_limit_action`  
@@ -1463,7 +1462,7 @@ See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-sta
 #### ADL Data
 ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. Additionally ADL Data can be allocated on a per SCO, per attempt basis making it difficult to define a standard place or process to store this arbitrary data. Instead this document describes the format and possible solutions. Ultimately, the implementation of this data model element is left largely up to the organization or developer.  
 
-It is recommended that ADL Data is implemented similar to suspend data. Due to the potentially large amount of data that could be stored, each of the ADL Data stores should be individual xAPI activity state documents. To accommodate this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an array of [ADL Data State Parameters](#adl-data-state-parameters) objects containing parameters necessary to query for the ADL Data.  
+It is recommended that ADL Data is implemented similar to suspend data. Due to the potentially large amount of data that could be stored, each of the ADL Data stores should be individual xAPI activity state documents. To accommodate this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an array of [ADL Data State Parameters](#adl-data-state-parameters-object) objects containing parameters necessary to query for the ADL Data.  
 __SCORM 2004:__ `adl.data`  
 __SCORM 1.2:__ N/A      
 __Experience API:__ `adl_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
