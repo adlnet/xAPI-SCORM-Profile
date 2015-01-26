@@ -2090,7 +2090,7 @@ https://lrs.adlnet.gov/xapi/agents/profile
     *  issue a POST activity state request with the updated JSON object
 *  If the response returns a `404 Not Found`, 
     *  create a new [attempt state JSON object](#scorm-activity-attempt-state) with current values
-    *  issue a PUT activity state request with the new JSON object
+    *  issue a PUT activity state request with the new JSON object  
 >NOTE: The request method change of POST or PUT is based on xAPI requirements for updating vs creating a new document. This example demonstrates a generalized case. Organizations are free to update/create the document however works best within the [rules defined in xAPI](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#json-procedure-with-requirements).
   
 <table>
