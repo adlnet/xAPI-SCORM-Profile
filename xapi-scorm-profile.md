@@ -2157,7 +2157,7 @@ __State ID:__ http://adlnet.gov/xapi/profile/scorm/attempt-state
 </tr>
 <tr>
  <td>adl_data</td>
- <td>Array of <a href="#data-object">Data Objects</a></td>
+ <td>Array of <a href="#adl-data-state-parameters-object">ADL Data State Parameter Objects</a></td>
 </tr>
 </table>
 
