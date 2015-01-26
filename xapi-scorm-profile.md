@@ -2150,7 +2150,7 @@ __State ID:__ http://adlnet.gov/xapi/profile/scorm/attempt-state
 </tr>
 <tr>
  <td>suspend_data</td>
- <td>Array of <a href="#scorm-suspend-data-object">Suspend Data Objects</a></td>
+ <td>A <a href="#data-object">Data Object</a></td>
 </tr>
 <tr>
  <td>total_time</td>
@@ -2158,7 +2158,7 @@ __State ID:__ http://adlnet.gov/xapi/profile/scorm/attempt-state
 </tr>
 <tr>
  <td>adl_data</td>
- <td>Array of <a href="#adl-data-objects">ADL Data Objects</a></td>
+ <td>Array of <a href="#data-object">Data Objects</a></td>
 </tr>
 </table>
 
