@@ -1436,11 +1436,15 @@ __Experience API Statement:__
   
 
 #### Suspend Data
-Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) suspend_data property contains an IRI to the [Suspend Data State Object](#scorm-suspend-data-object).  
+Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, suspend data is stored using the xAPI State endpoint, using `http://adlnet.gov/xapi/profile/scorm/types/adl-suspend-data` as the stateId property value. 
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
-__Experience API:__ `suspend_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
-See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
+__Experience API:__ xAPI State Document  
+`activityId`: The activity ID for the current attempt
+`agent`: The current learner agent object
+`stateId`: http://adlnet.gov/xapi/profile/scorm/types/adl-suspend-data
+`registration`: (Optional) Registration UUID associated with the current attempt
+
 
 #### Time Limit Action
 Time Limit Action defines what the content should do when the time limit has been surpassed. This value is the same for all learners, and is made available for each activity. For those reasons, Time Limit Action is available at the Activity Profile endpoint.  
@@ -1459,7 +1463,7 @@ See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-sta
 #### ADL Data
 ADL Data is the place to store arbitrary information about the content. This value may be large and shared across activities. Additionally ADL Data can be allocated on a per SCO, per attempt basis making it difficult to define a standard place or process to store this arbitrary data. Instead this document describes the format and possible solutions. Ultimately, the implementation of this data model element is left largely up to the organization or developer.  
 
-It is recommended that ADL Data is implemented similar to suspend data. Due to the potentially large amount of data that could be stored, each of the ADL Data stores should be individual xAPI activity state documents. The IRI and state IDs should be used to uniquely identify the ADL Data store. And like suspend data, an array of available ADL Data store IDs can be saved in the ADL activity attempt state object. This same data format could be used to save information broader than an activity attempt, such as course state data. To accommodate for this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an array of IRIs to the [ADL Data  Object](#adl-data-objects).  
+It is recommended that ADL Data is implemented similar to suspend data. Due to the potentially large amount of data that could be stored, each of the ADL Data stores should be individual xAPI activity state documents. To accommodate this, the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state) adl_data property contains an array of [ADL Data State Parameters](#adl-data-state-parameters) objects containing parameters necessary to query for the ADL Data.  
 __SCORM 2004:__ `adl.data`  
 __SCORM 1.2:__ N/A      
 __Experience API:__ `adl_data` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)   
@@ -2149,10 +2153,6 @@ __State ID:__ http://adlnet.gov/xapi/profile/scorm/attempt-state
  <td><a href="#preferences-object">Preferences Object</a></td>
 </tr>
 <tr>
- <td>suspend_data</td>
- <td>A <a href="#data-object">Data Object</a></td>
-</tr>
-<tr>
  <td>total_time</td>
  <td>Formatted <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601 Duration</a> with a precision of 0.01 seconds</td>
 </tr>
@@ -2227,49 +2227,25 @@ __Profile ID:__ http://adlnet.gov/xapi/profile/scorm/agent-profile
  <td>Timestamp <a href="https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp">ISO 8601</a></td>
 </table>
 
-#### Data Object
+#### ADL Data State Parameters Object
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
- <td>type</td>
+ <td>activityId</td>
  <td>IRI</td>
 </tr>
 <tr>
- <td>id</td>
- <td>IRI</td>
-</tr>
-</table>
-
-#### SCORM Suspend Data Object
-<table>
-<tr><th>Property</th><th>Description</th></tr>
-<tr>
- <td>type</td>
- <td>http://adlnet.gov/xapi/profile/scorm/types/adl-suspend-data</td>
+ <td>agent</td>
+ <td>Agent object</td>
 </tr>
 <tr>
- <td>id</td>
- <td>IRI</td>
-</tr>
-<tr>
- <td>data</td>
+ <td>stateId</td>
  <td>String</td>
-</table>
-
-#### ADL Data Objects
-<table>
-<tr><th>Property</th><th>Description</th></tr>
-<tr>
- <td>type</td>
- <td>http://adlnet.gov/xapi/profile/scorm/types/adl-data</td>
 </tr>
 <tr>
- <td>id</td>
- <td>IRI</td>
+ <td>registration</td>
+ <td>UUID (Optional)</td>
 </tr>
-<tr>
- <td>store</td>
- <td>String</td>
 </table>
 
 #### Preferences Object
