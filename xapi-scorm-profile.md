@@ -1431,7 +1431,7 @@ __Experience API Statement:__
   
 
 #### Suspend Data
-Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, suspend data is stored using the xAPI State endpoint, using `http://purl.org/xapi/adl/profiles/scorm/types/adl-suspend-data` as the stateId property value. 
+Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, suspend data is stored using the xAPI State endpoint, using `http://purl.org/xapi/adl/profiles/scorm/types/adl-suspend-data` as the stateId property value.  
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
 __Experience API:__ xAPI State Document  
