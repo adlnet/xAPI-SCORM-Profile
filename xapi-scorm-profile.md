@@ -1529,14 +1529,6 @@ Activities shall report as much information about a learner’s status in the `r
   
 For tools using these results from the LRS, the activity status is based on the status found in the `result` property of a terminated Statement.  
   
-#### Authority
-The authority property of a statement identifies the agent who submitted a particular statement. This agent could be the activity provider, the activity, a teacher or a reporting tool. It is up to the organization to choose which agents are to be considered when determining status. Querying the LRS can be narrowed down by authority by using the approved agent id and requesting related agents.  
-__Decoded__
-<pre>
-GET  
-statements/?agent={"id":"myactivityprovider@mycompany.com"}&related_agents=true
-</pre>
-
 #### Attempt
 If the activity was following the SCORM temporal model, it may be necessary to resolve conflicts by only using results from the latest attempt. See the [example in the Appendix](#find-all-statements-from-the-latest-attempt).
 
