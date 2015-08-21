@@ -338,9 +338,6 @@ If the above launch options are not possible developers can preconfigure the act
 ## 5.0 Supporting the SCORM Temporal Model
 SCORM has a temporal model which describes interaction states such as an attempt and a session. The xAPI uses an Activity Stream style model where experiences are all reported to the stream without a sense of session or attempt. This does not mean, however, that xAPI statements cannot be related to one another. By properly using the context attribute of a Statement it is possible to group Statements using the registration ID or broader activity IDs.  
   
-### Providing support data
-Some SCORM data model elements represent data that is not about learner experiences or performance. Elements such as launch data, suspend data and learner preferences may be important or necessary, but are not expected to be reported as xAPI Statements. This data can be stored in the LRS document storage, such as Activity Profile and Activity State. A complete representation of the document data and formats is defined in the [Appendix](#xapi-scorm-data-objects).  
-  
 ### Initializing an attempt
 *  Generate the activity attempt IRI. The way this is done is up to the developer. The only requirement is that the attempt IRI is unique.  
 *  Add the attempt IRI to the `attempts` array in the Activity State document either by creating the `attempts` array or appending to the existing array. See the [Appendix](#scorm-activity-state) for the Activity State format.  
@@ -412,7 +409,10 @@ Querying systems can find the the list of attempt IRIs for a SCO by [getting the
   
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
 The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way.   
-
+  
+### Providing support data
+Some SCORM data model elements represent data that is not about learner experiences or performance. Elements such as launch data, suspend data and learner preferences may be important or necessary, but are not expected to be reported as xAPI Statements. This data can be stored in the LRS document storage, such as Activity Profile and Activity State. A complete representation of the document data and formats is defined in the [Appendix](#xapi-scorm-data-objects).  
+  
 #### Comments From Learner
 SCORM 1.2 Comments and SCORM 2004 Comments from Learner mapped to an Experience API Statement. The `commented` ADL Verb is used with the comment as the xAPI Statement result response value. For SCORM 2004 where there is also a timestamp and a location, use the statement timestamp attribute for the comment timestamp value and the Activity URI as the location.  
 __SCORM 2004:__ `cmi.comments_from_learner`  
