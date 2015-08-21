@@ -377,6 +377,8 @@ During the session, Statements are collected and sent to the LRS much like SCORM
          *  If completion_status of the SCO is known, `completion` is `true` if completion_status is completed, and `false` if completion_status is incomplete
          *  If score of the SCO is known, use the appropriate score property to store SCORM score data model elements, such as `score.scaled` for `cmi.score.scaled`
   
+([See an example in the Appendix](#terminate-a-sco))  
+  
 ### Suspending an attempt
 To suspend a SCO attempt,  
  *  Create a Statement  
@@ -393,6 +395,8 @@ To suspend a SCO attempt,
          *  If score of the SCO is known, use the appropriate score property to store SCORM score data model elements, such as `score.scaled` for `cmi.score.scaled`  
 *  (Optional) Set the [attempt state values](#scorm-activity-attempt-state)  
   
+([See an example in the Appendix](#suspend-a-sco))  
+  
 ### Resuming an attempt
 To resume the SCO attempt,  
 *  Create a Statement  
@@ -402,7 +406,9 @@ To resume the SCO attempt,
     *  Set `object.definition.type` to `http://adlnet.gov/expapi/activities/lesson`
     *  Set `context.contextActivities.grouping` array to include the attempt activity, created during the original initialization of the SCO, and the course activity  
     *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity ([See context for profile activity](#context))  
-    *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details  
+    *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#417-timestamp) for details    
+  
+([See an example in the Appendix](##resume-a-sco))  
   
 ### Querying the LRS for Statements in an attempt  
 Querying systems can find the the list of attempt IRIs for a SCO by [getting the Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api). The resulting JSON object contains an `attempts` array containing the attempt IRIs ordered from first to latest attempt. The querying system can get the Statements from the LRS by [querying for all Statements](#find-all-statements-from-the-latest-attempt) with the attempt IRI. See the Appendix for [query examples](#query-examples).  
