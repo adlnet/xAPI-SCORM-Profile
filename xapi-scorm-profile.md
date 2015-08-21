@@ -413,6 +413,29 @@ To resume the SCO attempt,
 ### Querying the LRS for Statements in an attempt  
 Querying systems can find the the list of attempt IRIs for a SCO by [getting the Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#74-state-api). The resulting JSON object contains an `attempts` array containing the attempt IRIs ordered from first to latest attempt. The querying system can get the Statements from the LRS by [querying for all Statements](#find-all-statements-from-the-latest-attempt) with the attempt IRI. See the Appendix for [query examples](#query-examples).  
   
+### Representing the temporal model with xAPI Statements  
+This section describes when to issue the statements outlined above to represent the SCORM temporal model.  
+
+#### New attempt with normal exit
+ * Send an [initialize](#initializing-an-attempt) statement
+ * Send various statements about the activity
+ * Send a [terminate](#terminating-an-attempt) statement
+  
+#### New attempt with suspend
+ * Send an [initialize](#initializing-an-attempt) statement
+ * Send various statements about the activity
+ * Send a [suspend](#suspending-an-attempt) statement
+  
+#### Resume attempt with suspend
+ * Send an [resume](#resuming-an-attempt) statement
+ * Send various statements about the activity
+ * Send a [suspend](#suspending-an-attempt) statement
+  
+#### Resume attempt with normal exit
+ * Send an [resume](#resuming-an-attempt) statement
+ * Send various statements about the activity
+ * Send a [terminate](#terminating-an-attempt) statement
+  
 ## 6.0 Mapping the SCORM Data Model to xAPI Statements
 The following is a list of SCORM data model elements and the equivalent xAPI statement. Using this mapping will allow systems to interpret the xAPI statements in an interoperable way.   
   
