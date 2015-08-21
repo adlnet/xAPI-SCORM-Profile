@@ -237,8 +237,6 @@ __Guidelines for Activity IRI Construction__
 ###### Activity Definition
 The [activity definition](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#activity-definition) provides information about the activity. At a minimum all activities should include an activity definition with a name, description and type. If the activity is representing a SCORM interaction, follow the rules outlined in the xAPI specification for [interaction activities](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#interactionacts).  
   
-Activity definitions that differ from one that an LRS already has stored may not be accepted. It is recommended that organizations ensure that all references to the activity definition contain the same information. It is permissible for organizations to host their activity definitions at the location of the activity IRI. In this case the hosted definition is stored at the activity IRI location (IRL), and is retrievable by the LRS in application/json format. Additionally, the statements will not include the definition and instead expect the LRS to acquire the activity definition from its hosted location.
-  
 ###### Activity Types  
 Activity types are used to identify what an activity represents, both to humans and machines. The type could be used to reporting systems to determine, for example, what Statements are about assessments. Including an activity type is recommended. The following table describes types to be used for common SCORM concepts such as SCOs and interactions.  
   
