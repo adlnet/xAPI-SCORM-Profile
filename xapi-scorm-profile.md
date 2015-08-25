@@ -283,7 +283,7 @@ Attachments give the ability to include supporting documents or information that
 ## 4.0 Launching and Initializing Activities
 In a SCORM environment, an activity is launched by the LMS. The LMS can provide activities with launch parameters and initial data model values. This helps a SCO to work correctly in the current environment. In comparison, xAPI activities can exist outside of an LMS - information such as learner name and identifier, or the location of the xAPI LRS may be unknown at the launch of the activity.
 
-Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide ways for systems, such as an LMS, to launch and initialize activities that are not managed by the LMS. Any of those solutions may be leveraged to solve specific, individual issues that are not addressed in this document. At a minimum the following requirements will be used for launching and initializing activities:  
+Solutions such as Rustici Software Launch, AICC CMI5 and IMS LTI all provide ways for systems, such as an LMS, to launch and initialize activities that are not managed by the LMS. Any of those solutions may be leveraged to solve specific, individual issues that are not addressed in this document. At a minimum the following properties are recommended for launching and initializing activities:  
 - entry: ab-initio or resume
 - endpoint: LRS endpoint 
 - actor: Agent Account
