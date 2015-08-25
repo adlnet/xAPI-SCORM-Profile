@@ -1456,7 +1456,73 @@ __Experience API Statement:__
 }
 ```  
   
-
+__SCORM 2004:__ `cmi.success_status=failed`  
+__SCORM 1.2:__ `cmi.core.lesson_status=failed`  
+__Experience API Statement:__
+``` javascript
+{
+    "actor": {
+        "account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"
+        }
+    },
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/failed",
+        "display": {
+            "en-US": "failed"
+        }
+    },
+    "object": {
+        "id": "http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+        "definition": {
+            "name": {
+               "en-US" : "lesson 01"
+            },
+            "description" : {
+               "en-US" : "The first lesson of CS204"
+            },
+            "type": "http://adlnet.gov/expapi/activities/lesson"
+        }
+    },
+    "context": {
+        "contextActivities": {
+            "grouping": [
+                {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/",
+                  "definition":{
+                     "name":{
+                        "en-US":"CS204"
+                     },
+                     "description":{
+                        "en-US":"The activity representing the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/course"
+                  }
+               },
+               {
+                  "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+                  "definition":{
+                     "name":{
+                        "en-US":"Attempt of CS204 lesson 01"
+                     },
+                     "description":{
+                        "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                     },
+                     "type": "http://adlnet.gov/expapi/activities/attempt"
+                  }
+               }
+            ],
+            "category": [
+               {
+                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+               }
+            ]
+        }
+    }
+}
+```  
+  
 #### Suspend Data
 Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, suspend data is stored using the xAPI State endpoint, using `http://purl.org/xapi/adl/profiles/scorm/types/adl-suspend-data` as the stateId property value.  
 __SCORM 2004:__ `cmi.suspend_data`  
