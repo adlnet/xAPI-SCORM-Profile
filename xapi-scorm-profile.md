@@ -267,7 +267,7 @@ The context property adds additional contextual information about the learner ex
 <tr><th>Type</th><th>Use</th></tr>
 <tr><td>parent</td><td>Used to identify the activity which contains the current activity, such as the activity of the SCO that contains an assessment, interaction, or objective.</td></tr>
 <tr><td>grouping</td><td>Used to identify the course activity and any other activities that should be grouped together.</td></tr>
-<tr><td>category</td><td>All Statements based on this profile shall include the xAPI SCORM Profile activity.<br> {"id":"http://purl.org/xapi/adl/profiles/scorm"}</td></tr>
+<tr><td>category</td><td>All Statements based on this profile shall include the xAPI SCORM Profile activity.<br> {"id":"https://w3id.org/xapi/adl/profiles/scorm"}</td></tr>
 <tr><td>other</td><td>Up to the organization or developer.</td></tr>
 </table>
 
@@ -507,7 +507,7 @@ __Experience API Statement:__
          ],
          "category": [
             {
-               "id": "http://purl.org/xapi/adl/profiles/scorm"
+               "id": "https://w3id.org/xapi/adl/profiles/scorm"
             }
          ]
       }
@@ -584,7 +584,7 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -669,7 +669,7 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -738,7 +738,7 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -809,7 +809,7 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -878,7 +878,7 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -1069,7 +1069,7 @@ _Statement with Local Objective_
          ],
          "category": [
             {
-               "id": "http://purl.org/xapi/adl/profiles/scorm"
+               "id": "https://w3id.org/xapi/adl/profiles/scorm"
             }
          ]
       }
@@ -1147,7 +1147,7 @@ _Statement with Sequencing and Navigation Global Objective_
          ],
          "category": [
             {
-               "id": "http://purl.org/xapi/adl/profiles/scorm"
+               "id": "https://w3id.org/xapi/adl/profiles/scorm"
             }
          ]
       }
@@ -1222,7 +1222,7 @@ __Experience API Statement:__
          ],
          "category": [
             {
-               "id": "http://purl.org/xapi/adl/profiles/scorm"
+               "id": "https://w3id.org/xapi/adl/profiles/scorm"
             }
          ]
       }
@@ -1306,7 +1306,7 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -1378,7 +1378,7 @@ __Experience API Statement:__
          ],
          "category": [
             {
-               "id": "http://purl.org/xapi/adl/profiles/scorm"
+               "id": "https://w3id.org/xapi/adl/profiles/scorm"
             }
          ]
       }
@@ -1448,7 +1448,7 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -1515,7 +1515,7 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -1524,13 +1524,13 @@ __Experience API Statement:__
 ```  
   
 #### Suspend Data
-Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, suspend data is stored using the xAPI State endpoint, using `http://purl.org/xapi/adl/profiles/scorm/types/adl-suspend-data` as the stateId property value.  
+Suspend Data is the place to store state information of the content. This value may be large. To accomodate for this, suspend data is stored using the xAPI State endpoint, using `https://w3id.org/xapi/adl/profiles/scorm/types/adl-suspend-data` as the stateId property value.  
 __SCORM 2004:__ `cmi.suspend_data`  
 __SCORM 1.2:__ `cmi.suspend_data`    
 __Experience API:__ xAPI State Document  
 `activityId`: The activity ID for the current attempt  
 `agent`: The current learner agent object  
-`stateId`: http://purl.org/xapi/adl/profiles/scorm/types/adl-suspend-data  
+`stateId`: https://w3id.org/xapi/adl/profiles/scorm/types/adl-suspend-data  
 `registration`: (Optional) Registration UUID associated with the current attempt  
   
 #### Time Limit Action
@@ -1692,7 +1692,7 @@ __xAPI:__ actor 500-627-490 initialized lesson01 with attempt id (x) in course C
          ],
          "category": [
             {
-               "id": "http://purl.org/xapi/adl/profiles/scorm"
+               "id": "https://w3id.org/xapi/adl/profiles/scorm"
             }
          ]
       }
@@ -1760,7 +1760,7 @@ __xAPI:__ actor 500-627-490 terminated lesson01 with attempt id (x) in the cours
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -1836,7 +1836,7 @@ __xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -1905,7 +1905,7 @@ __xAPI:__ agent 500-627-490 resumed lesson01 with same attempt id in the course 
             ],
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -1952,7 +1952,7 @@ __xAPI:__ agent 500-627-490 completed the course CS204 with a score of 0.85 and 
         "contextActivities": {
             "category": [
                {
-                  "id": "http://purl.org/xapi/adl/profiles/scorm"
+                  "id": "https://w3id.org/xapi/adl/profiles/scorm"
                }
             ]
         }
@@ -2073,7 +2073,7 @@ https://lrs.adlnet.gov/xapi/statements
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>activityId</td><td>SCO IRI</td></tr>
    <tr><td>agent</td><td>Learner's Agent object</td></tr>
-   <tr><td>stateId</td><td>http://purl.org/xapi/adl/profiles/scorm/activity-state</td></tr>
+   <tr><td>stateId</td><td>https://w3id.org/xapi/adl/profiles/scorm/activity-state</td></tr>
 </table>  
   
 _Unencoded and formatted for readability_  
@@ -2084,7 +2084,7 @@ https://lrs.adlnet.gov/xapi/activities/state
 &agent={"account": {
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
-&stateId=http://purl.org/xapi/adl/profiles/scorm/activity-state
+&stateId=https://w3id.org/xapi/adl/profiles/scorm/activity-state
 ```  
   
 *  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object. 
@@ -2098,7 +2098,7 @@ https://lrs.adlnet.gov/xapi/activities/state
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>activityId</td><td>attempt IRI</td></tr>
    <tr><td>agent</td><td>Learner's Agent object</td></tr>
-   <tr><td>stateId</td><td>http://purl.org/xapi/adl/profiles/scorm/attempt-state</td></tr>
+   <tr><td>stateId</td><td>https://w3id.org/xapi/adl/profiles/scorm/attempt-state</td></tr>
 </table>  
   
 _Unencoded and formatted for readability_  
@@ -2109,7 +2109,7 @@ https://lrs.adlnet.gov/xapi/activities/state
 &agent={"account": {
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
-&stateId=http://purl.org/xapi/adl/profiles/scorm/attempt-state
+&stateId=https://w3id.org/xapi/adl/profiles/scorm/attempt-state
 ```  
   
 *  The response content is a [SCORM Attempt State](#scorm-attempt-state) JSON object.  
@@ -2122,7 +2122,7 @@ https://lrs.adlnet.gov/xapi/activities/state
    <tr><td>GET</td><td>activities/profile</tr>
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>activityId</td><td>Activity IRI</td></tr>
-   <tr><td>profileId</td><td>http://purl.org/xapi/adl/profiles/scorm/activity-profile</td></tr>
+   <tr><td>profileId</td><td>https://w3id.org/xapi/adl/profiles/scorm/activity-profile</td></tr>
 </table>  
   
 _Unencoded and formatted for readability_  
@@ -2130,7 +2130,7 @@ _Unencoded and formatted for readability_
 GET
 https://lrs.adlnet.gov/xapi/activities/profile
 ?activityId=http://adlnet.gov/courses/compsci/CS204/lesson01/01/
-&profileId=http://purl.org/xapi/adl/profiles/scorm/activity-profile
+&profileId=https://w3id.org/xapi/adl/profiles/scorm/activity-profile
 ```  
   
 *  The response content is a [SCORM Activity Profile](#scorm-activity-profile) JSON object.  
@@ -2143,7 +2143,7 @@ https://lrs.adlnet.gov/xapi/activities/profile
    <tr><td>GET</td><td>agents/profile</tr>
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>agent</td><td>Agent object</td></tr>
-   <tr><td>profileId</td><td>http://purl.org/xapi/adl/profiles/scorm/agent-profile</td></tr>
+   <tr><td>profileId</td><td>https://w3id.org/xapi/adl/profiles/scorm/agent-profile</td></tr>
 </table>  
   
 _Unencoded and formatted for readability_  
@@ -2153,7 +2153,7 @@ https://lrs.adlnet.gov/xapi/agents/profile
 &agent={"account": {
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
-&profileId=http://purl.org/xapi/adl/profiles/scorm/agent-profile
+&profileId=https://w3id.org/xapi/adl/profiles/scorm/agent-profile
 ```  
   
 *  The response content is a [SCORM Agent Profile](#agent-profile) JSON object.  
@@ -2179,7 +2179,7 @@ https://lrs.adlnet.gov/xapi/agents/profile
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>activityId</td><td>attempt IRI</td></tr>
    <tr><td>agent</td><td>Learner's Agent object</td></tr>
-   <tr><td>stateId</td><td>http://purl.org/xapi/adl/profiles/scorm/attempt-state</td></tr>
+   <tr><td>stateId</td><td>https://w3id.org/xapi/adl/profiles/scorm/attempt-state</td></tr>
 </table>  
   
 _Unencoded and formatted for readability_  
@@ -2190,7 +2190,7 @@ https://lrs.adlnet.gov/xapi/activities/state
 &agent={"account": {
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
-&stateId=http://purl.org/xapi/adl/profiles/scorm/attempt-state
+&stateId=https://w3id.org/xapi/adl/profiles/scorm/attempt-state
 
 Content Body
 {
@@ -2202,7 +2202,7 @@ Content Body
   
 ### XAPI SCORM Data Objects
 #### SCORM Activity State
-__State ID:__ http://purl.org/xapi/adl/profiles/scorm/activity-state
+__State ID:__ https://w3id.org/xapi/adl/profiles/scorm/activity-state
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
@@ -2212,7 +2212,7 @@ __State ID:__ http://purl.org/xapi/adl/profiles/scorm/activity-state
 </table>  
 
 #### SCORM Activity Attempt State
-__State ID:__ http://purl.org/xapi/adl/profiles/scorm/attempt-state
+__State ID:__ https://w3id.org/xapi/adl/profiles/scorm/attempt-state
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
@@ -2242,7 +2242,7 @@ __State ID:__ http://purl.org/xapi/adl/profiles/scorm/attempt-state
 </table>
 
 #### SCORM Activity Profile
-__Profile ID:__ http://purl.org/xapi/adl/profiles/scorm/activity-profile
+__Profile ID:__ https://w3id.org/xapi/adl/profiles/scorm/activity-profile
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
@@ -2273,7 +2273,7 @@ __Profile ID:__ http://purl.org/xapi/adl/profiles/scorm/activity-profile
 
 
 #### Agent Profile
-__Profile ID:__ http://purl.org/xapi/adl/profiles/scorm/agent-profile
+__Profile ID:__ https://w3id.org/xapi/adl/profiles/scorm/agent-profile
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
