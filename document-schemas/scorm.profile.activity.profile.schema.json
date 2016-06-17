@@ -1,6 +1,6 @@
 {
-    "id": "https://w3id.org/xapi/adl/profiles/scorm/attempt-state/scorm.profile.activity.profile.schema.json",
-    "description": "Profile ID: https://w3id.org/xapi/adl/profiles/scorm/activity-profile. See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#scorm-activity-profile",
+    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.activity.profile.schema.json",
+    "description": "Profile ID: https://w3id.org/xapi/scorm/activity-profile. See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#scorm-activity-profile",
     "type": "object",
     "additionalProperties": false,
     "properties": {
@@ -13,17 +13,17 @@
                 "timestamp": { "type": "string", "format": "date-time" }
             }
         },
-        "completion_threshold": { 
+        "completion_threshold": {
             "type": "number",
             "minimum": 0,
             "maximum": 1
         },
         "launch_data": { "type": "string" },
-        "max_time_allowed": { 
+        "max_time_allowed": {
             "type": "number",
             "minimum": 0
         },
-        "scaled_passing_score": { 
+        "scaled_passing_score": {
             "type": "number",
             "minimum": -1,
             "maximum": 1

@@ -1,6 +1,6 @@
 {
-    "id": "https://w3id.org/xapi/adl/profiles/scorm/attempt-state/scorm.profile.agent.profile.schema.json",
-    "description": "Profile ID: https://w3id.org/xapi/adl/profiles/scorm/agent-profile. See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#agent-profile",
+    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.agent.profile.schema.json",
+    "description": "Profile ID: https://w3id.org/xapi/scorm/agent-profile. See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#agent-profile",
     "type": "object",
     "additionalProperties": false,
     "properties": {
@@ -10,15 +10,15 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-                "audio_level": { 
+                "audio_level": {
                     "type": "number",
                     "minimum": 0
                 },
-                "language": { 
-                    "type": "string", 
-                    "pattern": "^[a-z]{2,3}(?:-[A-Z]{2,3}(?:-[a-zA-Z]{4})?)?$" 
+                "language": {
+                    "type": "string",
+                    "pattern": "^[a-z]{2,3}(?:-[A-Z]{2,3}(?:-[a-zA-Z]{4})?)?$"
                 },
-                "delivery_speed": { 
+                "delivery_speed": {
                     "type": "number",
                     "minimum": 0
                 },
