@@ -1,6 +1,6 @@
 {
-    "id": "https://w3id.org/xapi/adl/profiles/scorm/activity-state/scorm.profile.activity.state.schema.json",
-    "description": "State ID: https://w3id.org/xapi/adl/profiles/scorm/activity-state. See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#scorm-activity-state",    
+    "id": "https://w3id.org/xapi/scorm/activity-state/scorm.profile.activity.state.schema.json",
+    "description": "State ID: https://w3id.org/xapi/scorm/activity-state. See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#scorm-activity-state",
     "type": "object",
     "additionalProperties": false,
     "required": ["attempts"],
