@@ -1,4 +1,5 @@
 # Experience API SCORM Profile
+> An accessible, printer-ready and reader-friendly version of this document is also available as a gitbook here: https://adl.gitbooks.io/scorm-profile-xapi/content/
 
 ## Advanced Distributed Learning (ADL)
 
