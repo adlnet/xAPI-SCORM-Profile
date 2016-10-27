@@ -1,0 +1,33 @@
+{
+    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.activity.profile.schema.json",
+    "description": "Profile ID: https://w3id.org/xapi/scorm/activity-profile. See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#scorm-activity-profile",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "comments_from_lms": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "comment": { "type": "string" },
+                "location": { "type": "string" },
+                "timestamp": { "type": "string", "format": "date-time" }
+            }
+        },
+        "completion_threshold": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+        },
+        "launch_data": { "type": "string" },
+        "max_time_allowed": {
+            "type": "number",
+            "minimum": 0
+        },
+        "scaled_passing_score": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+        },
+        "time_limit_action": { "enum": [ "exit,message", "continue,message", "exit,no message", "continue,no message" ] }
+    }
+}
