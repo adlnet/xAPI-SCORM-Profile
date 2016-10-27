@@ -13,24 +13,6 @@
 >or implied. See the License for the specific language governing permissions and limitations under
 >the License."  
 
-## Table of Contents
-* [Glossary](#glossary)
-* 1.0 [Purpose](#10-purpose)
-* 2.0 [When to Use this Profile](#20-when-to-use-this-profile)
-* 3.0 [How to Use this Profile](#30-how-to-use-this-profile)
-  * 3.1 [Supporting SCORM Features](#31-supporting-scorm-features)
-  * 3.2 [General Guidance on Statements](#32-general-guidance-on-statements)
-* 4.0 [Launching and Initializing Activities](#40-launching-and-initializing-activities)
-  * 4.1 [Web-Based Activities](#41-web-based-activities)
-  * 4.2 [LMS-Provided Endpoint](#42-lms-provided-endpoint)
-  * 4.3 [Out-of-Band Configuration](#43-out-of-band-configuration)
-* 5.0 [Supporting the SCORM Temporal Model](#50-supporting-the-scorm-temporal-model)
-* 6.0 [Mapping the SCORM Data Model to xAPI Statements](#60-mapping-the-scorm-data-model-to-xapi-statements)
-* 7.0 [Retrieving and Interpreting xAPI Statements](#70-retrieving-and-interpreting-xapi-statements)
-* [Appendix](#appendix)
-  * [Common Scenarios](#common-scenarios)
-  * [Query Examples](#query-examples)  
-  * [SCORM xAPI Data Objects](#xapi-scorm-data-objects)
 
 ## Glossary
 ##### Activity:  
