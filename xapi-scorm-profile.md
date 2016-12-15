@@ -652,7 +652,8 @@ __Experience API Statement:__
                }
             ]
         }
-    }
+    },
+    "timestamp": "2014-08-01T15:10:04-04:00"
 }
 ```  
 
@@ -721,7 +722,8 @@ __Experience API Statement:__
                }
             ]
         }
-    }
+    },
+    "timestamp": "2014-08-01T15:20:04-04:00"
 }
 ```   
 
@@ -792,7 +794,8 @@ __Experience API Statement:__
                }
             ]
         }
-    }
+    },
+    "timestamp": "2014-08-01T15:25:04-04:00"
 }
 ```  
 
@@ -861,7 +864,8 @@ __Experience API Statement:__
                }
             ]
         }
-    }
+    },
+    "timestamp": "2014-08-01T15:15:04-04:00"
 }
 ```  
 
