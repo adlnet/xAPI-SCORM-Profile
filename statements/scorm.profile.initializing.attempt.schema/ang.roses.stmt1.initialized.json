@@ -1,0 +1,70 @@
+{
+    "verb": {
+        "id": "http://adlnet.gov/expapi/verbs/initialized",
+        "display": {
+            "en-US": "initialized"
+        }
+    },
+    "version": "1.0.0",
+    "timestamp": "2016-12-02T15:12:41.005126+00:00",
+    "object": {
+        "definition": {
+            "type": "http://adlnet.gov/expapi/activities/lesson",
+            "name": {
+                "en-US": "What is a Rose?"
+            },
+            "description": {
+                "en-US": "Roses Job Aid - What is a Rose"
+            }
+        },
+        "id": "http://adlnet.gov/jobaid/roses/what",
+        "objectType": "Activity"
+    },
+    "actor": {
+        "mbox": "mailto:cr8onski@gmail.com",
+        "name": "Andy",
+        "objectType": "Agent"
+    },
+    "stored": "2016-12-02T15:12:41.005126+00:00",
+    "authority": {
+        "mbox": "mailto:xAPIRoses@adlnet.gov",
+        "name": "xAPIRoses",
+        "objectType": "Agent"
+    },
+    "context": {
+        "contextActivities": {
+            "category": [
+                {
+                    "id": "https://w3id.org/xapi/scorm"
+                }
+            ],
+            "grouping": [
+                {
+                    "definition": {
+                        "type": "http://adlnet.gov/expapi/activities/course",
+                        "name": {
+                            "en-US": "Roses Job Aid xAPI Example"
+                        },
+                        "description": {
+                            "en-US": "Roses Job Aid"
+                        }
+                    },
+                    "id": "http://adlnet.gov/jobaid/roses"
+                },
+                {
+                    "definition": {
+                        "type": "http://adlnet.gov/expapi/activities/attempt",
+                        "name": {
+                            "en-US": "Attempt for What is a Rose?"
+                        },
+                        "description": {
+                            "en-US": "Attempt for Roses Job Aid - What is a Rose"
+                        }
+                    },
+                    "id": "http://adlnet.gov/jobaid/roses/what?attemptId=f287234b-438c-419e-a7e4-ecab1714b0bb"
+                }
+            ]
+        }
+    },
+    "id": "e8ea6712-8b10-4110-b892-eb7f4f2f3061"
+}
