@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.resuming.attempt.schema.json",
+    "id": "https://w3id.org/xapi/scorm/resuming-an-attempt/scorm.profile.resuming.attempt.schema.json",
     "description": "Profile ID: https://w3id.org/xapi/scorm/resuming-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#resuming-an-attempt",
     "type": "object",
     "required": ["actor", "verb", "object", "context", "timestamp"],

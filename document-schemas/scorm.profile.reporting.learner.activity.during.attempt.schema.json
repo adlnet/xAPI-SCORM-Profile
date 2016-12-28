@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.reporting.learner.activity.during.attempt.schema.json",
+    "id": "https://w3id.org/xapi/scorm/reporting-learner-activity-during-an-attempt/scorm.profile.reporting.learner.activity.during.attempt.schema.json",
     "description": "Profile ID: https://w3id.org/xapi/scorm/reporting-learner-activity-during-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#reporting-learner-activity-during-an-attempt",
     "type": "object",
     "required": ["actor", "object", "context", "timestamp"],
