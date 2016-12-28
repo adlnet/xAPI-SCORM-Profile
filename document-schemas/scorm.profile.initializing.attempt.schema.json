@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/initializing-an-attempt/scorm.profile.initializing.attempt.schema.json",
+    "id": "https://w3id.org/xapi/scorm/initializing-an-attempt/scorm.profile.initializing.attempt.schema",
     "description": "Profile ID: https://w3id.org/xapi/scorm/initializing-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#initializing-an-attempt",
     "type": "object",
     "required": ["actor", "verb", "object", "context", "timestamp"],

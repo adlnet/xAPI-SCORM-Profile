@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/comments-from-learner/scorm.profile.comments.from.learner.schema.json",
+    "id": "https://w3id.org/xapi/scorm/comments-from-learner/scorm.profile.comments.from.learner.schema",
     "description": "Profile ID: https://w3id.org/xapi/scorm/comments-from-learner See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#comments-from-learner",
     "type": "object",
     "required": ["actor", "verb", "object", "context", "timestamp", "result"],
