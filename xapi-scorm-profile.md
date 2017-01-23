@@ -2195,6 +2195,10 @@ __State ID:__ https://w3id.org/xapi/scorm/attempt-state
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
+ <td>comments_from_lms</td>
+ <td><a href="#scorm-activity-comment-object">SCORM Activity Comment Object</a></td>
+</tr>
+<tr>
  <td>credit</td>
  <td>String ("credit", "no-credit")</td>
 </tr>
@@ -2224,10 +2228,6 @@ __State ID:__ https://w3id.org/xapi/scorm/attempt-state
 __Profile ID:__ https://w3id.org/xapi/scorm/activity-profile
 <table>
 <tr><th>Property</th><th>Description</th></tr>
-<tr>
- <td>comments_from_lms</td>
- <td><a href="#scorm-activity-profile-comment-object">SCORM Activity Profile Comment Object</a></td>
-</tr>
 <tr>
  <td>completion_threshold</td>
  <td>Number (0 to 1)</td>
@@ -2269,7 +2269,7 @@ __Profile ID:__ https://w3id.org/xapi/scorm/agent-profile
 </tr>
 </table>
 
-#### SCORM Activity Profile Comment Object
+#### SCORM Activity Comment Object
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
