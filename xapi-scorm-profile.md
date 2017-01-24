@@ -2092,7 +2092,7 @@ https://lrs.adlnet.gov/xapi/activities/state
 &stateId=https://w3id.org/xapi/scorm/attempt-state
 ```  
 
-*  The response content is a [SCORM Attempt State](#scorm-attempt-state) JSON object.  
+*  The response content is a [SCORM Attempt State](#scorm-activity-attempt-state) JSON object.  
 
 #### Get xAPI SCORM Activity Profile
 *  Issue a [get Activity Profile](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#27-activity-profile-resource) request to the LRS  
