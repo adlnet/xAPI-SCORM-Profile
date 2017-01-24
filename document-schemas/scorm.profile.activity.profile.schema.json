@@ -4,15 +4,6 @@
     "type": "object",
     "additionalProperties": false,
     "properties": {
-        "comments_from_lms": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-                "comment": { "type": "string" },
-                "location": { "type": "string" },
-                "timestamp": { "type": "string", "format": "date-time" }
-            }
-        },
         "completion_threshold": {
             "type": "number",
             "minimum": 0,

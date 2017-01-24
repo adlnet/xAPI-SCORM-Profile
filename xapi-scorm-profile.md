@@ -495,11 +495,12 @@ __Experience API Statement:__
 ```  
 
 #### Comments From LMS
-Comments From LMS allows an activity to see comments about the content. The value is the same for all learners, and is made available for each activity. For those reasons, Comments From LMS is available at the Activity Profile endpoint.  
+Comments From LMS allows an LMS to post comments for the current activity. This information may be specific
+to the current attempt on the activity and therefore is part of the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state).  
 __SCORM 2004:__ `cmi.comments_from_lms`  
 __SCORM 1.2:__ `cmi.comments_from_lms`  
-__Experience API:__ `comments_from_lms` in the [SCORM Activity Profile Object](#scorm-activity-profile)  
-See [Get xAPI SCORM Activity Profile](#get-xapi-scorm-activity-profile) for retrieving the Activity Profile Object.  
+__Experience API:__ `comments_from_lms` in the [SCORM Activity Attempt State Object](#scorm-activity-attempt-state)  
+See [Get xAPI SCORM Activity Attempt State](#get-xapi-scorm-activity-attempt-state) for retrieving the Activity Attempt State Object.  
 
 #### Completion Status
 Completion indicates if the learner has completed the activity. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate completion of the activity. If it is determined that the activity must have a completion status, set it explicitly as the [result of terminated Statement](#terminating-an-attempt).  
@@ -2091,7 +2092,7 @@ https://lrs.adlnet.gov/xapi/activities/state
 &stateId=https://w3id.org/xapi/scorm/attempt-state
 ```  
 
-*  The response content is a [SCORM Attempt State](#scorm-attempt-state) JSON object.  
+*  The response content is a [SCORM Attempt State](#scorm-activity-attempt-state) JSON object.  
 
 #### Get xAPI SCORM Activity Profile
 *  Issue a [get Activity Profile](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#27-activity-profile-resource) request to the LRS  
@@ -2195,6 +2196,10 @@ __State ID:__ https://w3id.org/xapi/scorm/attempt-state
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
+ <td>comments_from_lms</td>
+ <td><a href="#scorm-activity-comment-object">SCORM Activity Comment Object</a></td>
+</tr>
+<tr>
  <td>credit</td>
  <td>String ("credit", "no-credit")</td>
 </tr>
@@ -2224,10 +2229,6 @@ __State ID:__ https://w3id.org/xapi/scorm/attempt-state
 __Profile ID:__ https://w3id.org/xapi/scorm/activity-profile
 <table>
 <tr><th>Property</th><th>Description</th></tr>
-<tr>
- <td>comments_from_lms</td>
- <td><a href="#scorm-activity-profile-comment-object">SCORM Activity Profile Comment Object</a></td>
-</tr>
 <tr>
  <td>completion_threshold</td>
  <td>Number (0 to 1)</td>
@@ -2269,7 +2270,7 @@ __Profile ID:__ https://w3id.org/xapi/scorm/agent-profile
 </tr>
 </table>
 
-#### SCORM Activity Profile Comment Object
+#### SCORM Activity Comment Object
 <table>
 <tr><th>Property</th><th>Description</th></tr>
 <tr>
