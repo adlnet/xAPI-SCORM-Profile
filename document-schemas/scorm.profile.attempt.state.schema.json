@@ -4,6 +4,18 @@
     "type": "object",
     "additionalProperties": false,
     "properties": {
+        "comments_from_lms": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "comment": { "type": "string" },
+                    "location": { "type": "string" },
+                    "timestamp": { "type": "string", "format": "date-time" }
+                }
+            }
+        },
         "credit": { "enum": [ "credit", "no-credit" ] },
         "mode": { "enum" : [ "browse", "normal", "review" ] },
         "location": { "type": "string" },
