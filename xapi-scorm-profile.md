@@ -387,7 +387,7 @@ To resume the SCO attempt,
     *  Set `context.contextActivities.category` array to include the xAPI SCORM Profile activity ([See context for profile activity](#context))  
     *  Set `timestamp` to the time the attempt was initialized, see [timestamp](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#247-timestamp) for details    
 
-([See an example in the Appendix](##resume-a-sco))  
+([See an example in the Appendix](#resume-a-sco))  
 
 ### Querying the LRS for Statements in an attempt  
 Querying systems can find the the list of attempt IRIs for a SCO by [getting the Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#stateres). The resulting JSON object contains an `attempts` array containing the attempt IRIs ordered from first to latest attempt. The querying system can get the Statements from the LRS by [querying for all Statements](#find-all-statements-from-the-latest-attempt) with the attempt IRI. See the Appendix for [query examples](#query-examples).  
@@ -653,7 +653,8 @@ __Experience API Statement:__
                }
             ]
         }
-    }
+    },
+    "timestamp": "2014-08-01T15:10:04-04:00"
 }
 ```  
 
@@ -722,7 +723,8 @@ __Experience API Statement:__
                }
             ]
         }
-    }
+    },
+    "timestamp": "2014-08-01T15:20:04-04:00"
 }
 ```   
 
@@ -793,7 +795,8 @@ __Experience API Statement:__
                }
             ]
         }
-    }
+    },
+    "timestamp": "2014-08-01T15:25:04-04:00"
 }
 ```  
 
@@ -862,7 +865,8 @@ __Experience API Statement:__
                }
             ]
         }
-    }
+    },
+    "timestamp": "2014-08-01T15:15:04-04:00"
 }
 ```  
 

@@ -1,0 +1,73 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "https://w3id.org/xapi/scorm/reporting-learner-activity-during-an-attempt/scorm.profile.reporting.learner.activity.during.attempt.schema",
+    "description": "Profile ID: https://w3id.org/xapi/scorm/reporting-learner-activity-during-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#reporting-learner-activity-during-an-attempt",
+    "type": "object",
+    "required": ["actor", "object", "context", "timestamp"],
+    "properties": {
+        "actor": {
+            "description": "Set to the learner's agent object"
+        },
+        "object": {
+            "description": "If the statement is about the SCO (such as completed or commented), set to activity object for the SCO, using the SCO IRI as the activity's id.  If statement is about something within the SCO (such as a video or test), set to the activity object for the SCO.",
+            "properties": {
+                "id": {
+                    "description": "If the statement is about the SCO, set to the SCO IRI"
+                }
+            }
+        },
+        "context": {
+            "required": ["contextActivities"],
+            "properties": {
+                "contextActivities": {
+                    "required": ["grouping", "category"],
+                    "properties": {
+                        "parent": {
+                            "description": "If the statement is about soomething within the SCO, set array to include the activity ovject for the SCO"
+                        },
+                        "grouping": {
+                            "description": "Set to include the attempt activity and the course activity",
+                            "minItems": 2,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/course"]}
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/attempt"]}
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "category": {
+                            "description": "Set to include the xAPI SCORM Profiles activity",
+                            "minItems": 1,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "enum": ["https://w3id.org/xapi/scorm"]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "timestamp": {
+            "description": "Set to the time the attempt was initialized"
+        }
+    }
+}

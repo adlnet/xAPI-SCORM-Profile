@@ -1,0 +1,103 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "https://w3id.org/xapi/scorm/terminating-an-attempt/scorm.profile.terminating.attempt.schema",
+    "description": "Profile ID: https://w3id.org/xapi/scorm/terminating-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#terminating-an-attempt",
+    "type": "object",
+    "required": ["actor", "verb", "object", "context", "timestamp", "result"],
+    "properties": {
+        "actor": {
+            "description": "Set to the learner's agent object"
+        },
+        "verb": {
+            "description": "Set to the ADL Verb 'terminated'",
+            "properties": {
+                "id": {
+                    "enum": ["http://adlnet.gov/expapi/verbs/terminated"]
+                }
+            }
+        },
+        "object": {
+            "description": "Set to the activity object for the SCO, using the SCO IRI as the activity's ID",
+            "required": ["definition"],
+            "properties": {
+                "id": {
+                    "description": "Set to the SCO IRI"
+                },
+                "definition": {
+                    "type": "object",
+                    "required": ["type"],
+                    "properties": {
+                        "type": {
+                            "description": "Set to 'http://adlnet.gov/expapi/activities/lesson'",
+                            "enum": ["http://adlnet.gov/expapi/activities/lesson"]
+                        }
+                    }
+                }
+            }
+        },
+        "context": {
+            "required": ["contextActivities"],
+            "properties": {
+                "contextActivities": {
+                    "required": ["grouping", "category"],
+                    "properties": {
+                        "grouping": {
+                            "description": "Set to include the attempt activity and the course activity",
+                            "minItems": 2,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/course"]}
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/attempt"]}
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "category": {
+                            "description": "Set to include the xAPI SCORM Profiles activity",
+                            "minItems": 1,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "enum": ["https://w3id.org/xapi/scorm"]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "timestamp": {
+            "description": "Set to the time the attempt was terminated"
+        },
+        "result": {
+            "description": "Set to the overall result for the SCO",
+            "properties": {
+                "success": {
+                    "description": "If success_status of the SCO is known, success is true if success_status is passed, and false if success_status is failed"
+                },
+                "completion": {
+                    "description": "If completion_status of the SCO is known, completion is true if completion_status is completed, and false if completion_status is incomplete"
+                },
+                "score": {
+                    "description": "If score of the SCO is known, use the appropriate score property to store SCORM score data model elements, such as score.scaled for cmi.score.scaled"
+                }
+            }
+        }
+    }
+}

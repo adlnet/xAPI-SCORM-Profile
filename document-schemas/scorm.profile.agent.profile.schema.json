@@ -1,5 +1,5 @@
 {
-    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.agent.profile.schema.json",
+    "id": "https://w3id.org/xapi/scorm/agent-profile/scorm.profile.agent.profile.schema",
     "description": "Profile ID: https://w3id.org/xapi/scorm/agent-profile. See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#agent-profile",
     "type": "object",
     "additionalProperties": false,

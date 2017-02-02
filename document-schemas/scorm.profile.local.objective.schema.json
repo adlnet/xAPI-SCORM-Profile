@@ -1,0 +1,97 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "https://w3id.org/xapi/scorm/objectives/scorm.profile.local.objective.schema",
+    "description": "Profile ID: https://w3id.org/xapi/scorm/objectives See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#objectives",
+    "type": "object",
+    "required": ["actor", "verb", "object", "context", "timestamp", "result"],
+    "properties": {
+        "actor": {
+            "description": "Set to the learner's agent object"
+        },
+        "verb": {
+            "description": "Set to the ADL Verb 'commented'",
+            "properties": {
+                "id": {
+                    "enum": ["http://adlnet.gov/expapi/verbs/passed"]
+                }
+            }
+        },
+        "object": {
+            "description": "Set to the activity object for the SCO, using the SCO IRI as the activity's ID",
+            "required": ["definition"],
+            "properties": {
+                "id": {
+                    "description": "Set to the SCO IRI"
+                },
+                "definition": {
+                    "type": "object",
+                    "required": ["type"],
+                    "properties": {
+                        "type": {
+                            "description": "Set to 'http://adlnet.gov/expapi/activities/lesson'",
+                            "enum": ["http://adlnet.gov/expapi/activities/lesson"]
+                        }
+                    }
+                }
+            }
+        },
+        "context": {
+            "required": ["contextActivities"],
+            "properties": {
+                "contextActivities": {
+                    "required": ["grouping", "category"],
+                    "properties": {
+                        "grouping": {
+                            "description": "Set to include the attempt activity and the course activity",
+                            "minItems": 2,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/course"]}
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/attempt"]}
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "category": {
+                            "description": "Set to include the xAPI SCORM Profiles activity",
+                            "minItems": 1,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "enum": ["https://w3id.org/xapi/scorm"]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "timestamp": {
+            "description": "Set to the comment timestamp value"
+        },
+        "result": {
+            "required": ["response"],
+            "properties": {
+                "response": {
+                    "description": "Set to the comments from the learner"
+                }
+            }
+        }
+    }
+}
