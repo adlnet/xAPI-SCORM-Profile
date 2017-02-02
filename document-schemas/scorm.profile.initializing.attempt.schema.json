@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.initializing.attempt.schema.json",
+    "id": "https://w3id.org/xapi/scorm/initializing-an-attempt/scorm.profile.initializing.attempt.schema",
     "description": "Profile ID: https://w3id.org/xapi/scorm/initializing-an-attempt See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#initializing-an-attempt",
     "type": "object",
     "required": ["actor", "verb", "object", "context", "timestamp"],
@@ -42,10 +42,41 @@
                     "required": ["grouping", "category"],
                     "properties": {
                         "grouping": {
-                            "description": "Set to include the attempt activity and the course activity"
+                            "description": "Set to include the attempt activity and the course activity",
+                            "minItems": 2,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/course"]}
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/attempt"]}
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
                         },
                         "category": {
-                            "description": "Set to include the xAPI SCORM Profiles activity"
+                            "description": "Set to include the xAPI SCORM Profiles activity",
+                            "minItems": 1,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "enum": ["https://w3id.org/xapi/scorm"]
+                                        }
+                                    }
+                                }
+                            ]
                         }
                     }
                 }
