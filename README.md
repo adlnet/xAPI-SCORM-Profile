@@ -1,5 +1,6 @@
 Experience API SCORM Profile
 ==================
+
 The Experience API SCORM Profile is a companion document to the Experience API Specification. Its goal is to provide guidance to those in the SCORM community looking for a way to leverage the Experience API. This profile offers guidelines for representing SCORM data and events as Experience API Statements. Use of this profile will provide consistency in reporting and retrieving data traditionally stored in an LMS, and allow for the development of interoperable tools outside of the typical LMS environment.
 
 > An accessible, printer-ready and reader-friendly version of this document is also available as a gitbook here: https://adl.gitbooks.io/scorm-profile-xapi/content/
@@ -16,6 +17,7 @@ JSON Schema files of the xAPI document objects defined in the SCORM Profile. See
 
 ## xAPI SCORM Profile Site
 Find additonal information and developer resources on our [xAPI SCORM Profile Site](http://adlnet.github.io/xAPI-SCORM-Profile/).
+
   
 ## License
    Copyright &copy;2016 Advanced Distributed Learning
