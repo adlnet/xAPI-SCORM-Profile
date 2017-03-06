@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "id": "https://w3id.org/xapi/scorm/objectives/scorm.profile.local.objective.schema",
-    "description": "Profile ID: https://w3id.org/xapi/scorm/objectives See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#objectives",
+    "description": "Objectives are represented as another activity. As such, statements about a learner’s score, success or completion status are reported just as they are for any other activity. But determining a consistent naming scheme for the objective ID makes it easier for reporting systems to understand the statements. For consistency the following guidance is recommended:\n\t- The combination of course IRI, SCO ID, and objective ID should consistently and uniquely identify a single objective\n\t- Use the following IRI syntax when defining an objective:\n\t\t-- Local objective (SCO or activity level): `<courseIRI>/<SCOID>/objective/<objectiveID>`\n\t\t-- Course objective (course level): `<courseIRI>/objective/<objectiveID>`\n\t\t-- Global objective (for all courses): `<user defined IRI>/objective/<objective ID>`\nNOTE: To indicate where this objective statement occurred, include the SCO IRI in the context activities parent array. Profile ID: https://w3id.org/xapi/scorm/objectives See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#objectives",
     "type": "object",
     "required": ["actor", "verb", "object", "context"],
     "properties": {

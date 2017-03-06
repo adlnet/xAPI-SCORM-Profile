@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
     "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.progress.measure.schema.json",
-    "description": "Profile ID: https://w3id.org/xapi/scorm/progress-measure See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#progress-measure",
+    "description": "Progress Measure indicates how much progress has been made in the activity. This value can be stored as a Statement using the `progressed` ADL Verb and `result.score.scaled` for the value. Profile ID: https://w3id.org/xapi/scorm/progress-measure See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#progress-measure",
     "type": "object",
     "required": ["actor", "verb", "object", "result", "context", "timestamp"],
     "properties": {

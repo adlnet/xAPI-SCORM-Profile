@@ -1,7 +1,7 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.progress.measure.schema.json",
-    "description": "Profile ID: https://w3id.org/xapi/scorm/progress-measure See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#progress-measure",
+    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.score.schema.json",
+    "description": "Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or activity cannot imply success or completion of an activity solely based on a score. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate the score of the activity. If it is determined that the activity must have a score, set it explicitly as the result of terminated Statement. NOTE: For compatibility between SCORM versions, the value of SCORM 1.2 `cmi.core.score.raw` divided by 100, and of SCORM 2004 `cmi.score.scaled` should be reported to xAPI as `score.scaled`. All other scores - raw, min, max - may be reported directly as xAPI `score.raw`, `score.min`, and `score.max`. Profile ID: https://w3id.org/xapi/scorm/score See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#score",
     "type": "object",
     "required": ["actor", "verb", "object", "result", "context"],
     "properties": {
