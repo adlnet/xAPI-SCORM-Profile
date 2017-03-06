@@ -3,7 +3,7 @@
     "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.local.objective.schema.json",
     "description": "Profile ID: https://w3id.org/xapi/scorm/objectives See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#objectives",
     "type": "object",
-    "required": ["actor", "verb", "object", "context", "timestamp", "result"],
+    "required": ["actor", "verb", "object", "context"],
     "properties": {
         "actor": {
             "description": "Set to the learner's agent object"
@@ -29,7 +29,10 @@
                     "properties": {
                         "type": {
                             "description": "Set to 'http://adlnet.gov/expapi/activities/lesson'",
-                            "enum": ["http://adlnet.gov/expapi/activities/lesson"]
+                            "enum": [
+                                "http://adlnet.gov/expapi/activities/lesson",
+                                "http://adlnet.gov/expapi/activities/objective"
+                            ]
                         }
                     }
                 }
@@ -79,17 +82,6 @@
                             ]
                         }
                     }
-                }
-            }
-        },
-        "timestamp": {
-            "description": "Set to the comment timestamp value"
-        },
-        "result": {
-            "required": ["response"],
-            "properties": {
-                "response": {
-                    "description": "Set to the comments from the learner"
                 }
             }
         }
