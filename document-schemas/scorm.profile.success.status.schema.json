@@ -9,7 +9,7 @@
             "description": "Set to the learner's agent object"
         },
         "verb": {
-            "description": "Set to the ADL Verb 'passed'",
+            "description": "Set to the ADL Verb 'passed' or 'failed'",
             "properties": {
                 "id": {
                     "enum": [

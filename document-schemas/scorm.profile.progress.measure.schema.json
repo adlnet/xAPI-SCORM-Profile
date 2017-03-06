@@ -9,7 +9,7 @@
             "description": "Set to the learner's agent object"
         },
         "verb": {
-            "description": "Set to the ADL Verb 'initialized'",
+            "description": "Set to the ADL Verb 'progressed'",
             "properties": {
                 "id": {
                     "enum": ["http://adlnet.gov/expapi/verbs/progressed"]
