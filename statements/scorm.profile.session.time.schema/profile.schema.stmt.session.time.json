@@ -1,0 +1,64 @@
+{
+   "actor":{
+      "account":{
+         "homePage":"http://lms.adlnet.gov/",
+         "name":"500-627-490"
+      }
+   },
+   "verb":{
+      "id":"http://adlnet.gov/expapi/verbs/terminated",
+      "display":{
+         "en-US":"terminated"
+      }
+   },
+   "object":{
+      "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01",
+      "definition":{
+         "name":{
+            "en-US":"lesson 01"
+         },
+         "description":{
+            "en-US":"The first lesson of CS204"
+         },
+         "type": "http://adlnet.gov/expapi/activities/lesson"
+      }
+   },
+   "result":{
+      "duration":"PT2H30M5S"
+   },
+   "context":{
+      "contextActivities":{
+         "grouping":[
+           {
+               "id":"http://adlnet.gov/courses/compsci/CS204/",
+               "definition":{
+                  "name":{
+                     "en-US":"CS204"
+                  },
+                  "description":{
+                     "en-US":"The activity representing the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/course"
+               }
+            },
+            {
+               "id":"http://adlnet.gov/courses/compsci/CS204/lesson01/01?attemptId=50fd6961-ab6c-4e75-e6c7-ca42dce50dd6",
+               "definition":{
+                  "name":{
+                     "en-US":"Attempt of CS204 lesson 01"
+                  },
+                  "description":{
+                     "en-US":"The activity representing an attempt of lesson 01 in the course CS204"
+                  },
+                  "type": "http://adlnet.gov/expapi/activities/attempt"
+               }
+            }
+         ],
+         "category": [
+            {
+               "id": "https://w3id.org/xapi/scorm"
+            }
+         ]
+      }
+   }
+}
