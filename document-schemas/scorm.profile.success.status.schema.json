@@ -1,20 +1,20 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/session-time/scorm.profile.session.time.schema",
-    "description": "Session Time indicates how much time has been spent in the activity during a specific session. This value can be stored as the `result.duration` property in a terminated or suspended Statement. Profile ID: https://w3id.org/xapi/scorm/session-time See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#session-time",
+    "id": "https://w3id.org/xapi/scorm/session-time/scorm.profile.success.status.schema",
+    "description": "Success indicates whether the learner's attempt was successful. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate success of the activity. If it is determined that the activity must have a success status, set it explicitly as the result of terminated Statement. Profile ID: https://w3id.org/xapi/scorm/success-status See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#success-status",
     "type": "object",
-    "required": ["actor", "verb", "object", "context", "result"],
+    "required": ["actor", "verb", "object", "context"],
     "properties": {
         "actor": {
             "description": "Set to the learner's agent object"
         },
         "verb": {
-            "description": "Set to the ADL Verb 'terminated' or 'suspended'",
+            "description": "Set to the ADL Verb 'passed'",
             "properties": {
                 "id": {
                     "enum": [
-                        "http://adlnet.gov/expapi/verbs/suspended",
-                        "http://adlnet.gov/expapi/verbs/terminated"
+                        "http://adlnet.gov/expapi/verbs/failed",
+                        "http://adlnet.gov/expapi/verbs/passed"
                     ]
                 }
             }
@@ -82,27 +82,6 @@
                             ]
                         }
                     }
-                }
-            }
-        },
-        "timestamp": {
-            "description": "Set to the time the attempt was terminated"
-        },
-        "result": {
-            "description": "Set to the overall result for the SCO",
-            "required": ["duration"],
-            "properties": {
-                "success": {
-                    "description": "If success_status of the SCO is known, success is true if success_status is passed, and false if success_status is failed"
-                },
-                "completion": {
-                    "description": "If completion_status of the SCO is known, completion is true if completion_status is completed, and false if completion_status is incomplete"
-                },
-                "score": {
-                    "description": "If score of the SCO is known, use the appropriate score property to store SCORM score data model elements, such as score.scaled for cmi.score.scaled"
-                },
-                "duration": {
-                    "description": "Set to indicate how much time has been spent in the activity during a specific session"
                 }
             }
         }
