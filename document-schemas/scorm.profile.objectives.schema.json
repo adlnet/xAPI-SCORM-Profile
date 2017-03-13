@@ -45,7 +45,7 @@
                     "required": ["grouping", "category", "parent"],
                     "properties": {
                         "parent": {
-                            "description": "Set to indicate whwere this objective is referenced",
+                            "description": "To indicate where this objective statement occurred, include the SCO IRI in the context activities parent array.",
                             "minItems": 1
                         },
                         "grouping": {
