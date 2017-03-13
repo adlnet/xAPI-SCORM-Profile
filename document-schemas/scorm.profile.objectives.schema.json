@@ -9,7 +9,7 @@
             "description": "Set to the learner's agent object"
         },
         "verb": {
-            "description": "Set to the ADL Verb 'commented'",
+            "description": "Set to the ADL Verb 'passed'",
             "properties": {
                 "id": {
                     "enum": ["http://adlnet.gov/expapi/verbs/passed"]
@@ -42,8 +42,12 @@
             "required": ["contextActivities"],
             "properties": {
                 "contextActivities": {
-                    "required": ["grouping", "category"],
+                    "required": ["grouping", "category", "parent"],
                     "properties": {
+                        "parent": {
+                            "description": "Set to indicate whwere this objective is referenced",
+                            "minItems": 1
+                        },
                         "grouping": {
                             "description": "Set to include the attempt activity and the course activity",
                             "minItems": 2,
