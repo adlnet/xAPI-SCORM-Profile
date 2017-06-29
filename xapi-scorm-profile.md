@@ -1084,7 +1084,7 @@ _Statement with Sequencing and Navigation Global Objective_
          "description":{
             "en-US":"Show proficiency in creating if-else blocks"
          },
-         "type": "http://adlnet.gov/expapi/activities/lesson"
+         "type": "http://adlnet.gov/expapi/activities/objective"
       }
    },
    "context":{
