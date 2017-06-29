@@ -2012,7 +2012,7 @@ https://lrs.adlnet.gov/xapi/statements
 ?agent={"account": {
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
-?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
+&activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
 &related_activities=true
 ```  
 
@@ -2040,8 +2040,8 @@ https://lrs.adlnet.gov/xapi/statements
 ?agent={"account": {
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
-?verb=http://adlnet.gov/expapi/verbs/terminated
-?activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
+&verb=http://adlnet.gov/expapi/verbs/terminated
+&activity=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/50fd6961-ab6c-4e75-e6c7-ca42dce50dd6
 &related_activities=true
 ```  
 
@@ -2134,7 +2134,7 @@ _Unencoded and formatted for readability_
 ```
 GET
 https://lrs.adlnet.gov/xapi/agents/profile
-&agent={"account": {
+?agent={"account": {
             "homePage": "http://lms.adlnet.gov/",
             "name": "500-627-490"}}
 &profileId=https://w3id.org/xapi/scorm/agent-profile
