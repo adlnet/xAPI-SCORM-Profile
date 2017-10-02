@@ -495,7 +495,10 @@ __Experience API Statement:__
          ],
          "category": [
             {
-               "id": "https://w3id.org/xapi/scorm"
+               "id": "https://w3id.org/xapi/scorm", 
+               "definition": {
+                 "type":"http://adlnet.gov/expapi/activities/profile"
+               }
             }
          ]
       }
@@ -573,7 +576,10 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -658,7 +664,10 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -728,7 +737,10 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -800,7 +812,10 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -870,7 +885,10 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -1062,7 +1080,10 @@ _Statement with Local Objective_
          ],
          "category": [
             {
-               "id": "https://w3id.org/xapi/scorm"
+               "id": "https://w3id.org/xapi/scorm", 
+               "definition": {
+                 "type":"http://adlnet.gov/expapi/activities/profile"
+               }
             }
          ]
       }
@@ -1140,7 +1161,10 @@ _Statement with Sequencing and Navigation Global Objective_
          ],
          "category": [
             {
-               "id": "https://w3id.org/xapi/scorm"
+               "id": "https://w3id.org/xapi/scorm", 
+               "definition": {
+                 "type":"http://adlnet.gov/expapi/activities/profile"
+               }
             }
          ]
       }
@@ -1215,7 +1239,10 @@ __Experience API Statement:__
          ],
          "category": [
             {
-               "id": "https://w3id.org/xapi/scorm"
+               "id": "https://w3id.org/xapi/scorm", 
+               "definition": {
+                 "type":"http://adlnet.gov/expapi/activities/profile"
+               }
             }
          ]
       }
@@ -1299,7 +1326,10 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -1371,7 +1401,10 @@ __Experience API Statement:__
          ],
          "category": [
             {
-               "id": "https://w3id.org/xapi/scorm"
+               "id": "https://w3id.org/xapi/scorm", 
+               "definition": {
+                 "type":"http://adlnet.gov/expapi/activities/profile"
+               }
             }
          ]
       }
@@ -1441,7 +1474,10 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -1508,7 +1544,10 @@ __Experience API Statement:__
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -1685,7 +1724,10 @@ __xAPI:__ actor 500-627-490 initialized lesson01 with attempt id (x) in course C
          ],
          "category": [
             {
-               "id": "https://w3id.org/xapi/scorm"
+               "id": "https://w3id.org/xapi/scorm", 
+               "definition": {
+                 "type":"http://adlnet.gov/expapi/activities/profile"
+               }
             }
          ]
       }
@@ -1753,7 +1795,10 @@ __xAPI:__ actor 500-627-490 terminated lesson01 with attempt id (x) in the cours
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -1829,7 +1874,10 @@ __xAPI:__ agent 500-627-490 suspended lesson01 with attempt id (x) in the course
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -1898,7 +1946,10 @@ __xAPI:__ agent 500-627-490 resumed lesson01 with same attempt id in the course 
             ],
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
@@ -1945,7 +1996,10 @@ __xAPI:__ agent 500-627-490 completed the course CS204 with a score of 0.85 and 
         "contextActivities": {
             "category": [
                {
-                  "id": "https://w3id.org/xapi/scorm"
+                  "id": "https://w3id.org/xapi/scorm", 
+                  "definition": {
+                    "type":"http://adlnet.gov/expapi/activities/profile"
+                  }
                }
             ]
         }
