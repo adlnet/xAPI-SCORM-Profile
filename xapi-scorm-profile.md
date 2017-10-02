@@ -81,8 +81,8 @@ Good IRIs uniquely identify an object
   <pre>http://mydomain.com/content/understanding-fire-safety</pre>
 __Bad IRIs__  
 Bad IRIs are not unique and could conflict with others using the same identifier  
-    <pre>act:my-activity01</pre>
-    <pre>http://example.com/activity/01</pre>
+  <pre>act:my-activity01</pre>
+  <pre>http://example.com/activity/01</pre>
 
 #### Actor
 The actor property refers to the learner that is interacting with the activity. The actor should be able to be mapped back to the learner in the LMS. Any of the [Actor formats described in the xAPI specification](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Data.md#actor) are allowed. However some formats can potentially expose personally identifiable information, it is recommended to use a format that protects the learner’s information.  
