@@ -1,0 +1,137 @@
+{
+    "$schema": "http://json-schema.org/schema#",
+    "id": "https://w3id.org/xapi/scorm/objectives/scorm.profile.local.objective.schema",
+    "description": "Objectives are represented as another activity. As such, statements about a learner’s score, success or completion status are reported just as they are for any other activity. But determining a consistent naming scheme for the objective ID makes it easier for reporting systems to understand the statements. For consistency the following guidance is recommended:\n\t- The combination of course IRI, SCO ID, and objective ID should consistently and uniquely identify a single objective\n\t- Use the following IRI syntax when defining an objective:\n\t\t-- Local objective (SCO or activity level): `<courseIRI>/<SCOID>/objective/<objectiveID>`\n\t\t-- Course objective (course level): `<courseIRI>/objective/<objectiveID>`\n\t\t-- Global objective (for all courses): `<user defined IRI>/objective/<objective ID>`\nNOTE: To indicate where this objective statement occurred, include the SCO IRI in the context activities parent array. Profile ID: https://w3id.org/xapi/scorm/objectives See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#objectives",
+    "type": "object",
+    "required": ["actor", "verb", "object", "context", "result"],
+    "properties": {
+        "actor": {
+            "description": "Set to the learner's agent object"
+        },
+        "verb": {
+            "description": "Set to the ADL Verb 'closely-encountered'. Note: This verb was added in part to differentiate referencing cmi.objectives.n.... vs. cmi.score or cmi.progress_measure or cmi.completion_status or cmi.success_status. Also this verb was chosen to give tribute and honor to Phil Dodds. See https://en.wikipedia.org/wiki/Phil_Dodds for more information.",
+            "properties": {
+                "id": {
+                    "enum": ["http://adlnet.gov/expapi/verbs/closely-encountered"]
+                }
+            }
+        },
+        "object": {
+            "description": "Set to the activity object for the SCO, using the SCO IRI as the activity's ID",
+            "required": ["definition"],
+            "properties": {
+                "id": {
+                    "description": "Set to the SCO IRI"
+                },
+                "definition": {
+                    "type": "object",
+                    "required": ["type"],
+                    "properties": {
+                        "type": {
+                            "description": "Set to 'http://adlnet.gov/expapi/activities/lesson'",
+                            "enum": [
+                                "http://adlnet.gov/expapi/activities/lesson",
+                                "http://adlnet.gov/expapi/activities/objective"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "context": {
+            "required": ["contextActivities"],
+            "properties": {
+                "contextActivities": {
+                    "required": ["grouping", "category", "parent"],
+                    "properties": {
+                        "parent": {
+                            "description": "To indicate where this objective statement occurred, include the SCO IRI in the context activities parent array.",
+                            "minItems": 1
+                        },
+                        "grouping": {
+                            "description": "Set to include the attempt activity and the course activity",
+                            "minItems": 3,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/course"]}
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties": {
+                                        "definition": {
+                                            "properties": {
+                                                "type": {"enum": ["http://adlnet.gov/expapi/activities/attempt"]}
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "properties": {
+                                        "description": "Set objectivesId to the cmi.objectives.n.id",
+                                    }
+                                }
+                            ]
+                        },
+                        "category": {
+                            "description": "Set to include the xAPI SCORM Profiles activity",
+                            "minItems": 1,
+                            "items": [
+                                {
+                                    "properties": {
+                                        "id": {
+                                            "enum": ["https://w3id.org/xapi/scorm"]
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "result": {
+            "required": [""],
+            "properties": {
+                "score": {
+                    "description": "Set to appropriate cmi.objectives.n.score key and value",
+                    "properties": {
+                        "scaled": {
+                            "type": "number",
+                            "minimum": -1,
+                            "maximum": 1
+                        },
+                        "raw": {
+                            "type": "number",
+                            "description": "A real number with values that is accurate to seven significant decimal figures."
+                        },
+                        "min": {
+                            "type": "number",
+                            "description": "A real number with values that is accurate to seven significant decimal figures."
+                        },
+                        "max": {
+                            "type": "number",
+                            "description": "A real number with values that is accurate to seven significant decimal figures."
+                        }
+                    }
+                },
+                "success": {
+                    "description": "Set to the cmi.objectives.n.success_status. Consider true to be equivalent to passed, false to be equivalent to failed, and if property is not present to be equivalent to unknown",
+                    "type": "boolean"
+                },
+                "completion": {
+                    "description": "Set to the cmi.objectives.n.completion_status. Consider true to be equivalent to completed, false to be equivalent to incomplete, and if property is not present to be equivalent to not attempted or unknown. Clarification may be added to the results.extensions property.",
+                    "type": "boolean"
+                },
+                "extensions": {
+                    "description": "Can be used to store cmi.objective.n.progress_measure score, or for clarification for cmi.objectives.n.completion",
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

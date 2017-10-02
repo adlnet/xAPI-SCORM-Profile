@@ -1,18 +1,18 @@
 {
     "$schema": "http://json-schema.org/schema#",
-    "id": "https://w3id.org/xapi/scorm/objectives/scorm.profile.local.objective.schema",
-    "description": "Profile ID: https://w3id.org/xapi/scorm/objectives See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#objectives",
+    "id": "https://w3id.org/xapi/scorm/attempt-state/scorm.profile.score.schema.json",
+    "description": "Scores may be reported as supporting information about the learner’s attempt. Since reporting systems may not have a passing threshold to compare the scores the activity provider or activity cannot imply success or completion of an activity solely based on a score. The use of this Statement is for journaling/auditing purposes and does not necessarily indicate the score of the activity. If it is determined that the activity must have a score, set it explicitly as the result of terminated Statement. NOTE: For compatibility between SCORM versions, the value of SCORM 1.2 `cmi.core.score.raw` divided by 100, and of SCORM 2004 `cmi.score.scaled` should be reported to xAPI as `score.scaled`. All other scores - raw, min, max - may be reported directly as xAPI `score.raw`, `score.min`, and `score.max`. Profile ID: https://w3id.org/xapi/scorm/score See: https://github.com/adlnet/xAPI-SCORM-Profile/blob/master/xapi-scorm-profile.md#score",
     "type": "object",
-    "required": ["actor", "verb", "object", "context", "timestamp", "result"],
+    "required": ["actor", "verb", "object", "result", "context"],
     "properties": {
         "actor": {
             "description": "Set to the learner's agent object"
         },
         "verb": {
-            "description": "Set to the ADL Verb 'commented'",
+            "description": "Set to the ADL Verb 'initialized'",
             "properties": {
                 "id": {
-                    "enum": ["http://adlnet.gov/expapi/verbs/passed"]
+                    "enum": ["http://adlnet.gov/expapi/verbs/scored"]
                 }
             }
         },
@@ -32,6 +32,14 @@
                             "enum": ["http://adlnet.gov/expapi/activities/lesson"]
                         }
                     }
+                }
+            }
+        },
+        "result": {
+            "required": ["score"],
+            "properties": {
+                "score": {
+                    "required": ["scaled"]
                 }
             }
         },
@@ -79,17 +87,6 @@
                             ]
                         }
                     }
-                }
-            }
-        },
-        "timestamp": {
-            "description": "Set to the comment timestamp value"
-        },
-        "result": {
-            "required": ["response"],
-            "properties": {
-                "response": {
-                    "description": "Set to the comments from the learner"
                 }
             }
         }
