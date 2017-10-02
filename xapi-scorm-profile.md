@@ -2193,7 +2193,7 @@ Content Body
 ```  
 
 
-### XAPI SCORM Data Objects
+### xAPI SCORM Data Objects
 #### SCORM Activity State
 __State ID:__ https://w3id.org/xapi/scorm/activity-state
 <table>
