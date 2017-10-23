@@ -2274,10 +2274,10 @@ https://lrs.adlnet.gov/xapi/agents/profile
 *  Attempt to [Get the attempt state JSON object](#get-attempt-state-for-current-attempt) from the LRS
 *  If the response returns the attempt state,
     *  update with current values
-    *  issue a POST activity state request with the updated JSON object
+    *  issue a [POST activity state request](#set-xapi-scorm-activty-state) with the updated JSON object
 *  If the response returns a `404 Not Found`,
     *  create a new [attempt state JSON object](#scorm-activity-attempt-state) with current values
-    *  issue a PUT activity state request with the new JSON object  
+    *  issue a [PUT activity state request](#set-xapi-scorm-activty-state) with the new JSON object  
 
 ### xAPI SCORM Data Objects
 #### SCORM Activity State
