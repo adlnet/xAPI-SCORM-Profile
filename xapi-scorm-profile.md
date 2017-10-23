@@ -2136,6 +2136,36 @@ https://lrs.adlnet.gov/xapi/activities/state
 
 *  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object.
 
+#### Set xAPI SCORM Activty State  
+*  Issue a [set Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#23-state-resource) request to the LRS  
+
+>NOTE: The request method change of POST or PUT is based on xAPI requirements for updating vs creating a new document. This example demonstrates a generalized case. Organizations are free to update/create the document however works best within the [rules defined in xAPI](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#json-procedure-with-requirements).
+
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>POST/PUT</td><td>activities/state</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>activityId</td><td>SCO IRI</td></tr>
+   <tr><td>agent</td><td>Learner's Agent object</td></tr>
+   <tr><td>stateId</td><td>https://w3id.org/xapi/scorm/activity-state</td></tr>
+</table>  
+
+_Unencoded and formatted for readability_  
+```
+POST/PUT
+https://lrs.adlnet.gov/xapi/activities/state
+?activityId=http://adlnet.gov/courses/compsci/CS204/lesson01/01
+&agent={"account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"}}
+&stateId=https://w3id.org/xapi/scorm/activity-state
+
+Content Body
+{
+    "attempts": ["http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/01"]
+}
+```  
+
 #### Get xAPI SCORM Activity Attempt State
 *  Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#23-state-resource) request to the LRS  
 *  The response content is a [SCORM Attempt State](#scorm-activity-attempt-state) JSON object.  
