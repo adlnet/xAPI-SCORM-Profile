@@ -2209,6 +2209,26 @@ https://lrs.adlnet.gov/xapi/agents/profile
 *  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
 *  Issue a [get Activity Attempt State](#get-xapi-scorm-activity-attempt-state) request to the LRS  
 
+<table>
+   <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
+   <tr><td>GET</td><td>activities/state</tr>
+   <tr><th>Parameter</th><th>Value</th></tr>
+   <tr><td>activityId</td><td>attempt IRI</td></tr>
+   <tr><td>agent</td><td>Learner's Agent object</td></tr>
+   <tr><td>stateId</td><td>https://w3id.org/xapi/scorm/attempt-state</td></tr>
+</table>  
+
+_Unencoded and formatted for readability_  
+```  
+GET
+https://lrs.adlnet.gov/xapi/activities/state
+?activityId=http://adlnet.gov/courses/compsci/CS204/lesson01/01/attempt/01
+&agent={"account": {
+            "homePage": "http://lms.adlnet.gov/",
+            "name": "500-627-490"}}
+&stateId=https://w3id.org/xapi/scorm/attempt-state
+```  
+
 #### Set attempt state for current attempt  
 *  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
 *  Attempt to [Get the attempt state JSON object](#get-attempt-state-for-current-attempt) from the LRS
@@ -2222,7 +2242,7 @@ https://lrs.adlnet.gov/xapi/agents/profile
 
 <table>
    <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
-   <tr><td>GET</td><td>activities/state</tr>
+   <tr><td>POST/PUT</td><td>activities/state</tr>
    <tr><th>Parameter</th><th>Value</th></tr>
    <tr><td>activityId</td><td>attempt IRI</td></tr>
    <tr><td>agent</td><td>Learner's Agent object</td></tr>
