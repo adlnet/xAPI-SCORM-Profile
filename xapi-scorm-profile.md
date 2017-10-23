@@ -2138,6 +2138,7 @@ https://lrs.adlnet.gov/xapi/activities/state
 
 #### Get xAPI SCORM Activity Attempt State
 *  Issue a [get Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#23-state-resource) request to the LRS  
+*  The response content is a [SCORM Attempt State](#scorm-activity-attempt-state) JSON object.  
 
 <table>
    <tr><th>HTTP Method</th><th>Request Endpoint</th></tr>
@@ -2158,8 +2159,6 @@ https://lrs.adlnet.gov/xapi/activities/state
             "name": "500-627-490"}}
 &stateId=https://w3id.org/xapi/scorm/attempt-state
 ```  
-
-*  The response content is a [SCORM Attempt State](#scorm-activity-attempt-state) JSON object.  
 
 #### Set xAPI SCORM Activity Attempt State  
 *  Issue a [set Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#23-state-resource) request to the LRS  
