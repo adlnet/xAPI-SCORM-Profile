@@ -2265,6 +2265,20 @@ https://lrs.adlnet.gov/xapi/agents/profile
 
 *  The response content is a [SCORM Agent Profile](#agent-profile) JSON object.  
 
+#### Get activity state for attempts  
+*  Identify the SCO IRI through launch, attempt IRI generation, or out-of-band configuration  
+*  Issue a [get Activity State](#get-xapi-scorm-activity-state) request to the LRS   
+
+#### Set activity state with current attempt  
+*  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
+*  Attempt to [Get the activity state JSON object](#get-activity-state-for-attempts) from the LRS
+*  If the response returns the activity state,
+    *  update by appending current attempt IRI to the `attempts` array
+    *  issue a [POST activity state request](#set-xapi-scorm-activty-state) with the updated JSON object
+*  If the response returns a `404 Not Found`,
+    *  create a new [activity state JSON object](#scorm-activity-state) with current attempt IRI as a single element in the `attempts` array
+    *  issue a [PUT activity state request](#set-xapi-scorm-activity-state) with the new JSON object 
+
 #### Get attempt state for current attempt  
 *  Identify the current attempt IRI through launch, attempt IRI generation, or out-of-band configuration  
 *  Issue a [get Activity Attempt State](#get-xapi-scorm-activity-attempt-state) request to the LRS   
