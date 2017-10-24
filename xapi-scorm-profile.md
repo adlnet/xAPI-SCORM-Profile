@@ -2136,7 +2136,7 @@ https://lrs.adlnet.gov/xapi/activities/state
 
 *  The response content is a [SCORM Activity State](#scorm-activity-state) JSON object.
 
-#### Set xAPI SCORM Activty State  
+#### Set xAPI SCORM Activity State  
 *  Issue a [set Activity State](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI-Communication.md#23-state-resource) request to the LRS  
 
 >NOTE: The request method change of POST or PUT is based on xAPI requirements for updating vs creating a new document. This example demonstrates a generalized case. Organizations are free to update/create the document however works best within the [rules defined in xAPI](https://github.com/adlnet/xAPI-Spec/blob/master/xAPI.md#json-procedure-with-requirements).
@@ -2274,7 +2274,7 @@ https://lrs.adlnet.gov/xapi/agents/profile
 *  Attempt to [Get the activity state JSON object](#get-activity-state-for-attempts) from the LRS
 *  If the response returns the activity state,
     *  update by appending current attempt IRI to the `attempts` array
-    *  issue a [POST activity state request](#set-xapi-scorm-activty-state) with the updated JSON object
+    *  issue a [POST activity state request](#set-xapi-scorm-activity-state) with the updated JSON object
 *  If the response returns a `404 Not Found`,
     *  create a new [activity state JSON object](#scorm-activity-state) with current attempt IRI as a single element in the `attempts` array
     *  issue a [PUT activity state request](#set-xapi-scorm-activity-state) with the new JSON object 
