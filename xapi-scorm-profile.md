@@ -328,7 +328,7 @@ SCORM has a temporal model which describes interaction states such as an attempt
 
 ### Initializing an attempt
 *  Generate the activity attempt IRI. The way this is done is up to the developer. The only requirement is that the attempt IRI is unique.  
-*  [Add the attempt IRI](#set-attempt-state-for-current-attempt) to the `attempts` array in the Activity State document either by creating the `attempts` array or appending to the existing array. See the [Appendix](#scorm-activity-state) for the Activity State format.  
+*  [Add the attempt IRI](#set-activity-state-with-current-attempt) to the `attempts` array in the Activity State document either by creating the `attempts` array or appending to the existing array. See the [Appendix](#scorm-activity-state) for the Activity State format.  
 *  Create a Statement  
     *  Set `actor` to the learner's agent object  
     *  Set `verb` to the ADL Verb [initialized](http://adlnet.gov/expapi/verbs/initialized)  
